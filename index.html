@@ -1,178 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#3B82F6',
+                            dark: '#2563EB'
+                        },
+                        secondary: '#6B7280',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+        /* Custom styles that aren't easily achievable with Tailwind */
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .dark .navbar {
+            background-color: #111827 !important;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.9));
+        }
+
+        .dark .hero-gradient {
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9));
+        }
+    </style>
 </head>
 
-<body>
+<body class="font-poppins bg-light text-gray-800 dark:bg-gray-900 dark:text-gray-200">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-primary dark:text-primary">Portfolio</a>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link hover:text-primary transition">Home</a>
+                    <a href="#about" class="nav-link hover:text-primary transition">About</a>
+                    <a href="#skills" class="nav-link hover:text-primary transition">Skills</a>
+                    <a href="#portfolio" class="nav-link hover:text-primary transition">Portfolio</a>
+                    <a href="#contact" class="nav-link hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="#home" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="#about" class="block py-2 hover:text-primary transition">About</a>
+                <a href="#skills" class="block py-2 hover:text-primary transition">Skills</a>
+                <a href="#portfolio" class="block py-2 hover:text-primary transition">Portfolio</a>
+                <a href="#contact" class="block py-2 hover:text-primary transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 class="display-4 fw-bold">Hi, I'm <span class="highlight">Mamun</span></h1>
-                    <h2 class="mb-4">Backend Developer</h2>
-                    <p class="lead mb-4">I create beautiful, functional websites that help businesses grow.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#contact" class="btn btn-primary btn-lg">Get In Touch</a>
-                        <a href="#portfolio" class="btn btn-outline-light btn-lg">View My Project</a>
+    <section id="home" class=" min-h-screen flex items-center pt-20 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span
+                            class="text-primary">Mamun</span></h1>
+                    <h2 class="text-2xl md:text-3xl mb-6">Backend Developer</h2>
+                    <p class="text-lg mb-8 max-w-lg">I create beautiful, functional websites that help businesses grow.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <!-- From Uiverse.io by HarryProCW -->
+                        <button
+                            class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white"><a
+                                href="#contact">Get In Touch</a></button>
+
+                        <button
+                            class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white"><a
+                                href="#portfolio">portfolio</a></button>
                     </div>
-                    <div class="social-icons mt-4">
-                        <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="me-3"><i class="bi bi-github"></i></a>
-                        <a href="#" class="me-3"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-6 hero-img">
-                    <img src="1678163319881_102847.jpg" alt="Profile Image" class="img-fluid rounded-circle">
+                <div class="md:w-1/2 flex justify-center animate-slide-up">
+                    <div class="relative">
+                        <img src="image/1674548512482_022311-02.jpeg" alt="Profile Image"
+                            class="rounded-full w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover border-8 border-opacity-10 border-white shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg">
+                            <span class="font-bold">Fresher</span> developer
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about py-5">
-        <div class="container">
-            <div class="section-title text-center mb-5">
-                <h2>About Me</h2>
-                <div class="line"></div>
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0">
-                    <img src="1674548512482_022311-02.jpeg" alt="About Me" class="img-fluid rounded">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">Backend Developer with a passion for building scalable web applications</h3>
-                    <p class="lead">I'm a Django backend developer based in [Your Location], specializing in building
-                        efficient and secure web applications.</p>
-                    <p>I have experience in developing REST APIs, database management with MySQL, authentication
-                        systems, and class-based views. My focus is on writing clean, maintainable code to power
-                        seamless digital experiences. I enjoy solving complex backend challenges and optimizing
-                        performance for robust applications.</p>
-                    <p>Check out my work: <a href="[Your Portfolio Link]" target="_blank">My Portfolio</a></p>
 
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="about-info">
-                                <p><strong>Name:</strong>Md. Mamun Or Rashid</p>
-                                <p><strong>Email:</strong> orroshidmdmamun50@gmail.com</p>
-                            </div>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3 flex justify-center animate-fade-in">
+                    <img src="image/1678163319881_102847.jpg" alt="About Me" class="h-auto">
+                </div>
+
+                <div class="lg:w-2/3 animate-slide-up">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Backend Developer with a passion for building
+                        scalable web applications</h3>
+                    <p class="text-lg mb-6">I'm a Django backend developer based in Comilla, Bangladesh, specializing in
+                        building efficient and secure web applications.</p>
+                    <p class="mb-6">I have experience in developing REST APIs, database management with MySQL,
+                        authentication systems, and class-based views. My focus is on writing clean, maintainable code
+                        to power seamless digital experiences. I enjoy solving complex backend challenges and optimizing
+                        performance for robust applications.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <p><strong class="text-primary">Name:</strong> Md. Mamun Or Rashid</p>
+                            <p><strong class="text-primary">Email:</strong> orroshidmdmamun50@gmail.com</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="about-info">
-                                <p><strong>Phone:</strong> 01839907067</p>
-                                <p><strong>Location:</strong> Comilla, Bangladesh</p>
-                            </div>
+                        <div>
+                            <p><strong class="text-primary">Phone:</strong> 01839907067</p>
+                            <p><strong class="text-primary">Location:</strong> Comilla, Bangladesh</p>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-primary mt-4">Download CV</a>
+                    <!-- From Uiverse.io by Javierrocadev -->
+                    <!-- From Uiverse.io by sahilxkhadka -->
+                    <button
+                        class="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px"
+                            width="24px">
+                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g id="Interface / Download">
+                                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
+                                        stroke="#f1f1f1" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" id="Vector"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        <a href="https://drive.google.com/file/d/1Ehd6imvnDXaoIKCyXnDJkDq64ArO8Oqz/view?usp=drive_link"
+                            class="">Download CV</a>
+                        <div
+                            class="absolute opacity-0 -bottom-full rounded-md py-2 px-2 bg-black bg-opacity-70 left-1/2 -translate-x-1/2 group-hover:opacity-100 transition-opacity shadow-lg">
+                            Download
+                        </div>
+                    </button>
+
+
+
+                    <!-- <a href="https://drive.google.com/file/d/1Ehd6imvnDXaoIKCyXnDJkDq64ArO8Oqz/view?usp=drive_link"
+                        class="btn-primary inline-block px-6 py-3 rounded-lg font-medium">Download CV</a> -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills py-5">
-        <div class="container">
-            <div class="section-title text-center mb-5">
-                <h2>My Skills</h2>
-                <div class="line"></div>
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Technical Skills</h3>
-                    <div class="skill-item mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h5>HTML/CSS</h5>
-                            <span>95%</span>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="skill-item mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h5>JavaScript</h5>
-                            <span>65%</span>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Bootstrap</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h5>Bootstrap</h5>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h5>Django</h5>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Django</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Professional Skills</h3>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="skill-card text-center p-4">
-                                <i class="bi bi-laptop fs-1 mb-3"></i>
-                                <h4>Web Design</h4>
-                                <p>Creating visually appealing and user-friendly interfaces</p>
+
+                <div class="animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-6">Professional Skills</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div class="text-primary text-4xl mb-4">
+                                <i class="fas fa-laptop-code"></i>
                             </div>
+                            <h4 class="font-bold text-xl mb-2">Web Design</h4>
+                            <p>Creating visually appealing and user-friendly interfaces</p>
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="skill-card text-center p-4">
-                                <i class="bi bi-code-slash fs-1 mb-3"></i>
-                                <h4>Web Development</h4>
-                                <p>Building robust and scalable web applications</p>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div class="text-primary text-4xl mb-4">
+                                <i class="fas fa-code"></i>
                             </div>
+                            <h4 class="font-bold text-xl mb-2">Web Development</h4>
+                            <p>Building robust and scalable web applications</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div class="text-primary text-4xl mb-4">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4 class="font-bold text-xl mb-2">Backend Development</h4>
+                            <p>Developing efficient server-side applications</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div class="text-primary text-4xl mb-4">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4 class="font-bold text-xl mb-2">Database Management</h4>
+                            <p>Designing and optimizing database systems</p>
                         </div>
                     </div>
                 </div>
@@ -181,103 +321,86 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio py-5">
-        <div class="container">
-            <div class="section-title text-center mb-5">
-                <h2>My Portfolio</h2>
-                <div class="line"></div>
+    <section id="portfolio" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
-            <div class="row mb-4">
-                <div class="col-12 text-center">
-                    <div class="portfolio-filters">
-                        <button class="btn btn-outline-primary active" data-filter="all">All</button>
-                        <button class="btn btn-outline-primary" data-filter="web">Web Design</button>
-                        <button class="btn btn-outline-primary" data-filter="app">App Development</button>
-                        <button class="btn btn-outline-primary" data-filter="other">Other</button>
-                    </div>
+
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex flex-wrap justify-center gap-2">
+                    <button class="portfolio-filter-btn active" data-filter="all">All</button>
+                    <button class="portfolio-filter-btn" data-filter="web1">Web Development</button>
+                    <button class="portfolio-filter-btn" data-filter="web2">Web Development</button>
+                    <button class="portfolio-filter-btn" data-filter="backend">Backend</button>
                 </div>
             </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item web">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 1" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>E-commerce Website</h4>
-                            <p>Web Design</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item animate-fade-in" data-category="web1">
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                        <div class="overflow-hidden">
+                            <img src="https://via.placeholder.com/600x400" alt="Project 1"
+                                class="portfolio-image w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl mb-2">E-Learning Website</h4>
+                            <p class="text-primary mb-4">Web Development</p>
+                            <p class="mb-4">A fully responsive e-Learning website with Course Show and Course Enroalled.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-primary hover:text-primary-dark"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
+                                    Code</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item app">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 2" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>Mobile App</h4>
-                            <p>App Development</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item animate-slide-up" data-category="web2">
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                        <div class="overflow-hidden">
+                            <img src="https://via.placeholder.com/600x400" alt="Project 2"
+                                class="portfolio-image w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl mb-2">Hotel Management</h4>
+                            <p class="text-primary mb-4">Web Development</p>
+                            <p class="mb-4">A productivity Web for managing Hotel with drag-and-drop functionality.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-primary hover:text-primary-dark"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
+                                    Code</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item web">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 3" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>Corporate Website</h4>
-                            <p>Web Design</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
-                            </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item animate-fade-in" data-category="backend">
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                        <div class="overflow-hidden">
+                            <img src="https://via.placeholder.com/600x400" alt="Project 3"
+                                class="portfolio-image w-full h-48 object-cover">
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item other">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 4" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>Branding Project</h4>
-                            <p>Branding</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item app">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 5" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>Web Application</h4>
-                            <p>App Development</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item web">
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 6" class="img-fluid">
-                        <div class="portfolio-info">
-                            <h4>Portfolio Website</h4>
-                            <p>Web Design</p>
-                            <div class="portfolio-links">
-                                <a href="https://via.placeholder.com/800x600" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox"><i class="bi bi-plus-circle"></i></a>
-                                <a href="#" title="More Details"><i class="bi bi-link"></i></a>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl mb-2">Real Time Chat system</h4>
+                            <p class="text-primary mb-4">Backend Development</p>
+                            <p class="mb-4">A scalable REST API with JWT authentication and rate limiting and real time
+                                chat system app with web socket.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-primary hover:text-primary-dark"><i
+                                        class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
+                                    Code</a>
                             </div>
                         </div>
                     </div>
@@ -287,80 +410,102 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact py-5">
-        <div class="container">
-            <div class="section-title text-center mb-5">
-                <h2>Contact Me</h2>
-                <div class="line"></div>
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Me</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-5 mb-4 mb-lg-0">
-                    <div class="contact-info">
-                        <h3 class="mb-4">Let's get in touch</h3>
-                        <p class="mb-4">I'm currently available for freelance work or full-time positions. If you have a
-                            project that needs some creative touch, I'd love to hear about it!</p>
-                        <div class="contact-item d-flex mb-3">
-                            <div class="icon me-3">
-                                <i class="bi bi-geo-alt-fill"></i>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Let's get in touch</h3>
+                    <p class="mb-8">I'm currently available for freelance work or full-time positions. If you have a
+                        project that needs some creative touch, I'd love to hear about it!</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div class="text">
-                                <h5>Location:</h5>
-                                <p>Your Address, City, Country</p>
-                            </div>
-                        </div>
-                        <div class="contact-item d-flex mb-3">
-                            <div class="icon me-3">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <div class="text">
-                                <h5>Email:</h5>
-                                <p>your.email@example.com</p>
+                            <div>
+                                <h5 class="font-bold">Location:</h5>
+                                <p>Comilla, Bangladesh</p>
                             </div>
                         </div>
-                        <div class="contact-item d-flex mb-3">
-                            <div class="icon me-3">
-                                <i class="bi bi-phone-fill"></i>
+
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="text">
-                                <h5>Phone:</h5>
-                                <p>+1 234 567 8900</p>
+                            <div>
+                                <h5 class="font-bold">Email:</h5>
+                                <p>orroshidmdmamun50@gmail.com</p>
                             </div>
                         </div>
-                        <div class="social-links mt-4">
-                            <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="me-2"><i class="bi bi-github"></i></a>
-                            <a href="#" class="me-2"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#"><i class="bi bi-instagram"></i></a>
+
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Phone:</h5>
+                                <p>01839907067</p>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="contact-form p-4">
-                        <h3 class="mb-4">Send me a message</h3>
+
+                <div class="animate-slide-up">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6">Send me a message</h3>
+
                         <form id="contactForm">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name"
-                                            required>
-                                    </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block mb-2 font-medium">Your Name</label>
+                                    <input type="text" id="name"
+                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                                        required>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email"
-                                            required>
-                                    </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium">Your Email</label>
+                                    <input type="email" id="email"
+                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                                        required>
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+
+                            <div class="mb-6">
+                                <label for="subject" class="block mb-2 font-medium">Subject</label>
+                                <input type="text" id="subject"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                                    required>
                             </div>
-                            <div class="form-group mb-3">
-                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message"
+
+                            <div class="mb-6">
+                                <label for="message" class="block mb-2 font-medium">Message</label>
+                                <textarea id="message" rows="5"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
                                     required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                            <div id="form-message" class="mt-3"></div>
+                            <!-- From Uiverse.io by themrsami -->
+                            <button
+                                class="font-medium inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-[#7747FF] hover:bg-white hover:text-[#7747FF] focus:text-[#7747FF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
+                                Send
+                                Message
+                            </button>
+
+                            <!-- <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium"></button> -->
+
+                            <div id="form-message" class="mt-4"></div>
                         </form>
                     </div>
                 </div>
@@ -369,23 +514,184 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-lg-start text-center mb-3 mb-lg-0">
-                    <p class="mb-0">&copy; 2025 Your Name. All Rights Reserved.</p>
+    <footer class="py-8 bg-gray-800 dark:bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Md. Mamun Or Rashid. All Rights Reserved.</p>
                 </div>
-                <div class="col-lg-6 text-lg-end text-center">
-                    <a href="#home" class="back-to-top"><i class="bi bi-arrow-up-circle-fill"></i></a>
+                <div>
+                    <a href="#home" class="back-to-top text-2xl text-primary hover:text-primary-dark transition">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Dark mode toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            });
+
+            // Check for saved theme preference
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white', 'dark:bg-gray-800', 'shadow-md');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('bg-white', 'dark:bg-gray-800', 'shadow-md');
+                    navbar.classList.add('bg-transparent');
+                }
+            });
+
+            // Portfolio filter functionality
+            const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    // Filter portfolio items
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('form-message');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+
+                    // Simple form validation
+                    if (name && email && subject && message) {
+                        // In a real application, you would send this data to a server
+                        // For this demo, we'll just show a success message
+                        formMessage.innerHTML = `
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                                Your message has been sent successfully!
+                            </div>
+                        `;
+                        contactForm.reset();
+
+                        // Clear the success message after 5 seconds
+                        setTimeout(() => {
+                            formMessage.innerHTML = '';
+                        }, 5000);
+                    } else {
+                        formMessage.innerHTML = `
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                                Please fill in all fields.
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            // Animation on scroll
+            const animateElements = () => {
+                const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                const windowHeight = window.innerHeight;
+
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementPosition < windowHeight - elementVisible) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial styles for animation
+            document.querySelectorAll('.animate-fade-in').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.6s ease';
+            });
+
+            document.querySelectorAll('.animate-slide-up').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // Run animation on load and scroll
+            window.addEventListener('load', animateElements);
+            window.addEventListener('scroll', animateElements);
+
+            // Trigger animations on page load
+            animateElements();
+        });
+    </script>
 </body>
 
 </html>
