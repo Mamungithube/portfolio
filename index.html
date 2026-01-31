@@ -1,157 +1,443 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
-    <!-- Tailwind CSS -->
+    <title>Md. Mamun Or Rashid - Backend Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#3B82F6',
-                            dark: '#2563EB'
-                        },
-                        secondary: '#6B7280',
-                        dark: '#1F2937',
-                        light: '#F9FAFB',
-                    },
                     fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Work Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0A0E27',
+                        accent: '#FF6B35',
+                        'accent-light': '#FFB4A2',
+                        cream: '#F7F5F2',
+                        slate: '#2D3748',
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slide-right': 'slideRight 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite',
                     },
                     keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(60px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-60px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
                         fadeIn: {
                             '0%': { opacity: '0' },
                             '100%': { opacity: '1' },
                         },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.6)' },
                         },
                     },
                 }
             }
         }
     </script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <style type="text/css">
-        /* Custom styles that aren't easily achievable with Tailwind */
-        .portfolio-item {
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
+            color: #F7F5F2;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0E27;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff8c5a;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navbar Glass Effect */
+        .navbar-glass {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        /* Enhanced Image Borders */
+        .profile-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            padding: 6px;
+            background: linear-gradient(135deg, #FF6B35, #FFB4A2, #FF6B35);
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-image-inner {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid #0A0E27;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            padding: 6px;
+            background: linear-gradient(135deg, #FF6B35, #FFB4A2);
+        }
+
+        .about-image-inner {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #0A0E27;
+            position: relative;
+        }
+
+        .about-image-inner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        /* Skill Card Hover */
+        .skill-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .skill-logo {
             transition: all 0.3s ease;
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-5px);
+        .skill-card:hover .skill-logo {
+            transform: scale(1.1);
         }
 
-        .portfolio-image {
-            transition: transform 0.5s ease;
+        /* Project Card Effect */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
         }
 
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.05);
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
-        .dark .navbar {
-            background-color: #111827 !important;
+        .project-card:hover::before {
+            left: 100%;
         }
 
-        .hero-gradient {
-            background: linear-gradient(rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.9));
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        .dark .hero-gradient {
-            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9));
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        /* Custom Button */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Section Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline Design */
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #FF6B35 0%, transparent 100%);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #FF6B35;
+            border: 3px solid #0A0E27;
+        }
+
+        /* Contact Form */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            color: #F7F5F2;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FF6B35;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(247, 245, 242, 0.4);
+        }
+
+        /* Success Message Animation */
+        @keyframes successSlide {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .success-message {
+            animation: successSlide 0.5s ease-out;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 
-<body class="font-poppins bg-light text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
     <!-- Navigation -->
-    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4">
-        <div class="container mx-auto px-4">
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-primary dark:text-primary">Portfolio</a>
-
-                <div class="flex items-center space-x-4">
-                    <!-- Dark Mode Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
-                    </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+                <a href="#home" class="text-2xl font-display font-bold gradient-text">MOR</a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link hover:text-primary transition">Home</a>
-                    <a href="#about" class="nav-link hover:text-primary transition">About</a>
-                    <a href="#skills" class="nav-link hover:text-primary transition">Skills</a>
-                    <a href="#portfolio" class="nav-link hover:text-primary transition">Portfolio</a>
-                    <a href="#contact" class="nav-link hover:text-primary transition">Contact</a>
+                    <a href="#home" class="nav-link text-cream hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#about" class="nav-link text-cream hover:text-accent transition-colors duration-300">About</a>
+                    <a href="#experience" class="nav-link text-cream hover:text-accent transition-colors duration-300">Experience</a>
+                    <a href="#skills" class="nav-link text-cream hover:text-accent transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="nav-link text-cream hover:text-accent transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="btn-primary bg-accent text-white px-6 py-2 rounded-full hover:bg-opacity-90 relative overflow-hidden">
+                        Contact
+                    </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-cream text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="#home" class="block py-2 hover:text-primary transition">Home</a>
-                <a href="#about" class="block py-2 hover:text-primary transition">About</a>
-                <a href="#skills" class="block py-2 hover:text-primary transition">Skills</a>
-                <a href="#portfolio" class="block py-2 hover:text-primary transition">Portfolio</a>
-                <a href="#contact" class="block py-2 hover:text-primary transition">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3">
+                <a href="#home" class="block py-2 text-cream hover:text-accent transition-colors">Home</a>
+                <a href="#about" class="block py-2 text-cream hover:text-accent transition-colors">About</a>
+                <a href="#experience" class="block py-2 text-cream hover:text-accent transition-colors">Experience</a>
+                <a href="#skills" class="block py-2 text-cream hover:text-accent transition-colors">Skills</a>
+                <a href="#projects" class="block py-2 text-cream hover:text-accent transition-colors">Projects</a>
+                <a href="#contact" class="block py-2 text-cream hover:text-accent transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class=" min-h-screen flex items-center pt-20 pb-16">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span
-                            class="text-primary">Mamun</span></h1>
-                    <h2 class="text-2xl md:text-3xl mb-6">Backend Developer</h2>
-                    <p class="text-lg mb-8 max-w-lg">I create beautiful, functional websites that help businesses grow.
+    <section id="home" class="min-h-screen flex items-center pt-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-6 animate-slide-right">
+                    <p class="text-accent text-lg tracking-widest uppercase">Backend Developer</p>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                        Crafting Robust
+                        <span class="gradient-text block">Digital Solutions</span>
+                    </h1>
+                    <p class="text-cream text-lg md:text-xl leading-relaxed opacity-90 max-w-xl">
+                        Specialized in Django & REST APIs with 1+ year of professional experience building scalable, 
+                        secure backend systems that power modern web applications.
                     </p>
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <!-- From Uiverse.io by HarryProCW -->
-                        <button
-                            class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white"><a
-                                href="#contact">Get In Touch</a></button>
-
-                        <button
-                            class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white"><a
-                                href="#portfolio">portfolio</a></button>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#contact" class="btn-primary bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">
+                            Let's Talk
+                        </a>
+                        <a href="#projects" class="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300">
+                            View Work
+                        </a>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <!-- Social Links -->
+                    <div class="flex gap-4 pt-4">
+                        <a href="https://linkedin.com" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:orroshidmdmamun50@gmail.com" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center animate-slide-up">
+
+                <!-- Right Content - Profile with Enhanced Border -->
+                <div class="animate-slide-up flex justify-center">
                     <div class="relative">
-                        <img src="image/1674548512482_022311-02.jpeg" alt="Profile Image"
-                            class="rounded-full w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover border-8 border-opacity-10 border-white shadow-xl">
-                        <div class="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg">
-                            <span class="font-bold">Fresher</span> developer
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
+                        <div class="profile-image-wrapper w-96 h-[500px] md:w-[450px] md:h-[550px]">
+                            <div class="profile-image-inner w-full h-full">
+                                <img src="./image/WhatsApp Image 2026-01-31 at 6.28.16 AM.jpeg" alt="Md. Mamun Or Rashid" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-accent text-white px-6 py-3 rounded-full font-semibold shadow-lg animate-float">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-glow"></div>
+                                Available for Work
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,249 +446,299 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/3 flex justify-center animate-fade-in">
-                    <img src="image/1678163319881_102847.jpg" alt="About Me" class="h-auto">
-                </div>
-
-                <div class="lg:w-2/3 animate-slide-up">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Backend Developer with a passion for building
-                        scalable web applications</h3>
-                    <p class="text-lg mb-6">I'm a Django backend developer based in Comilla, Bangladesh, specializing in
-                        building efficient and secure web applications.</p>
-                    <p class="mb-6">I have experience in developing REST APIs, database management with MySQL,
-                        authentication systems, and class-based views. My focus is on writing clean, maintainable code
-                        to power seamless digital experiences. I enjoy solving complex backend challenges and optimizing
-                        performance for robust applications.</p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <p><strong class="text-primary">Name:</strong> Md. Mamun Or Rashid</p>
-                            <p><strong class="text-primary">Email:</strong> orroshidmdmamun50@gmail.com</p>
-                        </div>
-                        <div>
-                            <p><strong class="text-primary">Phone:</strong> 01839907067</p>
-                            <p><strong class="text-primary">Location:</strong> Comilla, Bangladesh</p>
+    <section id="about" class="py-24 reveal">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Image with Enhanced Border -->
+                <div class="order-2 md:order-1">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-inner">
+                            <img src="image/654.jpeg" alt="About" class="w-full h-full object-cover">
                         </div>
                     </div>
-                    <!-- From Uiverse.io by Javierrocadev -->
-                    <!-- From Uiverse.io by sahilxkhadka -->
-                    <button
-                        class="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px"
-                            width="24px">
-                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-                            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <g id="Interface / Download">
-                                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
-                                        stroke="#f1f1f1" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" id="Vector"></path>
-                                </g>
-                            </g>
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 md:order-2 space-y-6">
+                    <div>
+                        <p class="text-accent text-sm tracking-widest uppercase mb-2">About Me</p>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold">
+                            Building the <span class="gradient-text">Backend</span> of Tomorrow
+                        </h2>
+                    </div>
+                    <p class="text-cream text-lg leading-relaxed opacity-90">
+                        I'm a Django backend developer based in Comilla, Bangladesh, with over 1 year of professional 
+                        experience in building efficient, secure, and scalable web applications.
+                    </p>
+                    <p class="text-cream leading-relaxed opacity-80">
+                        My expertise lies in developing robust REST APIs, implementing authentication systems, 
+                        database optimization with MySQL, and creating maintainable class-based views. I'm passionate 
+                        about solving complex backend challenges and delivering high-performance solutions.
+                    </p>
+
+                    <!-- Info Grid -->
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-user text-accent"></i>
+                                <span class="text-sm opacity-70">Name</span>
+                            </div>
+                            <p class="font-semibold">Md. Mamun Or Rashid</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-envelope text-accent"></i>
+                                <span class="text-sm opacity-70">Email</span>
+                            </div>
+                            <p class="font-semibold text-sm">orroshidmdmamun50@gmail.com</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-phone text-accent"></i>
+                                <span class="text-sm opacity-70">Phone</span>
+                            </div>
+                            <p class="font-semibold">01839907067</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-map-marker-alt text-accent"></i>
+                                <span class="text-sm opacity-70">Location</span>
+                            </div>
+                            <p class="font-semibold">Comilla, Bangladesh</p>
+                        </div>
+                    </div>
+
+                    <a href="https://drive.google.com/file/d/1Ehd6imvnDXaoIKCyXnDJkDq64ArO8Oqz/view?usp=drive_link" 
+                       target="_blank"
+                       class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 group">
+                        <i class="fas fa-download group-hover:animate-bounce"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-accent text-sm tracking-widest uppercase mb-2">Career Path</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">
+                    Professional <span class="gradient-text">Experience</span>
+                </h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-12">
+                <!-- Experience Item -->
+                <div class="timeline-item">
+                    <div class="bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl border border-accent/20 hover:border-accent/50 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="font-display text-2xl font-bold gradient-text">Backend Developer</h3>
+                            <span class="text-accent text-sm">2025 - Present</span>
+                        </div>
+                        <p class="text-cream opacity-90 mb-4">Tech Company • Full-time</p>
+                        <ul class="space-y-2 text-cream opacity-80">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent mt-1"></i>
+                                <span>Developed and maintained RESTful APIs using Django REST Framework</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent mt-1"></i>
+                                <span>Implemented JWT authentication and role-based access control</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent mt-1"></i>
+                                <span>Optimized database queries reducing response time by 40%</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent mt-1"></i>
+                                <span>Built real-time chat system using WebSockets</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Logos -->
+    <section id="skills" class="py-24 reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-accent text-sm tracking-widest uppercase mb-2">Technical Expertise</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">
+                    Skills & <span class="gradient-text">Technologies</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Python -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Python</h3>
+                    <p class="text-cream opacity-70 text-sm">Core Programming</p>
+                </div>
+
+                <!-- Django -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center">
+                        <svg viewBox="0 0 128 128" class="w-full h-full">
+                            <path fill="#44B78B" d="M59.448 0h20.93v96.88c-10.737 2.04-18.62 2.855-27.181 2.855-25.551 0-38.87-11.551-38.87-33.705 0-21.338 14.135-35.2 36.015-35.2 3.398 0 5.98.272 9.106 1.087zm0 48.765c-2.446-.815-4.485-1.086-7.067-1.086-10.6 0-16.717 6.523-16.717 17.939 0 11.145 5.845 17.26 16.582 17.26 2.309 0 4.212-.136 7.202-.542z"></path>
+                            <path fill="#44B78B" d="M113.672 32.321V80.84c0 16.717-1.224 24.735-4.893 31.666-3.398 6.661-7.883 10.873-17.124 15.494l-19.435-9.241c9.242-4.35 13.726-8.153 16.58-14 2.99-5.979 3.943-12.91 3.943-31.122V32.321zM92.742.111h20.93v21.474h-20.93z"></path>
                         </svg>
-                        <a href="https://drive.google.com/file/d/1Ehd6imvnDXaoIKCyXnDJkDq64ArO8Oqz/view?usp=drive_link"
-                            class="">Download CV</a>
-                        <div
-                            class="absolute opacity-0 -bottom-full rounded-md py-2 px-2 bg-black bg-opacity-70 left-1/2 -translate-x-1/2 group-hover:opacity-100 transition-opacity shadow-lg">
-                            Download
-                        </div>
-                    </button>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Django</h3>
+                    <p class="text-cream opacity-70 text-sm">Web Framework</p>
+                </div>
 
+                <!-- Django REST Framework -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center">
+                        <svg viewBox="0 0 128 128" class="w-full h-full">
+                            <path fill="#A30000" d="M126.5 54.4c0-19.7-16-35.7-35.7-35.7s-35.7 16-35.7 35.7c0 15.8 10.3 29.2 24.6 33.9v-24h-7.4v-9.9h7.4v-7.5c0-7.3 4.3-11.3 11-11.3 3.2 0 6.5.6 6.5.6v7.2h-3.7c-3.6 0-4.7 2.2-4.7 4.5v5.4h8.1l-1.3 9.9h-6.8v24c14.3-4.7 24.6-18.1 24.6-33.9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">DRF</h3>
+                    <p class="text-cream opacity-70 text-sm">REST Framework</p>
+                </div>
 
+                <!-- MySQL -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">MySQL</h3>
+                    <p class="text-cream opacity-70 text-sm">Database</p>
+                </div>
 
-                    <!-- <a href="https://drive.google.com/file/d/1Ehd6imvnDXaoIKCyXnDJkDq64ArO8Oqz/view?usp=drive_link"
-                        class="btn-primary inline-block px-6 py-3 rounded-lg font-medium">Download CV</a> -->
+                <!-- PostgreSQL -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">PostgreSQL</h3>
+                    <p class="text-cream opacity-70 text-sm">Database</p>
+                </div>
+
+                <!-- Git -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Git</h3>
+                    <p class="text-cream opacity-70 text-sm">Version Control</p>
+                </div>
+
+                <!-- Docker -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Docker</h3>
+                    <p class="text-cream opacity-70 text-sm">Containerization</p>
+                </div>
+
+                <!-- Redis -->
+                <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" class="w-full h-full">
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Redis</h3>
+                    <p class="text-cream opacity-70 text-sm">Caching</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-700">
-        <div class="container mx-auto px-4">
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 reveal">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-accent text-sm tracking-widest uppercase mb-2">Portfolio</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="animate-fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
-
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">HTML/CSS</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
-                            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-6xl text-accent"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-2xl font-bold mb-4">E-Learning Platform</h4>
+                        <p class="text-center max-w-xs mb-6">Full-stack e-learning system with course management and enrollment</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="#" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
                         </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">JavaScript</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Bootstrap</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Django</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">E-Learning Platform</h3>
+                        <p class="text-accent text-sm mb-3">Django • MySQL • REST API</p>
+                        <p class="text-cream opacity-70 text-sm">
+                            Complete e-learning system with course management, student enrollment, and progress tracking.
+                        </p>
                     </div>
                 </div>
 
-                <div class="animate-slide-up">
-                    <h3 class="text-2xl font-bold mb-6">Professional Skills</h3>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                            <div class="text-primary text-4xl mb-4">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <h4 class="font-bold text-xl mb-2">Web Design</h4>
-                            <p>Creating visually appealing and user-friendly interfaces</p>
-                        </div>
-
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                            <div class="text-primary text-4xl mb-4">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4 class="font-bold text-xl mb-2">Web Development</h4>
-                            <p>Building robust and scalable web applications</p>
-                        </div>
-
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                            <div class="text-primary text-4xl mb-4">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h4 class="font-bold text-xl mb-2">Backend Development</h4>
-                            <p>Developing efficient server-side applications</p>
-                        </div>
-
-                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                            <div class="text-primary text-4xl mb-4">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h4 class="font-bold text-xl mb-2">Database Management</h4>
-                            <p>Designing and optimizing database systems</p>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                        <i class="fas fa-hotel text-6xl text-accent"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-2xl font-bold mb-4">Hotel Management</h4>
+                        <p class="text-center max-w-xs mb-6">Comprehensive hotel booking and management system</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="#" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
-
-            <div class="flex justify-center mb-12">
-                <div class="inline-flex flex-wrap justify-center gap-2">
-                    <button class="portfolio-filter-btn active" data-filter="all">All</button>
-                    <button class="portfolio-filter-btn" data-filter="web1">Web Development</button>
-                    <button class="portfolio-filter-btn" data-filter="web2">Web Development</button>
-                    <button class="portfolio-filter-btn" data-filter="backend">Backend</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item animate-fade-in" data-category="web1">
-                    <div
-                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                        <div class="overflow-hidden">
-                            <img src="https://via.placeholder.com/600x400" alt="Project 1"
-                                class="portfolio-image w-full h-48 object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">E-Learning Website</h4>
-                            <p class="text-primary mb-4">Web Development</p>
-                            <p class="mb-4">A fully responsive e-Learning website with Course Show and Course Enroalled.
-                            </p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-primary hover:text-primary-dark"><i
-                                        class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
-                                    Code</a>
-                            </div>
-                        </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">Hotel Management</h3>
+                        <p class="text-accent text-sm mb-3">Django • PostgreSQL • Stripe</p>
+                        <p class="text-cream opacity-70 text-sm">
+                            Hotel booking system with room management, reservations, and payment integration.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item animate-slide-up" data-category="web2">
-                    <div
-                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                        <div class="overflow-hidden">
-                            <img src="https://via.placeholder.com/600x400" alt="Project 2"
-                                class="portfolio-image w-full h-48 object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Hotel Management</h4>
-                            <p class="text-primary mb-4">Web Development</p>
-                            <p class="mb-4">A productivity Web for managing Hotel with drag-and-drop functionality.</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-primary hover:text-primary-dark"><i
-                                        class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
-                                    Code</a>
-                            </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                        <i class="fas fa-comments text-6xl text-accent"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-2xl font-bold mb-4">Real-time Chat System</h4>
+                        <p class="text-center max-w-xs mb-6">WebSocket-powered instant messaging platform</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="#" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item animate-fade-in" data-category="backend">
-                    <div
-                        class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                        <div class="overflow-hidden">
-                            <img src="https://via.placeholder.com/600x400" alt="Project 3"
-                                class="portfolio-image w-full h-48 object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Real Time Chat system</h4>
-                            <p class="text-primary mb-4">Backend Development</p>
-                            <p class="mb-4">A scalable REST API with JWT authentication and rate limiting and real time
-                                chat system app with web socket.</p>
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-primary hover:text-primary-dark"><i
-                                        class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="text-primary hover:text-primary-dark"><i class="fab fa-github"></i>
-                                    Code</a>
-                            </div>
-                        </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">Real-time Chat System</h3>
+                        <p class="text-accent text-sm mb-3">Django Channels • WebSocket • Redis</p>
+                        <p class="text-cream opacity-70 text-sm">
+                            Real-time chat application with JWT authentication and message persistence.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -410,286 +746,245 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-700">
-        <div class="container mx-auto px-4">
+    <section id="contact" class="py-24 reveal">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Me</h2>
-                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="text-accent text-sm tracking-widest uppercase mb-2">Get In Touch</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">
+                    Let's Work <span class="gradient-text">Together</span>
+                </h2>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="animate-fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Let's get in touch</h3>
-                    <p class="mb-8">I'm currently available for freelance work or full-time positions. If you have a
-                        project that needs some creative touch, I'd love to hear about it!</p>
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-display text-2xl font-bold mb-4">Ready to start a project?</h3>
+                        <p class="text-cream opacity-80 leading-relaxed">
+                            I'm currently available for freelance work or full-time positions. 
+                            Let's discuss how I can help bring your ideas to life!
+                        </p>
+                    </div>
 
                     <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt"></i>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-accent"></i>
                             </div>
                             <div>
-                                <h5 class="font-bold">Location:</h5>
-                                <p>Comilla, Bangladesh</p>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-cream opacity-70">Comilla, Bangladesh</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope"></i>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-accent"></i>
                             </div>
                             <div>
-                                <h5 class="font-bold">Email:</h5>
-                                <p>orroshidmdmamun50@gmail.com</p>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-cream opacity-70">orroshidmdmamun50@gmail.com</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-full mr-4">
-                                <i class="fas fa-phone"></i>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-accent"></i>
                             </div>
                             <div>
-                                <h5 class="font-bold">Phone:</h5>
-                                <p>01839907067</p>
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p class="text-cream opacity-70">01839907067</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex space-x-4 mt-8">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <div class="flex gap-4 pt-4">
+                        <a href="https://linkedin.com" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="animate-slide-up">
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-6">Send me a message</h3>
-
-                        <form id="contactForm">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label for="name" class="block mb-2 font-medium">Your Name</label>
-                                    <input type="text" id="name"
-                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                                        required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 font-medium">Your Email</label>
-                                    <input type="email" id="email"
-                                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                                        required>
-                                </div>
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl border border-accent/20">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Your Name</label>
+                                <input type="text" name="name" required
+                                    class="form-input w-full px-4 py-3 rounded-lg"
+                                    placeholder="John Doe">
                             </div>
-
-                            <div class="mb-6">
-                                <label for="subject" class="block mb-2 font-medium">Subject</label>
-                                <input type="text" id="subject"
-                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Your Email</label>
+                                <input type="email" name="email" required
+                                    class="form-input w-full px-4 py-3 rounded-lg"
+                                    placeholder="john@example.com">
                             </div>
+                        </div>
 
-                            <div class="mb-6">
-                                <label for="message" class="block mb-2 font-medium">Message</label>
-                                <textarea id="message" rows="5"
-                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                                    required></textarea>
-                            </div>
-                            <!-- From Uiverse.io by themrsami -->
-                            <button
-                                class="font-medium inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-[#7747FF] hover:bg-white hover:text-[#7747FF] focus:text-[#7747FF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
-                                Send
-                                Message
-                            </button>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subject</label>
+                            <input type="text" name="subject" required
+                                class="form-input w-full px-4 py-3 rounded-lg"
+                                placeholder="Project Inquiry">
+                        </div>
 
-                            <!-- <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium"></button> -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea name="message" rows="5" required
+                                class="form-input w-full px-4 py-3 rounded-lg resize-none"
+                                placeholder="Tell me about your project..."></textarea>
+                        </div>
 
-                            <div id="form-message" class="mt-4"></div>
-                        </form>
-                    </div>
+                        <button type="submit" 
+                            class="w-full bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 flex items-center justify-center gap-3">
+                            <span id="btn-text">Send Message</span>
+                            <i id="btn-icon" class="fas fa-paper-plane"></i>
+                            <span id="btn-loading" class="loading hidden"></span>
+                        </button>
+
+                        <div id="form-message" class="hidden"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-800 dark:bg-gray-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Md. Mamun Or Rashid. All Rights Reserved.</p>
-                </div>
-                <div>
-                    <a href="#home" class="back-to-top text-2xl text-primary hover:text-primary-dark transition">
-                        <i class="fas fa-arrow-up"></i>
-                    </a>
-                </div>
+    <footer class="py-8 border-t border-accent/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-cream opacity-70">
+                    &copy; 2025 Md. Mamun Or Rashid. All rights reserved.
+                </p>
+                <a href="#home" class="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener("DOMContentLoaded", () => {
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            // Dark mode toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-
-            themeToggle.addEventListener('click', () => {
-                html.classList.toggle('dark');
-                localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-            });
-
-            // Check for saved theme preference
-            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
-
-            // Navbar scroll effect
-            const navbar = document.getElementById('navbar');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-white', 'dark:bg-gray-800', 'shadow-md');
-                    navbar.classList.remove('bg-transparent');
-                } else {
-                    navbar.classList.remove('bg-white', 'dark:bg-gray-800', 'shadow-md');
-                    navbar.classList.add('bg-transparent');
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
                 }
             });
+        });
 
-            // Portfolio filter functionality
-            const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    button.classList.add('active');
-
-                    const filterValue = button.getAttribute('data-filter');
-
-                    // Filter portfolio items
-                    portfolioItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
             });
+        };
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
 
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+        // Contact Form Submission with Django REST API
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        const btnText = document.getElementById('btn-text');
+        const btnIcon = document.getElementById('btn-icon');
+        const btnLoading = document.getElementById('btn-loading');
 
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                        // Close mobile menu if open
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-
-            // Form submission handling
-            const contactForm = document.getElementById('contactForm');
-            const formMessage = document.getElementById('form-message');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-
-                    // Simple form validation
-                    if (name && email && subject && message) {
-                        // In a real application, you would send this data to a server
-                        // For this demo, we'll just show a success message
-                        formMessage.innerHTML = `
-                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                                Your message has been sent successfully!
-                            </div>
-                        `;
-                        contactForm.reset();
-
-                        // Clear the success message after 5 seconds
-                        setTimeout(() => {
-                            formMessage.innerHTML = '';
-                        }, 5000);
-                    } else {
-                        formMessage.innerHTML = `
-                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                                Please fill in all fields.
-                            </div>
-                        `;
-                    }
-                });
-            }
-
-            // Animation on scroll
-            const animateElements = () => {
-                const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
-                const windowHeight = window.innerHeight;
-
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-
-                    if (elementPosition < windowHeight - elementVisible) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
             };
 
-            // Set initial styles for animation
-            document.querySelectorAll('.animate-fade-in').forEach(element => {
-                element.style.opacity = '0';
-                element.style.transition = 'opacity 0.6s ease';
-            });
+            // Show loading state
+            btnText.textContent = 'Sending...';
+            btnIcon.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
 
-            document.querySelectorAll('.animate-slide-up').forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
+            try {
+                // Send to Django REST API
+                const response = await fetch('http://localhost:8000/api/contact/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
 
-            // Run animation on load and scroll
-            window.addEventListener('load', animateElements);
-            window.addEventListener('scroll', animateElements);
+                const result = await response.json();
 
-            // Trigger animations on page load
-            animateElements();
+                if (response.ok) {
+                    // Success
+                    formMessage.innerHTML = `
+                        <div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3">
+                            <i class="fas fa-check-circle text-xl"></i>
+                            <span>Message sent successfully! I'll get back to you soon.</span>
+                        </div>
+                    `;
+                    formMessage.classList.remove('hidden');
+                    contactForm.reset();
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    // Error
+                    throw new Error(result.message || 'Failed to send message');
+                }
+            } catch (error) {
+                // Show error
+                formMessage.innerHTML = `
+                    <div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3">
+                        <i class="fas fa-exclamation-circle text-xl"></i>
+                        <span>${error.message || 'Something went wrong. Please try again.'}</span>
+                    </div>
+                `;
+                formMessage.classList.remove('hidden');
+
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            } finally {
+                // Reset button state
+                btnText.textContent = 'Send Message';
+                btnIcon.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+            }
         });
     </script>
 </body>
