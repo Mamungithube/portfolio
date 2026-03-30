@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -28,33 +28,18 @@
                         slate: '#2D3748',
                     },
                     animation: {
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slide-up':    'slideUp 0.8s ease-out forwards',
                         'slide-right': 'slideRight 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite',
+                        'fade-in':     'fadeIn 1s ease-out forwards',
+                        'float':       'float 6s ease-in-out infinite',
+                        'glow':        'glow 2s ease-in-out infinite',
                     },
                     keyframes: {
-                        slideUp: {
-                            '0%': { transform: 'translateY(60px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        slideRight: {
-                            '0%': { transform: 'translateX(-60px)', opacity: '0' },
-                            '100%': { transform: 'translateX(0)', opacity: '1' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        glow: {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.3)' },
-                            '50%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.6)' },
-                        },
+                        slideUp:    { '0%': { transform: 'translateY(60px)',  opacity: '0' }, '100%': { transform: 'translateY(0)',  opacity: '1' } },
+                        slideRight: { '0%': { transform: 'translateX(-60px)', opacity: '0' }, '100%': { transform: 'translateX(0)', opacity: '1' } },
+                        fadeIn:     { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        float:      { '0%, 100%': { transform: 'translateY(0px)' },  '50%': { transform: 'translateY(-20px)' } },
+                        glow:       { '0%, 100%': { boxShadow: '0 0 20px rgba(255,107,53,.3)' }, '50%': { boxShadow: '0 0 40px rgba(255,107,53,.6)' } },
                     },
                 }
             }
@@ -62,11 +47,7 @@
     </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Work Sans', sans-serif;
@@ -75,39 +56,19 @@
             overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0A0E27; }
+        ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff8c5a; }
 
-        ::-webkit-scrollbar-track {
-            background: #0A0E27;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #FF6B35;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ff8c5a;
-        }
-
-        /* Animated Background */
         .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.03;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.03;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255,107,53,.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,107,53,.15) 0%, transparent 50%);
         }
 
-        /* Gradient Text */
         .gradient-text {
             background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%);
             -webkit-background-clip: text;
@@ -115,283 +76,170 @@
             background-clip: text;
         }
 
-        /* Navbar Glass Effect */
         .navbar-glass {
-            background: rgba(10, 14, 39, 0.8);
+            background: rgba(10,14,39,.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            border-bottom: 1px solid rgba(255,107,53,.1);
         }
 
-        /* Enhanced Image Borders */
         .profile-image-wrapper {
-            position: relative;
-            border-radius: 24px;
-            padding: 6px;
+            position: relative; border-radius: 24px; padding: 6px;
             background: linear-gradient(135deg, #FF6B35, #FFB4A2, #FF6B35);
             background-size: 200% 200%;
             animation: gradientMove 8s ease infinite;
         }
-
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        .profile-image-inner { border-radius: 20px; overflow: hidden; border: 4px solid #0A0E27; }
 
-        .profile-image-inner {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 4px solid #0A0E27;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 24px;
-            padding: 6px;
-            background: linear-gradient(135deg, #FF6B35, #FFB4A2);
-        }
-
-        .about-image-inner {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 3px solid #0A0E27;
-            position: relative;
-        }
-
+        .about-image-wrapper { position: relative; border-radius: 24px; padding: 6px; background: linear-gradient(135deg, #FF6B35, #FFB4A2); }
+        .about-image-inner   { border-radius: 20px; overflow: hidden; border: 3px solid #0A0E27; position: relative; }
         .about-image-inner::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent);
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,107,53,.1), transparent);
             pointer-events: none;
         }
 
-        /* Skill Card Hover */
-        .skill-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 107, 53, 0.1);
-        }
+        .skill-card { transition: all .4s cubic-bezier(.4,0,.2,1); border: 1px solid rgba(255,107,53,.1); }
+        .skill-card:hover { transform: translateY(-8px); border-color: rgba(255,107,53,.5); box-shadow: 0 20px 40px rgba(255,107,53,.2); }
+        .skill-logo { transition: all .3s ease; }
+        .skill-card:hover .skill-logo { transform: scale(1.1); }
 
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 107, 53, 0.5);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
-        }
-
-        .skill-logo {
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover .skill-logo {
-            transform: scale(1.1);
-        }
-
-        /* Project Card Effect */
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-
+        .project-card { position: relative; overflow: hidden; transition: all .5s ease; }
         .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
-            transition: left 0.5s ease;
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,107,53,.2), transparent);
+            transition: left .5s ease;
         }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
+        .project-card:hover::before { left: 100%; }
         .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,14,39,.95) 0%, rgba(26,31,58,.95) 100%);
+            opacity: 0; transition: opacity .4s ease;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
         }
+        .project-card:hover .project-overlay { opacity: 1; }
 
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        /* Custom Button */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
+        .btn-primary { position: relative; overflow: hidden; transition: all .3s ease; }
         .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0; border-radius: 50%;
+            background: rgba(255,255,255,.1);
+            transform: translate(-50%,-50%);
+            transition: width .6s ease, height .6s ease;
         }
+        .btn-primary:hover::before { width: 300px; height: 300px; }
 
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all .8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Section Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Timeline Design */
-        .timeline-item {
-            position: relative;
-            padding-left: 40px;
-        }
-
+        .timeline-item { position: relative; padding-left: 40px; }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 3px;
-            height: 100%;
+            content: ''; position: absolute; left: 0; top: 0;
+            width: 3px; height: 100%;
             background: linear-gradient(180deg, #FF6B35 0%, transparent 100%);
         }
-
         .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 8px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #FF6B35;
-            border: 3px solid #0A0E27;
+            content: ''; position: absolute; left: -6px; top: 8px;
+            width: 15px; height: 15px; border-radius: 50%;
+            background: #FF6B35; border: 3px solid #0A0E27;
         }
 
-        /* Contact Form */
-        .form-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            color: #F7F5F2;
-            transition: all 0.3s ease;
+        /* Experience card */
+        .exp-card {
+            background: rgba(45,55,72,.25);
+            border: 1px solid rgba(255,107,53,.15);
+            border-radius: 20px; padding: 36px;
+            transition: border-color .3s ease, box-shadow .3s ease;
         }
+        .exp-card:hover { border-color: rgba(255,107,53,.45); box-shadow: 0 16px 48px rgba(255,107,53,.1); }
+        .exp-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,107,53,.12); color: #FF6B35;
+            font-size: 11px; font-family: 'DM Sans', sans-serif;
+            font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+        }
+        .exp-badge::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: #FF6B35; animation: expPulse 2s ease-in-out infinite;
+        }
+        @keyframes expPulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+        .exp-company { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -.4px; line-height: 1.15; color: #F7F5F2; }
+        .exp-company span { color: #FF6B35; }
+        .exp-meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .exp-meta-tag {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.08);
+            border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif;
+            color: rgba(247,245,242,.55); padding: 4px 10px;
+        }
+        .exp-divider { height: 1px; background: rgba(255,255,255,.07); margin-bottom: 22px; }
+        .exp-section-label { font-size: 11px; font-weight: 500; font-family: 'DM Sans', sans-serif; letter-spacing: .10em; text-transform: uppercase; color: rgba(247,245,242,.28); margin-bottom: 14px; }
+        .exp-tasks { display: grid; gap: 10px; }
+        .exp-task { display: flex; gap: 12px; align-items: flex-start; }
+        .exp-task-bullet { flex-shrink: 0; width: 20px; height: 20px; border-radius: 5px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .exp-task-bullet svg { width: 10px; height: 10px; }
+        .exp-task-text { font-size: 14px; line-height: 1.65; color: rgba(247,245,242,.78); font-family: 'DM Sans', sans-serif; }
+        .exp-task-text strong { font-weight: 500; color: #F7F5F2; }
+        .exp-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+        .exp-chip { font-size: 11.5px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.5); background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.08); border-radius: 5px; padding: 3px 9px; }
+        .exp-footer { display: flex; align-items: center; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+        .exp-footer-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF6B35; flex-shrink: 0; }
+        .exp-footer-bar { flex: 1; height: 2px; background: linear-gradient(90deg, #FF6B35 0%, rgba(255,107,53,.05) 100%); border-radius: 2px; }
+        .exp-footer-text { font-size: 11.5px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.28); }
 
-        .form-input:focus {
-            outline: none;
-            border-color: #FF6B35;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
-        }
+        /* Project filter */
+        .filter-btn { cursor: pointer; transition: all .3s ease; }
+        .filter-btn.active-filter { background: #FF6B35 !important; color: #fff !important; border-color: #FF6B35 !important; }
 
-        .form-input::placeholder {
-            color: rgba(247, 245, 242, 0.4);
-        }
-
-        /* Success Message Animation */
-        @keyframes successSlide {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .success-message {
-            animation: successSlide 0.5s ease-out;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        /* Contact form */
+        .form-input { background: rgba(255,255,255,.05); border: 1px solid rgba(255,107,53,.2); color: #F7F5F2; transition: all .3s ease; }
+        .form-input:focus { outline: none; border-color: #FF6B35; background: rgba(255,255,255,.08); box-shadow: 0 0 20px rgba(255,107,53,.1); }
+        .form-input::placeholder { color: rgba(247,245,242,.4); }
+        @keyframes successSlide { 0%{transform:translateX(100%);opacity:0} 100%{transform:translateX(0);opacity:1} }
+        .success-message { animation: successSlide .5s ease-out; }
+        .loading { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 
 <body>
-    <!-- Animated Background -->
     <div class="animated-bg"></div>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav class="navbar-glass fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#home" class="text-2xl font-display font-bold gradient-text">MOR</a>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-cream hover:text-accent transition-colors duration-300">Home</a>
-                    <a href="#about" class="nav-link text-cream hover:text-accent transition-colors duration-300">About</a>
-                    <a href="#experience" class="nav-link text-cream hover:text-accent transition-colors duration-300">Experience</a>
-                    <a href="#skills" class="nav-link text-cream hover:text-accent transition-colors duration-300">Skills</a>
-                    <a href="#projects" class="nav-link text-cream hover:text-accent transition-colors duration-300">Projects</a>
-                    <a href="#contact" class="btn-primary bg-accent text-white px-6 py-2 rounded-full hover:bg-opacity-90 relative overflow-hidden">
-                        Contact
-                    </a>
+                    <a href="#home"       class="text-cream hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#about"      class="text-cream hover:text-accent transition-colors duration-300">About</a>
+                    <a href="#experience" class="text-cream hover:text-accent transition-colors duration-300">Experience</a>
+                    <a href="#skills"     class="text-cream hover:text-accent transition-colors duration-300">Skills</a>
+                    <a href="#projects"   class="text-cream hover:text-accent transition-colors duration-300">Projects</a>
+                    <a href="#contact"    class="btn-primary bg-accent text-white px-6 py-2 rounded-full hover:bg-opacity-90 relative overflow-hidden">Contact</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-cream text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-cream text-2xl"><i class="fas fa-bars"></i></button>
             </div>
-
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3">
-                <a href="#home" class="block py-2 text-cream hover:text-accent transition-colors">Home</a>
-                <a href="#about" class="block py-2 text-cream hover:text-accent transition-colors">About</a>
+                <a href="#home"       class="block py-2 text-cream hover:text-accent transition-colors">Home</a>
+                <a href="#about"      class="block py-2 text-cream hover:text-accent transition-colors">About</a>
                 <a href="#experience" class="block py-2 text-cream hover:text-accent transition-colors">Experience</a>
-                <a href="#skills" class="block py-2 text-cream hover:text-accent transition-colors">Skills</a>
-                <a href="#projects" class="block py-2 text-cream hover:text-accent transition-colors">Projects</a>
-                <a href="#contact" class="block py-2 text-cream hover:text-accent transition-colors">Contact</a>
+                <a href="#skills"     class="block py-2 text-cream hover:text-accent transition-colors">Skills</a>
+                <a href="#projects"   class="block py-2 text-cream hover:text-accent transition-colors">Projects</a>
+                <a href="#contact"    class="block py-2 text-cream hover:text-accent transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section id="home" class="min-h-screen flex items-center pt-20 relative">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
                 <div class="space-y-6 animate-slide-right">
                     <p class="text-accent text-lg tracking-widest uppercase">Backend Developer</p>
                     <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight">
@@ -399,32 +247,19 @@
                         <span class="gradient-text block">Digital Solutions</span>
                     </h1>
                     <p class="text-cream text-lg md:text-xl leading-relaxed opacity-90 max-w-xl">
-                        Specialized in Django & REST APIs with 1+ year of professional experience building scalable, 
+                        Specialized in Django & REST APIs with 1+ year of professional experience building scalable,
                         secure backend systems that power modern web applications.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#contact" class="btn-primary bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">
-                            Let's Talk
-                        </a>
-                        <a href="#projects" class="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300">
-                            View Work
-                        </a>
+                        <a href="#contact"  class="btn-primary bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">Let's Talk</a>
+                        <a href="#projects" class="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300">View Work</a>
                     </div>
-                    <!-- Social Links -->
                     <div class="flex gap-4 pt-4">
-                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Mamungithube" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:orroshidmdmamun50@gmail.com" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Mamungithube"                 target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-github"></i></a>
+                        <a href="mailto:orroshidmdmamun50@gmail.com"                               class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-
-                <!-- Right Content - Profile with Enhanced Border -->
                 <div class="animate-slide-up flex justify-center">
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
@@ -445,11 +280,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section id="about" class="py-24 reveal">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Image with Enhanced Border -->
                 <div class="order-2 md:order-1">
                     <div class="about-image-wrapper">
                         <div class="about-image-inner">
@@ -457,8 +291,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Content -->
                 <div class="order-1 md:order-2 space-y-6">
                     <div>
                         <p class="text-accent text-sm tracking-widest uppercase mb-2">About Me</p>
@@ -467,49 +299,33 @@
                         </h2>
                     </div>
                     <p class="text-cream text-lg leading-relaxed opacity-90">
-                        I'm a Django backend developer based in Comilla, Bangladesh, with over 1 year of professional 
+                        I'm a Django backend developer based in Comilla, Bangladesh, with over 1 year of professional
                         experience in building efficient, secure, and scalable web applications.
                     </p>
                     <p class="text-cream leading-relaxed opacity-80">
-                        My expertise lies in developing robust REST APIs, implementing authentication systems, 
-                        database optimization with MySQL, and creating maintainable class-based views. I'm passionate 
+                        My expertise lies in developing robust REST APIs, implementing authentication systems,
+                        database optimization with MySQL, and creating maintainable class-based views. I'm passionate
                         about solving complex backend challenges and delivering high-performance solutions.
                     </p>
-
-                    <!-- Info Grid -->
                     <div class="grid grid-cols-2 gap-6 pt-4">
                         <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-user text-accent"></i>
-                                <span class="text-sm opacity-70">Name</span>
-                            </div>
+                            <div class="flex items-center gap-2"><i class="fas fa-user text-accent"></i><span class="text-sm opacity-70">Name</span></div>
                             <p class="font-semibold">Md. Mamun Or Rashid</p>
                         </div>
                         <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-envelope text-accent"></i>
-                                <span class="text-sm opacity-70">Email</span>
-                            </div>
+                            <div class="flex items-center gap-2"><i class="fas fa-envelope text-accent"></i><span class="text-sm opacity-70">Email</span></div>
                             <p class="font-semibold text-sm">orroshidmdmamun50@gmail.com</p>
                         </div>
                         <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-phone text-accent"></i>
-                                <span class="text-sm opacity-70">Phone</span>
-                            </div>
+                            <div class="flex items-center gap-2"><i class="fas fa-phone text-accent"></i><span class="text-sm opacity-70">Phone</span></div>
                             <p class="font-semibold">01839907067</p>
                         </div>
                         <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-map-marker-alt text-accent"></i>
-                                <span class="text-sm opacity-70">Location</span>
-                            </div>
+                            <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-accent"></i><span class="text-sm opacity-70">Location</span></div>
                             <p class="font-semibold">Comilla, Bangladesh</p>
                         </div>
                     </div>
-
-                    <a href="https://drive.google.com/file/d/1vsS_G4Np5_aDFLbmE18pTArZrm-xd1Qr/view?usp=sharing" 
-                       target="_blank"
+                    <a href="https://drive.google.com/file/d/1vsS_G4Np5_aDFLbmE18pTArZrm-xd1Qr/view?usp=sharing" target="_blank"
                        class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 group">
                         <i class="fas fa-download group-hover:animate-bounce"></i>
                         Download Resume
@@ -519,7 +335,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="py-24 reveal">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -528,61 +344,81 @@
                     Professional <span class="gradient-text">Experience</span>
                 </h2>
             </div>
-
             <div class="max-w-4xl mx-auto space-y-12">
-                <!-- Experience Item -->
                 <div class="timeline-item">
-                    <div class="bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl border border-accent/20 hover:border-accent/50 transition-all duration-300">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <h3 class="font-display text-2xl font-bold gradient-text">Backend Developer</h3>
-                            <span class="text-accent text-sm">2025 - Present</span>
+                    <div class="exp-card">
+                        <div class="exp-badge">Work Experience</div>
+                        <div class="exp-company">SparkTech<span> Agency</span></div>
+                        <div class="exp-meta-row" style="margin-top:12px;">
+                            <span class="exp-meta-tag">
+                                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.5v4l2.5 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                Jun 2025 - Present
+                            </span>
+                            <span class="exp-meta-tag">
+                                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.2"/></svg>
+                                Backend Developer
+                            </span>
+                            <span class="exp-meta-tag">
+                                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.79 2 4 3.79 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+                                Full-time · 1 Year
+                            </span>
                         </div>
-                        <p class="text-cream opacity-90 mb-4">Tech Company • Full-time</p>
-                        <ul class="space-y-2 text-cream opacity-80">
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-accent mt-1"></i>
-                                <span>Developed and maintained RESTful APIs using Django REST Framework</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-accent mt-1"></i>
-                                <span>Implemented JWT authentication and role-based access control</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-accent mt-1"></i>
-                                <span>Optimized database queries reducing response time by 40%</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-accent mt-1"></i>
-                                <span>Built real-time chat system using WebSockets</span>
-                            </li>
-                        </ul>
+                        <div class="exp-divider"></div>
+                        <div class="exp-section-label">Key Contributions</div>
+                        <div class="exp-tasks">
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Designed and developed scalable <strong>RESTful APIs</strong> using Django REST Framework, powering core product features</div>
+                            </div>
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Implemented <strong>JWT authentication</strong> and role-based access control (RBAC) across multi-tenant systems</div>
+                            </div>
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Optimized PostgreSQL queries and indexing strategies, achieving a <strong>40% reduction in API response time</strong></div>
+                            </div>
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Built a production-ready <strong>real-time chat system</strong> using Django Channels and WebSockets for 1,000+ concurrent users</div>
+                            </div>
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Containerized services using <strong>Docker & Docker Compose</strong>, streamlining local and production deployment workflows</div>
+                            </div>
+                            <div class="exp-task">
+                                <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                                <div class="exp-task-text">Integrated <strong>third-party payment gateways</strong> (SSLCommerz / Stripe) and automated background tasks using Celery & Redis</div>
+                            </div>
+                        </div>
+                        <div class="exp-skills">
+                            <span class="exp-chip">Python</span><span class="exp-chip">Django</span><span class="exp-chip">Django REST Framework</span>
+                            <span class="exp-chip">PostgreSQL</span><span class="exp-chip">WebSockets</span><span class="exp-chip">Celery</span>
+                            <span class="exp-chip">Redis</span><span class="exp-chip">Docker</span><span class="exp-chip">JWT</span><span class="exp-chip">Git</span>
+                        </div>
+                        <div class="exp-footer">
+                            <div class="exp-footer-dot"></div>
+                            <div class="exp-footer-bar"></div>
+                            <div class="exp-footer-text">1 year continuous · ongoing</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section with Logos -->
+    <!-- SKILLS -->
     <section id="skills" class="py-24 reveal">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <p class="text-accent text-sm tracking-widest uppercase mb-2">Technical Expertise</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold">
-                    Skills & <span class="gradient-text">Technologies</span>
-                </h2>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">Skills & <span class="gradient-text">Technologies</span></h2>
             </div>
-
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <!-- Python -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">Python</h3>
-                    <p class="text-cream opacity-70 text-sm">Core Programming</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">Python</h3><p class="text-cream opacity-70 text-sm">Core Programming</p>
                 </div>
-
-                <!-- Django -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
                     <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center">
                         <svg viewBox="0 0 128 128" class="w-full h-full">
@@ -590,263 +426,283 @@
                             <path fill="#44B78B" d="M113.672 32.321V80.84c0 16.717-1.224 24.735-4.893 31.666-3.398 6.661-7.883 10.873-17.124 15.494l-19.435-9.241c9.242-4.35 13.726-8.153 16.58-14 2.99-5.979 3.943-12.91 3.943-31.122V32.321zM92.742.111h20.93v21.474h-20.93z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold mb-2">Django</h3>
-                    <p class="text-cream opacity-70 text-sm">Web Framework</p>
+                    <h3 class="font-display text-xl font-bold mb-2">Django</h3><p class="text-cream opacity-70 text-sm">Web Framework</p>
                 </div>
-
-                <!-- Django REST Framework -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
                     <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center">
                         <svg viewBox="0 0 128 128" class="w-full h-full">
                             <path fill="#A30000" d="M126.5 54.4c0-19.7-16-35.7-35.7-35.7s-35.7 16-35.7 35.7c0 15.8 10.3 29.2 24.6 33.9v-24h-7.4v-9.9h7.4v-7.5c0-7.3 4.3-11.3 11-11.3 3.2 0 6.5.6 6.5.6v7.2h-3.7c-3.6 0-4.7 2.2-4.7 4.5v5.4h8.1l-1.3 9.9h-6.8v24c14.3-4.7 24.6-18.1 24.6-33.9z"/>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold mb-2">DRF</h3>
-                    <p class="text-cream opacity-70 text-sm">REST Framework</p>
+                    <h3 class="font-display text-xl font-bold mb-2">DRF</h3><p class="text-cream opacity-70 text-sm">REST Framework</p>
                 </div>
-
-                <!-- MySQL -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">MySQL</h3>
-                    <p class="text-cream opacity-70 text-sm">Database</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">MySQL</h3><p class="text-cream opacity-70 text-sm">Database</p>
                 </div>
-
-                <!-- PostgreSQL -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">PostgreSQL</h3>
-                    <p class="text-cream opacity-70 text-sm">Database</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">PostgreSQL</h3><p class="text-cream opacity-70 text-sm">Database</p>
                 </div>
-
-                <!-- Git -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">Git</h3>
-                    <p class="text-cream opacity-70 text-sm">Version Control</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">Git</h3><p class="text-cream opacity-70 text-sm">Version Control</p>
                 </div>
-
-                <!-- Docker -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">Docker</h3>
-                    <p class="text-cream opacity-70 text-sm">Containerization</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">Docker</h3><p class="text-cream opacity-70 text-sm">Containerization</p>
                 </div>
-
-                <!-- Redis -->
                 <div class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="skill-logo w-20 h-20 mb-4">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" class="w-full h-full">
-                    </div>
-                    <h3 class="font-display text-xl font-bold mb-2">Redis</h3>
-                    <p class="text-cream opacity-70 text-sm">Caching</p>
+                    <div class="skill-logo w-20 h-20 mb-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" class="w-full h-full"></div>
+                    <h3 class="font-display text-xl font-bold mb-2">Redis</h3><p class="text-cream opacity-70 text-sm">Caching</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS -->
     <section id="projects" class="py-24 reveal">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <p class="text-accent text-sm tracking-widest uppercase mb-2">Portfolio</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold">
-                    Featured <span class="gradient-text">Projects</span>
-                </h2>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">Featured <span class="gradient-text">Projects</span></h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
-                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+            <!-- Filter Tabs -->
+            <div class="flex justify-center gap-3 mb-12 flex-wrap">
+                <button onclick="filterProjects('all')" data-filter="all"
+                    class="filter-btn active-filter px-6 py-2 rounded-full text-sm font-medium border border-accent transition-all duration-300">
+                    All Projects
+                </button>
+                <button onclick="filterProjects('company')" data-filter="company"
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium border border-accent/40 text-cream/60 hover:border-accent hover:text-accent transition-all duration-300">
+                    <i class="fas fa-building mr-2 text-xs"></i>Company Work
+                </button>
+                <button onclick="filterProjects('personal')" data-filter="personal"
+                    class="filter-btn px-6 py-2 rounded-full text-sm font-medium border border-accent/40 text-cream/60 hover:border-accent hover:text-accent transition-all duration-300">
+                    <i class="fas fa-user mr-2 text-xs"></i>Personal
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+                <!-- COMPANY: AJAXX Privacy -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="company">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
+                        <i class="fas fa-shield-alt text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent">
+                            <i class="fas fa-building mr-1 text-xs"></i>SparkTech Agency
+                        </span>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-xl font-bold mb-3 text-center px-4">AJAXX Privacy Web</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80 px-4">Detects personal data across broker sites and automates removal requests</p>
+                        <a href="https://github.com/Mamungithube/AJAXX-PRIVACY-WEB-BACKEND.git" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">AJAXX Privacy Web</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">Company</span>
+                        </div>
+                        <p class="text-accent text-sm mb-3">Django • REST API • Web Scraping</p>
+                        <p class="text-cream opacity-70 text-sm">Scans data broker websites to find user's personal data and automates opt-out & removal requests at scale.</p>
+                    </div>
+                </div>
+
+                <!-- COMPANY: Water Break -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="company">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
+                        <i class="fas fa-dumbbell text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent">
+                            <i class="fas fa-building mr-1 text-xs"></i>SparkTech Agency
+                        </span>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-xl font-bold mb-3 text-center px-4">Water Break</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80 px-4">Sports practice plan manager — players set, track and manage their training schedules</p>
+                        <a href="https://github.com/Mamungithube/Water-Break-backend-project.git" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">Water Break</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">Company</span>
+                        </div>
+                        <p class="text-accent text-sm mb-3">Django • PostgreSQL • REST API</p>
+                        <p class="text-cream opacity-70 text-sm">Practice plan creation app that helps athletes design, schedule and manage their training sessions.</p>
+                    </div>
+                </div>
+
+                <!-- COMPANY: Dealnux -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="company">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
+                        <i class="fas fa-balance-scale text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent">
+                            <i class="fas fa-building mr-1 text-xs"></i>SparkTech Agency
+                        </span>
+                    </div>
+                    <div class="project-overlay">
+                        <h4 class="font-display text-xl font-bold mb-3 text-center px-4">Dealnux</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80 px-4">E-commerce product comparison engine — finds the best deal across platforms</p>
+                        <a href="https://github.com/Mamungithube/dealnux-backend-.git" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">Dealnux</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">Company</span>
+                        </div>
+                        <p class="text-accent text-sm mb-3">Django • DRF • PostgreSQL</p>
+                        <p class="text-cream opacity-70 text-sm">Smart e-commerce comparison backend that aggregates product listings and surfaces the best deal for users.</p>
+                    </div>
+                </div>
+
+                <!-- PERSONAL: E-Learning -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="personal">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
                         <i class="fas fa-graduation-cap text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cream/50">
+                            <i class="fas fa-user mr-1 text-xs"></i>Personal
+                        </span>
                     </div>
                     <div class="project-overlay">
-                        <h4 class="font-display text-2xl font-bold mb-4">E-Learning Platform</h4>
-                        <p class="text-center max-w-xs mb-6">Full-stack e-learning system with course management and enrollment</p>
-                        <div class="flex gap-4">
-                            <!-- <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                                <i class="fas fa-external-link-alt mr-2"></i>Demo
-                            </a> -->
-                            <a href="https://github.com/Mamungithube/Online_Course" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
-                                <i class="fab fa-github mr-2"></i>Code
-                            </a>
-                        </div>
+                        <h4 class="font-display text-xl font-bold mb-3">E-Learning Platform</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80">Full-stack e-learning system with course management and enrollment</p>
+                        <a href="https://github.com/Mamungithube/Online_Course" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-bold mb-2">E-Learning Platform</h3>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">E-Learning Platform</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-cream/50 border border-white/10">Personal</span>
+                        </div>
                         <p class="text-accent text-sm mb-3">Django • MySQL • REST API</p>
-                        <p class="text-cream opacity-70 text-sm">
-                            Complete e-learning system with course management, student enrollment, and progress tracking.
-                        </p>
+                        <p class="text-cream opacity-70 text-sm">Complete e-learning system with course management, student enrollment, and progress tracking.</p>
                     </div>
                 </div>
 
-                <!-- Project Card 2 -->
-                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
-                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                <!-- PERSONAL: Hotel -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="personal">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
                         <i class="fas fa-hotel text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cream/50">
+                            <i class="fas fa-user mr-1 text-xs"></i>Personal
+                        </span>
                     </div>
                     <div class="project-overlay">
-                        <h4 class="font-display text-2xl font-bold mb-4">Hotel Management</h4>
-                        <p class="text-center max-w-xs mb-6">Comprehensive hotel booking and management system</p>
-                        <div class="flex gap-4">
-                            <!-- <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                                <i class="fas fa-external-link-alt mr-2"></i>Demo
-                            </a> -->
-                            <a href="https://github.com/Mamungithube/marks-hotel-backend" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
-                                <i class="fab fa-github mr-2"></i>Code
-                            </a>
-                        </div>
+                        <h4 class="font-display text-xl font-bold mb-3">Hotel Management</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80">Comprehensive hotel booking and management system</p>
+                        <a href="https://github.com/Mamungithube/marks-hotel-backend" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-bold mb-2">Hotel Management</h3>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">Hotel Management</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-cream/50 border border-white/10">Personal</span>
+                        </div>
                         <p class="text-accent text-sm mb-3">Django • PostgreSQL • Stripe</p>
-                        <p class="text-cream opacity-70 text-sm">
-                            Hotel booking system with room management, reservations, and payment integration.
-                        </p>
+                        <p class="text-cream opacity-70 text-sm">Hotel booking system with room management, reservations, and payment integration.</p>
                     </div>
                 </div>
 
-                <!-- Project Card 3 -->
-                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300">
-                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                <!-- PERSONAL: Chat App -->
+                <div class="project-card bg-gradient-to-br from-slate/50 to-transparent rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/50 transition-all duration-300" data-category="personal">
+                    <div class="h-48 bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center relative">
                         <i class="fas fa-comments text-6xl text-accent"></i>
+                        <span class="absolute top-3 left-3 text-xs font-medium px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cream/50">
+                            <i class="fas fa-user mr-1 text-xs"></i>Personal
+                        </span>
                     </div>
                     <div class="project-overlay">
-                        <h4 class="font-display text-2xl font-bold mb-4">Real-time Chat System</h4>
-                        <p class="text-center max-w-xs mb-6">WebSocket-powered instant messaging platform</p>
-                        <div class="flex gap-4">
-                            <!-- <a href="#" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                                <i class="fas fa-external-link-alt mr-2"></i>Demo
-                            </a> -->
-                            <a href="https://github.com/Mamungithube/Chat-app" class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all">
-                                <i class="fab fa-github mr-2"></i>Code
-                            </a>
-                        </div>
+                        <h4 class="font-display text-xl font-bold mb-3">Real-time Chat System</h4>
+                        <p class="text-center max-w-xs mb-6 text-sm opacity-80">WebSocket-powered instant messaging platform</p>
+                        <a href="https://github.com/Mamungithube/Chat-app" target="_blank"
+                           class="border border-accent px-6 py-2 rounded-full hover:bg-accent transition-all text-sm">
+                            <i class="fab fa-github mr-2"></i>Code
+                        </a>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-bold mb-2">Real-time Chat System</h3>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-display text-lg font-bold">Real-time Chat System</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-cream/50 border border-white/10">Personal</span>
+                        </div>
                         <p class="text-accent text-sm mb-3">Django Channels • WebSocket • Redis</p>
-                        <p class="text-cream opacity-70 text-sm">
-                            Real-time chat application with JWT authentication and message persistence.
-                        </p>
+                        <p class="text-cream opacity-70 text-sm">Real-time chat application with JWT authentication and message persistence.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section id="contact" class="py-24 reveal">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <p class="text-accent text-sm tracking-widest uppercase mb-2">Get In Touch</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold">
-                    Let's Work <span class="gradient-text">Together</span>
-                </h2>
+                <h2 class="font-display text-4xl md:text-5xl font-bold">Let's Work <span class="gradient-text">Together</span></h2>
             </div>
-
             <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Contact Info -->
                 <div class="space-y-8">
                     <div>
                         <h3 class="font-display text-2xl font-bold mb-4">Ready to start a project?</h3>
-                        <p class="text-cream opacity-80 leading-relaxed">
-                            I'm currently available for freelance work or full-time positions. 
-                            Let's discuss how I can help bring your ideas to life!
-                        </p>
+                        <p class="text-cream opacity-80 leading-relaxed">I'm currently available for freelance work or full-time positions. Let's discuss how I can help bring your ideas to life!</p>
                     </div>
-
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Location</h4>
-                                <p class="text-cream opacity-70">Comilla, Bangladesh</p>
-                            </div>
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-accent"></i></div>
+                            <div><h4 class="font-semibold mb-1">Location</h4><p class="text-cream opacity-70">Dhaka, Bangladesh</p></div>
                         </div>
-
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Email</h4>
-                                <p class="text-cream opacity-70">orroshidmdmamun50@gmail.com</p>
-                            </div>
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-accent"></i></div>
+                            <div><h4 class="font-semibold mb-1">Email</h4><p class="text-cream opacity-70">orroshidmdmamun50@gmail.com</p></div>
                         </div>
-
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Phone</h4>
-                                <p class="text-cream opacity-70">01839907067</p>
-                            </div>
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-accent"></i></div>
+                            <div><h4 class="font-semibold mb-1">Phone</h4><p class="text-cream opacity-70">01839907067</p></div>
                         </div>
                     </div>
-
                     <div class="flex gap-4 pt-4">
-                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Mamungithube" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-github"></i>
-                        </a>
+                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Mamungithube"                 target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
                 <div class="bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl border border-accent/20">
                     <form id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium mb-2">Your Name</label>
-                                <input type="text" name="name" required
-                                    class="form-input w-full px-4 py-3 rounded-lg"
-                                    placeholder="John Doe">
+                                <input type="text" name="name" required class="form-input w-full px-4 py-3 rounded-lg" placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-2">Your Email</label>
-                                <input type="email" name="email" required
-                                    class="form-input w-full px-4 py-3 rounded-lg"
-                                    placeholder="john@example.com">
+                                <input type="email" name="email" required class="form-input w-full px-4 py-3 rounded-lg" placeholder="john@example.com">
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-sm font-medium mb-2">Subject</label>
-                            <input type="text" name="subject" required
-                                class="form-input w-full px-4 py-3 rounded-lg"
-                                placeholder="Project Inquiry">
+                            <input type="text" name="subject" required class="form-input w-full px-4 py-3 rounded-lg" placeholder="Project Inquiry">
                         </div>
-
                         <div>
                             <label class="block text-sm font-medium mb-2">Message</label>
-                            <textarea name="message" rows="5" required
-                                class="form-input w-full px-4 py-3 rounded-lg resize-none"
-                                placeholder="Tell me about your project..."></textarea>
+                            <textarea name="message" rows="5" required class="form-input w-full px-4 py-3 rounded-lg resize-none" placeholder="Tell me about your project..."></textarea>
                         </div>
-
-                        <button type="submit" 
-                            class="w-full bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 flex items-center justify-center gap-3">
+                        <button type="submit" class="w-full bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 flex items-center justify-center gap-3">
                             <span id="btn-text">Send Message</span>
                             <i id="btn-icon" class="fas fa-paper-plane"></i>
                             <span id="btn-loading" class="loading hidden"></span>
                         </button>
-
                         <div id="form-message" class="hidden"></div>
                     </form>
                 </div>
@@ -854,13 +710,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="py-8 border-t border-accent/20">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-cream opacity-70">
-                    &copy; 2025 Md. Mamun Or Rashid. All rights reserved.
-                </p>
+                <p class="text-cream opacity-70">&copy; 2025 Md. Mamun Or Rashid. All rights reserved.</p>
                 <a href="#home" class="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">
                     <i class="fas fa-arrow-up"></i>
                 </a>
@@ -868,122 +722,96 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Smooth Scrolling
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    mobileMenu.classList.add('hidden');
+                    document.getElementById('mobile-menu').classList.add('hidden');
                 }
             });
         });
 
-        // Scroll Reveal Animation
+        // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
-        
         const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const revealPoint = 100;
-                
-                if (elementTop < windowHeight - revealPoint) {
-                    element.classList.add('active');
-                }
+            const wh = window.innerHeight;
+            reveals.forEach(el => {
+                if (el.getBoundingClientRect().top < wh - 100) el.classList.add('active');
             });
         };
-
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+        revealOnScroll();
 
-        // Contact Form Submission with Django REST API
+        // Project filter
+        function filterProjects(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active-filter');
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.style.borderColor = '';
+            });
+            document.querySelector('[data-filter="' + category + '"]').classList.add('active-filter');
+
+            document.querySelectorAll('#projects-grid > div').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = '';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity .4s ease, transform .4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact form
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
-        const btnText = document.getElementById('btn-text');
-        const btnIcon = document.getElementById('btn-icon');
-        const btnLoading = document.getElementById('btn-loading');
+        const btnText     = document.getElementById('btn-text');
+        const btnIcon     = document.getElementById('btn-icon');
+        const btnLoading  = document.getElementById('btn-loading');
 
-        contactForm.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', async e => {
             e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                subject: formData.get('subject'),
-                message: formData.get('message')
-            };
-
-            // Show loading state
+            const fd   = new FormData(contactForm);
+            const data = { name: fd.get('name'), email: fd.get('email'), subject: fd.get('subject'), message: fd.get('message') };
             btnText.textContent = 'Sending...';
             btnIcon.classList.add('hidden');
             btnLoading.classList.remove('hidden');
-
             try {
-                // Send to Django REST API
-                const response = await fetch('http://localhost:8000/api/contact/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    // Success
-                    formMessage.innerHTML = `
-                        <div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3">
-                            <i class="fas fa-check-circle text-xl"></i>
-                            <span>Message sent successfully! I'll get back to you soon.</span>
-                        </div>
-                    `;
+                const res    = await fetch('http://localhost:8000/api/contact/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                const result = await res.json();
+                if (res.ok) {
+                    formMessage.innerHTML = '<div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-check-circle text-xl"></i><span>Message sent successfully! I\'ll get back to you soon.</span></div>';
                     formMessage.classList.remove('hidden');
                     contactForm.reset();
-
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        formMessage.classList.add('hidden');
-                    }, 5000);
                 } else {
-                    // Error
                     throw new Error(result.message || 'Failed to send message');
                 }
             } catch (error) {
-                // Show error
-                formMessage.innerHTML = `
-                    <div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3">
-                        <i class="fas fa-exclamation-circle text-xl"></i>
-                        <span>${error.message || 'Something went wrong. Please try again.'}</span>
-                    </div>
-                `;
+                formMessage.innerHTML = '<div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-circle text-xl"></i><span>' + (error.message || 'Something went wrong. Please try again.') + '</span></div>';
                 formMessage.classList.remove('hidden');
-
-                setTimeout(() => {
-                    formMessage.classList.add('hidden');
-                }, 5000);
             } finally {
-                // Reset button state
                 btnText.textContent = 'Send Message';
                 btnIcon.classList.remove('hidden');
                 btnLoading.classList.add('hidden');
+                setTimeout(() => formMessage.classList.add('hidden'), 5000);
             }
         });
     </script>
 </body>
-
 </html>
