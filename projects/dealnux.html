@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealnux — Md. Mamun Or Rashid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: #F7F5F2; overflow-x: hidden; min-height: 100vh; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0A0E27; } ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
+        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .navbar-glass { background: rgba(10,14,39,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,53,.1); }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3); border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+        .tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,107,53,.1); border: 0.5px solid rgba(255,107,53,.3); border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.8); padding: 4px 10px; }
+        .section-card { background: rgba(45,55,72,.2); border: 1px solid rgba(255,107,53,.12); border-radius: 20px; padding: 32px; }
+        .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .tech-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.75); padding: 6px 12px; }
+        .flow-step { display: flex; gap: 16px; align-items: flex-start; }
+        .flow-num { width: 32px; height: 32px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: rgba(247,245,242,.6); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: color .2s; text-decoration: none; }
+        .back-btn:hover { color: #FF6B35; }
+        .animated-bg { position: fixed; inset: 0; z-index: -1; opacity: .04; background-image: radial-gradient(circle at 20% 30%, rgba(255,107,53,.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,107,53,.1) 0%, transparent 50%); }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-display font-bold gradient-text">MOR</a>
+            <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Back to Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Projects</a>
+                    <span class="text-accent/40">/</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">Dealnux</span>
+                </div>
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="hero-icon"><i class="fas fa-balance-scale text-4xl text-accent"></i></div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> SparkTech Agency</span>
+                            <span class="tag"><i class="fas fa-briefcase text-xs"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2024</span>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2"><span class="gradient-text">Dealnux</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Smart e-commerce product comparison & best deal finder</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Mamungithube/dealnux-backend-.git" target="_blank"
+                   class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
+                    Dealnux is an e-commerce product comparison backend built at SparkTech Agency. The core idea is simple — when a user searches for a product, Dealnux fetches listings from multiple e-commerce platforms, compares prices, ratings, and availability, and surfaces the best deal.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
+                    It acts as a smart aggregator that saves users from manually visiting 10 different sites to find the best price. The backend handles product data ingestion, normalization, comparison logic, and delivers clean, ranked results via REST API.
+                </p>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-search-dollar text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Multi-Platform Product Search</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Aggregates product listings from multiple e-commerce sources for a single search query. Results are fetched in parallel for speed and normalized into a unified product schema.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-sort-amount-down text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Smart Price Comparison & Ranking</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Products are ranked by a composite score factoring in price, seller rating, shipping cost, and availability. Users can sort by any attribute or use the AI-calculated "best value" score.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tag text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Price History Tracking</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Product prices are tracked over time. Users can see if a "deal" is genuinely a discount or if the price was recently inflated. Historical data is stored and exposed via API.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-star text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Wishlist & Price Alerts</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Users can save products to a wishlist and set price drop alerts. When a product's price falls below a threshold, the system automatically sends an email notification.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-filter text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Advanced Filtering</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Filter results by price range, rating, brand, seller, shipping speed, and availability. All filters are handled server-side for performance with paginated responses.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-memory text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Redis Caching Layer</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Popular search results are cached in Redis to reduce redundant external API calls. Cache invalidation is handled intelligently based on product data freshness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">How It Works</h2>
+                <div class="space-y-5">
+                    <div class="flow-step"><div class="flow-num">1</div><div><h3 class="font-semibold mb-1">User Submits a Search Query</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">User hits the search API with a product name. The query is normalized and dispatched to all integrated data source adapters in parallel.</p></div></div>
+                    <div class="flow-step"><div class="flow-num">2</div><div><h3 class="font-semibold mb-1">Data Fetching & Normalization</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Each adapter fetches listings from its source (via API or scraping), extracts relevant fields, and maps them to a common product schema — name, price, rating, image, seller, link.</p></div></div>
+                    <div class="flow-step"><div class="flow-num">3</div><div><h3 class="font-semibold mb-1">Comparison & Scoring</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">The comparison engine calculates a "value score" for each listing based on price relative to average, seller trust score, and product rating. Top results are ranked.</p></div></div>
+                    <div class="flow-step"><div class="flow-num">4</div><div><h3 class="font-semibold mb-1">Results Returned & Cached</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Ranked results are returned to the client as paginated JSON. The result set is cached in Redis for 30 minutes to serve repeated queries instantly.</p></div></div>
+                    <div class="flow-step"><div class="flow-num">5</div><div><h3 class="font-semibold mb-1">Price Tracking Background Job</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Celery beat runs periodic jobs to refresh prices on wishlisted products and triggers email alerts for price drops.</p></div></div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 4.2</div>
+                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery</div>
+                    <div class="tech-chip"><i class="fas fa-memory text-accent"></i> Redis</div>
+                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker</div>
+                    <div class="tech-chip"><i class="fas fa-envelope text-accent"></i> Email Alerts</div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">My Role</h2>
+                <ul class="space-y-3">
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Designed the unified product schema and multi-source adapter architecture</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built the comparison engine with configurable scoring weights</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Implemented Redis caching strategy with smart invalidation</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Set up Celery beat for price tracking and wishlist alert notifications</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built all REST API endpoints with pagination, filtering, and search</li>
+                </ul>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <a href="water-break.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="elearning.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

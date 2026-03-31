@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management — Md. Mamun Or Rashid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: #F7F5F2; overflow-x: hidden; min-height: 100vh; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0A0E27; } ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
+        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .navbar-glass { background: rgba(10,14,39,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,53,.1); }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3); border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+        .tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,107,53,.1); border: 0.5px solid rgba(255,107,53,.3); border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.8); padding: 4px 10px; }
+        .tag-personal { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.15); }
+        .section-card { background: rgba(45,55,72,.2); border: 1px solid rgba(255,107,53,.12); border-radius: 20px; padding: 32px; }
+        .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .tech-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.75); padding: 6px 12px; }
+        .flow-step { display: flex; gap: 16px; align-items: flex-start; }
+        .flow-num { width: 32px; height: 32px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: rgba(247,245,242,.6); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: color .2s; text-decoration: none; }
+        .back-btn:hover { color: #FF6B35; }
+        .animated-bg { position: fixed; inset: 0; z-index: -1; opacity: .04; background-image: radial-gradient(circle at 20% 30%, rgba(255,107,53,.15) 0%, transparent 50%); }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-display font-bold gradient-text">MOR</a>
+            <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Back to Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Projects</a>
+                    <span class="text-accent/40">/</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">Hotel Management</span>
+                </div>
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="hero-icon"><i class="fas fa-hotel text-4xl text-accent"></i></div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag tag-personal"><i class="fas fa-user text-xs"></i> Personal Project</span>
+                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2023</span>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">Hotel <span class="gradient-text">Management</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Room booking, reservation management & payment integration system</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Mamungithube/marks-hotel-backend" target="_blank"
+                   class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
+                    This Hotel Management System is a personal project that simulates a real-world hotel booking backend. It handles the core operations of a hotel — room management, guest reservations, availability checking, and payment processing.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
+                    The main challenge was handling concurrent reservation conflicts (two guests booking the same room at the same time) and integrating Stripe for real payment flows. This project gave me practical experience with transactional database operations and third-party payment API integration.
+                </p>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-bed text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Room Management</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Full CRUD for hotel rooms with attributes like room type, floor, capacity, amenities, price per night, and availability status. Admin can add, edit, or deactivate rooms.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-calendar-check text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Reservation System</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Guests select check-in/check-out dates; the system checks real-time room availability and blocks the room for the booking window. Handles overlap detection to prevent double-bookings.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-credit-card text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Stripe Payment Integration</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Guests pay for reservations via Stripe. The system creates payment intents, handles webhook confirmation events, and marks reservations as confirmed only after successful payment.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-file-invoice text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Invoice Generation</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Automatic invoice generation after confirmed booking with itemized breakdown — room price, taxes, service charges. Invoices are stored and retrievable via API.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-concierge-bell text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Check-in / Check-out Management</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Staff can mark guests as checked-in or checked-out. Room status updates automatically. Late check-out fees are calculated and can be added to the final invoice.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-undo text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Cancellation & Refund</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Guests can cancel reservations. Refund eligibility is calculated based on cancellation policy (free cancellation window, partial refund, no refund). Refunds triggered via Stripe API.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django</div>
+                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
+                    <div class="tech-chip"><i class="fas fa-credit-card text-accent"></i> Stripe API</div>
+                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
+                    <div class="tech-chip"><i class="fab fa-git-alt text-accent"></i> Git</div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">What I Learned</h2>
+                <ul class="space-y-3">
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Handling concurrent database transactions safely to prevent double-booking race conditions</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Integrating Stripe payment intents and handling webhook events for payment confirmation</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Building date-range availability queries in PostgreSQL efficiently</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Designing state machines for reservation status (pending → confirmed → checked-in → checked-out)</li>
+                </ul>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <a href="elearning.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="chat.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

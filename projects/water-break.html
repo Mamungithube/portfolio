@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Break — Md. Mamun Or Rashid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: #F7F5F2; overflow-x: hidden; min-height: 100vh; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0A0E27; } ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
+        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .navbar-glass { background: rgba(10,14,39,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,53,.1); }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3); border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+        .tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,107,53,.1); border: 0.5px solid rgba(255,107,53,.3); border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.8); padding: 4px 10px; }
+        .section-card { background: rgba(45,55,72,.2); border: 1px solid rgba(255,107,53,.12); border-radius: 20px; padding: 32px; }
+        .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .tech-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.75); padding: 6px 12px; }
+        .flow-step { display: flex; gap: 16px; align-items: flex-start; }
+        .flow-num { width: 32px; height: 32px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: rgba(247,245,242,.6); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: color .2s; text-decoration: none; }
+        .back-btn:hover { color: #FF6B35; }
+        .animated-bg { position: fixed; inset: 0; z-index: -1; opacity: .04; background-image: radial-gradient(circle at 20% 30%, rgba(255,107,53,.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,107,53,.1) 0%, transparent 50%); }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-display font-bold gradient-text">MOR</a>
+            <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Back to Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero -->
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Projects</a>
+                    <span class="text-accent/40">/</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">Water Break</span>
+                </div>
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="hero-icon"><i class="fas fa-dumbbell text-4xl text-accent"></i></div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> SparkTech Agency</span>
+                            <span class="tag"><i class="fas fa-briefcase text-xs"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2024</span>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">Water <span class="gradient-text">Break</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Sports practice plan manager for athletes & coaches</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Mamungithube/Water-Break-backend-project.git" target="_blank"
+                   class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <!-- Overview -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
+                    Water Break is a backend system for a sports practice planning application built at SparkTech Agency. The app targets coaches and athletes who want a structured, digital way to plan, manage, and track their practice sessions.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
+                    Think of it as a planner specifically designed for sports teams — coaches can create detailed practice schedules broken into drills, rest intervals, and exercises, while players can view their upcoming sessions, log attendance, and track personal progress over time.
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-calendar-plus text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Practice Plan Creation</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Coaches can create structured practice plans with multiple drills, rest periods, and timed exercises. Plans can be saved as templates and reused for recurring sessions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-users text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Team & Player Management</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Coaches manage teams and roster, assign players to specific sessions, and set individual or group-level training targets. Role-based access separates coach and player capabilities.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-clock text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Drill & Interval Scheduling</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Each practice plan contains multiple drills with set duration, intensity level, and rest intervals. Players can see a real-time breakdown of their upcoming session structure.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check-double text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Attendance & Completion Tracking</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Players mark attendance and log session completion. Coaches get aggregated reports on team participation, completion rates, and individual player consistency.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-bar text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Progress Analytics</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Weekly and monthly progress summaries for both players and coaches. Tracks sessions completed, total training hours, and drill performance over time.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-bell text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Session Reminders</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Automated push notifications and email reminders sent to players before upcoming sessions. Coaches can set custom reminder intervals per plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How it Works -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">How It Works</h2>
+                <div class="space-y-5">
+                    <div class="flow-step">
+                        <div class="flow-num">1</div>
+                        <div><h3 class="font-semibold mb-1">Coach Creates a Practice Plan</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Coach logs in and creates a new session — adds drills, sets duration per drill, assigns rest intervals, and picks a date/time.</p></div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num">2</div>
+                        <div><h3 class="font-semibold mb-1">Players Are Notified</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">All assigned team members receive a reminder notification with full session details — drills, timing, location, and coach notes.</p></div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num">3</div>
+                        <div><h3 class="font-semibold mb-1">Live Session Tracking</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">During the session, players can check off completed drills in real-time through the mobile app. Progress is synced live.</p></div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num">4</div>
+                        <div><h3 class="font-semibold mb-1">Post-Session Reporting</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">After the session ends, attendance and completion data is compiled automatically. Coaches review reports from their dashboard.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 4.2</div>
+                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery</div>
+                    <div class="tech-chip"><i class="fas fa-memory text-accent"></i> Redis</div>
+                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker</div>
+                    <div class="tech-chip"><i class="fas fa-envelope text-accent"></i> SMTP Email</div>
+                </div>
+            </div>
+
+            <!-- My Role -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">My Role</h2>
+                <ul class="space-y-3">
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Designed the full database schema — practice plans, drills, teams, players, sessions, attendance</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built all REST API endpoints for plan CRUD, drill management, team management, and analytics</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Implemented role-based access control — coach vs player permissions at the API level</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Set up Celery beat for scheduled reminder tasks and periodic reporting jobs</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Wrote API documentation and collaborated with frontend/mobile team for integration</li>
+                </ul>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <a href="ajaxx-privacy.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="dealnux.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

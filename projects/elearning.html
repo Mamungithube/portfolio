@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform — Md. Mamun Or Rashid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: #F7F5F2; overflow-x: hidden; min-height: 100vh; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0A0E27; } ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
+        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .navbar-glass { background: rgba(10,14,39,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,53,.1); }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3); border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+        .tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,107,53,.1); border: 0.5px solid rgba(255,107,53,.3); border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.8); padding: 4px 10px; }
+        .tag-personal { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.15); }
+        .section-card { background: rgba(45,55,72,.2); border: 1px solid rgba(255,107,53,.12); border-radius: 20px; padding: 32px; }
+        .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .tech-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.75); padding: 6px 12px; }
+        .flow-step { display: flex; gap: 16px; align-items: flex-start; }
+        .flow-num { width: 32px; height: 32px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: rgba(247,245,242,.6); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: color .2s; text-decoration: none; }
+        .back-btn:hover { color: #FF6B35; }
+        .animated-bg { position: fixed; inset: 0; z-index: -1; opacity: .04; background-image: radial-gradient(circle at 20% 30%, rgba(255,107,53,.15) 0%, transparent 50%); }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-display font-bold gradient-text">MOR</a>
+            <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Back to Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Projects</a>
+                    <span class="text-accent/40">/</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">E-Learning Platform</span>
+                </div>
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="hero-icon"><i class="fas fa-graduation-cap text-4xl text-accent"></i></div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag tag-personal"><i class="fas fa-user text-xs"></i> Personal Project</span>
+                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2023</span>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">E-Learning <span class="gradient-text">Platform</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Full-stack online course management system with enrollment & progress tracking</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Mamungithube/Online_Course" target="_blank"
+                   class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
+                    This E-Learning Platform is a personal project I built to deepen my Django skills while solving a real-world problem — creating a complete online education system from scratch. It covers the full lifecycle of online learning, from course creation by instructors to student enrollment, lesson delivery, and progress tracking.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
+                    The project focuses heavily on REST API design, role-based access control (instructors vs students), and database modeling for complex relationships like many-to-many enrollments, nested course content, and per-student progress tracking.
+                </p>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chalkboard-teacher text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Course & Lesson Management</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Instructors can create courses with multiple sections and lessons. Each lesson supports text content, video URLs, and attachments. Full CRUD with drag-and-drop ordering via API.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-graduate text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Student Enrollment System</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Students can browse the course catalog and enroll in courses. Enrollment supports free and paid courses, with payment integration for premium content access.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-line text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Progress Tracking</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Each lesson completion is tracked per student. The system calculates overall course completion percentage and marks courses as complete when all lessons are done.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-star text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Reviews & Ratings</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Enrolled students can leave reviews and star ratings for courses they've enrolled in. Average ratings are calculated dynamically and exposed on course listing endpoints.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-shield-alt text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Role-Based Access Control</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Three roles — Admin, Instructor, and Student — each with different permissions. Instructors only manage their own courses; students only access enrolled content; admins control everything.</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-search text-accent text-sm"></i></div>
+                        <div><h3 class="font-semibold mb-1">Course Discovery & Filtering</h3>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Searchable course catalog with filtering by category, difficulty level, instructor, and price range. Full-text search on course titles and descriptions.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django</div>
+                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> MySQL</div>
+                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
+                    <div class="tech-chip"><i class="fab fa-git-alt text-accent"></i> Git</div>
+                </div>
+            </div>
+
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">What I Learned</h2>
+                <ul class="space-y-3">
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Designing complex many-to-many database relationships (courses ↔ students ↔ lessons ↔ progress)</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Implementing granular permission classes in DRF for multi-role systems</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Optimizing N+1 query problems with select_related and prefetch_related</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-lightbulb text-accent mt-1 flex-shrink-0"></i>Building paginated, filterable, and searchable API list endpoints</li>
+                </ul>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <a href="dealnux.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="hotel.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
