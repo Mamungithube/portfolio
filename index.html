@@ -1539,10 +1539,10 @@
             btnLoading.classList.remove('hidden');
 
             const templateParams = {
-                from_name: fd.get('name'),    // Maps to {{from_name}} in EmailJS
-                email: fd.get('email'),        // Maps to {{email}} (your Reply-To)
-                subject: fd.get('subject'),    // Maps to {{subject}}
-                message: fd.get('message'),    // Maps to {{message}}
+                from_name: fd.get('name'),    
+                email: fd.get('email'),        
+                subject: fd.get('subject'),   
+                message: fd.get('message'),    
             };
 
             emailjs.send('service_gcp6qrd', 'template_8gl5u4h', templateParams)
