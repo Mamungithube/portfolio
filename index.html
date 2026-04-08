@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -708,7 +709,7 @@
                     <div class="flex gap-4 pt-4">
                         <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/Mamungithube" target="_blank" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fab fa-github"></i></a>
-                        <a href="mailto:orroshidmdmamun50@gmail.com" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fas fa-envelope"></i></a>
+                        <a href="/cdn-cgi/l/email-protection#9ef1ececf1edf6f7faf3faf3fff3ebf0abaedef9f3fff7f2b0fdf1f3" class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="animate-slide-up flex justify-center">
@@ -765,7 +766,7 @@
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center gap-2"><i class="fas fa-envelope text-accent"></i><span class="text-sm opacity-70">Email</span></div>
-                            <p class="font-semibold text-sm break-all">orroshidmdmamun50@gmail.com</p>
+                            <p class="font-semibold text-sm break-all"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="49263b3b263a21202d242d2428243c277c79092e24282025672a2624">[email&#160;protected]</a></p>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center gap-2"><i class="fas fa-phone text-accent"></i><span class="text-sm opacity-70">Phone</span></div>
@@ -776,11 +777,18 @@
                             <p class="font-semibold">Dhaka, Bangladesh</p>
                         </div>
                     </div>
-                    <a href="https://drive.google.com/uc?export=download&id=1vsS_G4Np5_aDFLbmE18pTArZrm-xd1Qr"
-                        class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 group">
-                        <i class="fas fa-download group-hover:animate-bounce"></i>
-                        Download Resume
-                    </a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://drive.google.com/uc?export=download&id=1vsS_G4Np5_aDFLbmE18pTArZrm-xd1Qr"
+                            class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 group">
+                            <i class="fas fa-download group-hover:animate-bounce"></i>
+                            Download Resume
+                        </a>
+                        <a href="https://drive.google.com/file/d/1vsS_G4Np5_aDFLbmE18pTArZrm-xd1Qr/view" target="_blank"
+                            class="inline-flex items-center gap-3 border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300 group">
+                            <i class="fas fa-eye"></i>
+                            View Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1123,7 +1131,7 @@
                             <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-accent"></i></div>
                             <div>
                                 <h4 class="font-semibold mb-1">Email</h4>
-                                <p class="text-cream opacity-70 break-all">orroshidmdmamun50@gmail.com</p>
+                                <p class="text-cream opacity-70 break-all"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="234c51514c504b4a474e474e424e564d161363444e424a4f0d404c4e">[email&#160;protected]</a></p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
@@ -1183,7 +1191,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
@@ -1234,38 +1242,54 @@
             });
         }
 
+        // =============================================
+        // EmailJS Setup
+        // YOUR_PUBLIC_KEY → EmailJS dashboard > Account > Public Key
+        // YOUR_SERVICE_ID → EmailJS dashboard > Email Services > Service ID
+        // YOUR_TEMPLATE_ID → EmailJS dashboard > Email Templates > Template ID
+        // =============================================
+        emailjs.init('qKT37YhhFQyLDO5pT');
+
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
         const btnText = document.getElementById('btn-text');
         const btnIcon = document.getElementById('btn-icon');
         const btnLoading = document.getElementById('btn-loading');
 
-        contactForm.addEventListener('submit', async e => {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const fd = new FormData(contactForm);
-            const data = { name: fd.get('name'), email: fd.get('email'), subject: fd.get('subject'), message: fd.get('message') };
+
             btnText.textContent = 'Sending...';
             btnIcon.classList.add('hidden');
             btnLoading.classList.remove('hidden');
-            try {
-                const res = await fetch('http://localhost:8000/api/contact/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-                const result = await res.json();
-                if (res.ok) {
+
+            const templateParams = {
+                from_name:    fd.get('name'),
+                from_email:   fd.get('email'),
+                subject:      fd.get('subject'),
+                message:      fd.get('message'),
+                reply_to:     fd.get('email'),
+            };
+
+            emailjs.send('service_gcp6qrd', 'template_8gl5u4h', templateParams)
+                .then(function() {
                     formMessage.innerHTML = '<div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-check-circle text-xl"></i><span>Message sent successfully! I\'ll get back to you soon.</span></div>';
                     formMessage.classList.remove('hidden');
                     contactForm.reset();
-                } else {
-                    throw new Error(result.message || 'Failed to send message');
-                }
-            } catch (error) {
-                formMessage.innerHTML = '<div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-circle text-xl"></i><span>' + (error.message || 'Something went wrong. Please try again.') + '</span></div>';
-                formMessage.classList.remove('hidden');
-            } finally {
-                btnText.textContent = 'Send Message';
-                btnIcon.classList.remove('hidden');
-                btnLoading.classList.add('hidden');
-                setTimeout(() => formMessage.classList.add('hidden'), 5000);
-            }
+                    setTimeout(() => formMessage.classList.add('hidden'), 5000);
+                })
+                .catch(function(error) {
+                    formMessage.innerHTML = '<div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-circle text-xl"></i><span>Something went wrong. Please try again or email directly.</span></div>';
+                    formMessage.classList.remove('hidden');
+                    console.error('EmailJS error:', error);
+                    setTimeout(() => formMessage.classList.add('hidden'), 5000);
+                })
+                .finally(function() {
+                    btnText.textContent = 'Send Message';
+                    btnIcon.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                });
         });
     </script>
 </body>
