@@ -1373,7 +1373,8 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-accent"></i></div>
+                                <i class="fas fa-map-marker-alt text-accent"></i>
+                            </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Location</h4>
                                 <p class="text-cream opacity-70">Dhaka, Bangladesh</p>
@@ -1382,7 +1383,8 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-accent"></i></div>
+                                <i class="fas fa-envelope text-accent"></i>
+                            </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Email</h4>
                                 <p class="text-cream opacity-70 break-all"><a href="/cdn-cgi/l/email-protection"
@@ -1394,7 +1396,8 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-accent"></i></div>
+                                <i class="fas fa-phone text-accent"></i>
+                            </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Phone</h4>
                                 <p class="text-cream opacity-70">01839907067</p>
@@ -1536,11 +1539,10 @@
             btnLoading.classList.remove('hidden');
 
             const templateParams = {
-                from_name: fd.get('name'),
-                from_email: fd.get('email'),
-                subject: fd.get('subject'),
-                message: fd.get('message'),
-                reply_to: fd.get('email'),
+                from_name: fd.get('name'),    // Maps to {{from_name}} in EmailJS
+                email: fd.get('email'),        // Maps to {{email}} (your Reply-To)
+                subject: fd.get('subject'),    // Maps to {{subject}}
+                message: fd.get('message'),    // Maps to {{message}}
             };
 
             emailjs.send('service_gcp6qrd', 'template_8gl5u4h', templateParams)
