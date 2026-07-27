@@ -298,29 +298,12 @@ body {
 
 .timeline-item {
     position: relative;
-    padding-left: 40px;
+    padding-left: 0;
 }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, #FF6B35 0%, transparent 100%);
-}
-
+.timeline-item::before,
 .timeline-item::after {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 8px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #FF6B35;
-    border: 3px solid #0A0E27;
+    display: none;
 }
 
 .exp-card {
@@ -481,19 +464,9 @@ body {
     border-top: 0.5px solid rgba(255, 255, 255, .07);
 }
 
-.exp-footer-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #FF6B35;
-    flex-shrink: 0;
-}
-
+.exp-footer-dot,
 .exp-footer-bar {
-    flex: 1;
-    height: 2px;
-    background: linear-gradient(90deg, #FF6B35 0%, rgba(255, 107, 53, .05) 100%);
-    border-radius: 2px;
+    display: none;
 }
 
 .exp-footer-text {
