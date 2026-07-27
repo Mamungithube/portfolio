@@ -4,7 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Mamun Or Rashid - Backend Developer</title>
+    <title>Md. Mamun Or Rashid - Backend Developer (Django & REST API)</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personal portfolio of Md. Mamun Or Rashid - Backend Developer specialized in Django, Django REST Framework, PostgreSQL, Docker, and scalable Web Architecture.">
+    <meta name="keywords" content="Md. Mamun Or Rashid, Backend Developer, Django Developer, Python, Django REST Framework, PostgreSQL, Docker, WebSockets, Celery, Redis">
+    <meta name="author" content="Md. Mamun Or Rashid">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mamungithube.github.io/portfolio/">
+    <meta property="og:title" content="Md. Mamun Or Rashid - Backend Developer">
+    <meta property="og:description" content="Backend Developer specialized in Django & REST APIs with 1+ year professional experience building scalable systems.">
+    <meta property="og:image" content="./image/WhatsApp%20Image%202026-01-31%20at%206.28.16%20AM.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Md. Mamun Or Rashid - Backend Developer">
+    <meta property="twitter:description" content="Backend Developer specialized in Django & REST APIs with 1+ year professional experience building scalable systems.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="image/logo.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +32,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
@@ -48,724 +69,42 @@
             }
         }
     </script>
-
-    <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Work Sans', sans-serif;
-            background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
-            color: #F7F5F2;
-            overflow-x: hidden;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A0E27;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #FF6B35;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ff8c5a;
-        }
-
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.03;
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, .1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, .15) 0%, transparent 50%);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .navbar-glass {
-            background: rgba(10, 14, 39, .8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 107, 53, .1);
-        }
-
-        .profile-image-wrapper {
-            position: relative;
-            border-radius: 24px;
-            padding: 6px;
-            background: linear-gradient(135deg, #FF6B35, #FFB4A2, #FF6B35);
-            background-size: 200% 200%;
-            animation: gradientMove 8s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .profile-image-inner {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 4px solid #0A0E27;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 24px;
-            padding: 6px;
-            background: linear-gradient(135deg, #FF6B35, #FFB4A2);
-        }
-
-        .about-image-inner {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 3px solid #0A0E27;
-            position: relative;
-        }
-
-        .about-image-inner::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 53, .1), transparent);
-            pointer-events: none;
-        }
-
-        .skill-card {
-            transition: all .4s cubic-bezier(.4, 0, .2, 1);
-            border: 1px solid rgba(255, 107, 53, .1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 107, 53, .5);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, .2);
-        }
-
-        .skill-logo {
-            transition: all .3s ease;
-        }
-
-        .skill-card:hover .skill-logo {
-            transform: scale(1.1);
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            transition: all .5s ease;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, .2), transparent);
-            transition: left .5s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 14, 39, .95) 0%, rgba(26, 31, 58, .95) 100%);
-            opacity: 0;
-            transition: opacity .4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all .3s ease;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .1);
-            transform: translate(-50%, -50%);
-            transition: width .6s ease, height .6s ease;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all .8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg, #FF6B35 0%, transparent 100%);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 8px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #FF6B35;
-            border: 3px solid #0A0E27;
-        }
-
-        .exp-card {
-            background: rgba(45, 55, 72, .25);
-            border: 1px solid rgba(255, 107, 53, .15);
-            border-radius: 20px;
-            padding: 36px;
-            transition: border-color .3s ease, box-shadow .3s ease;
-        }
-
-        .exp-card:hover {
-            border-color: rgba(255, 107, 53, .45);
-            box-shadow: 0 16px 48px rgba(255, 107, 53, .1);
-        }
-
-        .exp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 107, 53, .12);
-            color: #FF6B35;
-            font-size: 11px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-
-        .exp-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #FF6B35;
-            animation: expPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes expPulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .35
-            }
-        }
-
-        .exp-company {
-            font-family: 'Syne', sans-serif;
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -.4px;
-            line-height: 1.15;
-            color: #F7F5F2;
-        }
-
-        .exp-company span {
-            color: #FF6B35;
-        }
-
-        .exp-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .exp-meta-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: rgba(255, 255, 255, .04);
-            border: 0.5px solid rgba(255, 255, 255, .08);
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: 'DM Sans', sans-serif;
-            color: rgba(247, 245, 242, .55);
-            padding: 4px 10px;
-        }
-
-        .exp-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, .07);
-            margin-bottom: 22px;
-        }
-
-        .exp-section-label {
-            font-size: 11px;
-            font-weight: 500;
-            font-family: 'DM Sans', sans-serif;
-            letter-spacing: .10em;
-            text-transform: uppercase;
-            color: rgba(247, 245, 242, .28);
-            margin-bottom: 14px;
-        }
-
-        .exp-tasks {
-            display: grid;
-            gap: 10px;
-        }
-
-        .exp-task {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .exp-task-bullet {
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            background: rgba(255, 107, 53, .12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2px;
-        }
-
-        .exp-task-bullet svg {
-            width: 10px;
-            height: 10px;
-        }
-
-        .exp-task-text {
-            font-size: 14px;
-            line-height: 1.65;
-            color: rgba(247, 245, 242, .78);
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .exp-task-text strong {
-            font-weight: 500;
-            color: #F7F5F2;
-        }
-
-        .exp-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 22px;
-        }
-
-        .exp-chip {
-            font-size: 11.5px;
-            font-family: 'DM Sans', sans-serif;
-            color: rgba(247, 245, 242, .5);
-            background: rgba(255, 255, 255, .04);
-            border: 0.5px solid rgba(255, 255, 255, .08);
-            border-radius: 5px;
-            padding: 3px 9px;
-        }
-
-        .exp-footer {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 0.5px solid rgba(255, 255, 255, .07);
-        }
-
-        .exp-footer-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #FF6B35;
-            flex-shrink: 0;
-        }
-
-        .exp-footer-bar {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, #FF6B35 0%, rgba(255, 107, 53, .05) 100%);
-            border-radius: 2px;
-        }
-
-        .exp-footer-text {
-            font-size: 11.5px;
-            font-family: 'DM Sans', sans-serif;
-            color: rgba(247, 245, 242, .28);
-        }
-
-        .filter-btn {
-            cursor: pointer;
-            transition: all .3s ease;
-        }
-
-        .filter-btn.active-filter {
-            background: #FF6B35 !important;
-            color: #fff !important;
-            border-color: #FF6B35 !important;
-        }
-
-        .form-input {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 107, 53, .2);
-            color: #F7F5F2;
-            transition: all .3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #FF6B35;
-            background: rgba(255, 255, 255, .08);
-            box-shadow: 0 0 20px rgba(255, 107, 53, .1);
-        }
-
-        .form-input::placeholder {
-            color: rgba(247, 245, 242, .4);
-        }
-
-        @keyframes successSlide {
-            0% {
-                transform: translateX(100%);
-                opacity: 0
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1
-            }
-        }
-
-        .success-message {
-            animation: successSlide .5s ease-out;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, .3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* =====================
-           MOBILE RESPONSIVE
-        ===================== */
-
-        /* Hero section */
-        @media (max-width: 767px) {
-            #home .grid {
-                display: flex;
-                flex-direction: column-reverse;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            #home h1 {
-                font-size: 2.4rem !important;
-                line-height: 1.2;
-            }
-
-            #home .profile-image-wrapper {
-                width: 240px !important;
-                height: 300px !important;
-            }
-
-            #home .flex.flex-wrap.gap-4 {
-                justify-content: center;
-            }
-
-            #home .flex.gap-4.pt-4 {
-                justify-content: center;
-            }
-
-            #home .animate-slide-up {
-                display: flex;
-                justify-content: center;
-            }
-
-            #home .absolute.-bottom-6.-right-6 {
-                bottom: -10px !important;
-                right: -10px !important;
-                font-size: 12px;
-                padding: 8px 14px;
-            }
-        }
-
-        /* About section */
-        @media (max-width: 767px) {
-            #about .grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            #about .about-image-wrapper {
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            #about .about-image-inner img {
-                max-height: 320px;
-                object-fit: cover;
-            }
-
-            #about h2 {
-                font-size: 2rem !important;
-            }
-
-            #about .grid.grid-cols-2 {
-                grid-template-columns: 1fr !important;
-                gap: 1rem;
-            }
-        }
-
-        /* Experience section */
-        @media (max-width: 767px) {
-            .exp-card {
-                padding: 20px 16px;
-            }
-
-            .exp-company {
-                font-size: 20px;
-            }
-
-            .timeline-item {
-                padding-left: 24px;
-            }
-
-            .exp-footer {
-                flex-wrap: wrap;
-            }
-
-            .exp-footer-bar {
-                min-width: 60px;
-            }
-        }
-
-        /* Skills section */
-        @media (max-width: 767px) {
-            #skills .grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem;
-            }
-
-            #skills h2 {
-                font-size: 2rem !important;
-            }
-
-            .skill-card {
-                padding: 1.25rem !important;
-            }
-
-            .skill-logo {
-                width: 56px !important;
-                height: 56px !important;
-                margin-bottom: 0.75rem !important;
-            }
-        }
-
-        /* Projects section */
-        @media (max-width: 767px) {
-            #projects .grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            #projects h2 {
-                font-size: 2rem !important;
-            }
-
-            .filter-btn {
-                font-size: 12px;
-                padding: 6px 14px;
-            }
-
-            /* Show project overlay content always on mobile */
-            .project-overlay {
-                position: static !important;
-                opacity: 1 !important;
-                background: transparent !important;
-                display: none !important;
-            }
-        }
-
-        /* Contact section */
-        @media (max-width: 767px) {
-            #contact h2 {
-                font-size: 2rem !important;
-            }
-
-            #contact .grid.md\:grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-
-            #contact .grid.md\:grid-cols-2.gap-6 {
-                grid-template-columns: 1fr !important;
-            }
-
-            #contact form .grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        /* General typography on mobile */
-        @media (max-width: 767px) {
-
-            .font-display.text-4xl,
-            .font-display.text-5xl {
-                font-size: 2rem !important;
-            }
-
-            section {
-                padding-top: 4rem !important;
-                padding-bottom: 4rem !important;
-            }
-
-            .container {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-        }
-
-        /* Small phones */
-        @media (max-width: 400px) {
-            #home h1 {
-                font-size: 2rem !important;
-            }
-
-            #home .profile-image-wrapper {
-                width: 200px !important;
-                height: 260px !important;
-            }
-
-            .exp-card {
-                padding: 14px 12px;
-            }
-
-            .exp-company {
-                font-size: 18px;
-            }
-        }
-
-        /* Tablet (768px – 1023px) */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            #home h1 {
-                font-size: 3.5rem !important;
-            }
-
-            #home .profile-image-wrapper {
-                width: 320px !important;
-                height: 400px !important;
-            }
-
-            #skills .grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="animated-bg"></div>
+    <div class="ambient-glow-wrapper">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+    </div>
+    <div class="animated-bg"><canvas id="particle-canvas" class="w-full h-full"></canvas></div>
 
     <!-- NAVIGATION -->
     <nav class="navbar-glass fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#home" class="text-2xl font-display font-bold gradient-text">MOR</a>
+                <a href="#home" class="logo-badge" aria-label="Home">
+                    <img src="image/logo.svg" alt="Md. Mamun Or Rashid Logo" class="w-11 h-11">
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-cream hover:text-accent transition-colors duration-300">Home</a>
-                    <a href="#about" class="text-cream hover:text-accent transition-colors duration-300">About</a>
+                    <a href="#home" class="nav-link text-cream hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#about" class="nav-link text-cream hover:text-accent transition-colors duration-300">About</a>
                     <a href="#experience"
-                        class="text-cream hover:text-accent transition-colors duration-300">Experience</a>
-                    <a href="#skills" class="text-cream hover:text-accent transition-colors duration-300">Skills</a>
-                    <a href="#projects" class="text-cream hover:text-accent transition-colors duration-300">Projects</a>
+                        class="nav-link text-cream hover:text-accent transition-colors duration-300">Experience</a>
+                    <a href="#skills" class="nav-link text-cream hover:text-accent transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="nav-link text-cream hover:text-accent transition-colors duration-300">Projects</a>
                     <a href="#contact"
                         class="btn-primary bg-accent text-white px-6 py-2 rounded-full hover:bg-opacity-90 relative overflow-hidden">Contact</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-cream text-2xl"><i class="fas fa-bars"></i></button>
+                <button id="mobile-menu-btn" class="md:hidden text-cream text-2xl" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </div>
             <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-2">
-                <a href="#home" class="block py-2 text-cream hover:text-accent transition-colors">Home</a>
-                <a href="#about" class="block py-2 text-cream hover:text-accent transition-colors">About</a>
-                <a href="#experience" class="block py-2 text-cream hover:text-accent transition-colors">Experience</a>
-                <a href="#skills" class="block py-2 text-cream hover:text-accent transition-colors">Skills</a>
-                <a href="#projects" class="block py-2 text-cream hover:text-accent transition-colors">Projects</a>
-                <a href="#contact" class="block py-2 text-cream hover:text-accent transition-colors">Contact</a>
+                <a href="#home" class="nav-link block py-2 text-cream hover:text-accent transition-colors">Home</a>
+                <a href="#about" class="nav-link block py-2 text-cream hover:text-accent transition-colors">About</a>
+                <a href="#experience" class="nav-link block py-2 text-cream hover:text-accent transition-colors">Experience</a>
+                <a href="#skills" class="nav-link block py-2 text-cream hover:text-accent transition-colors">Skills</a>
+                <a href="#projects" class="nav-link block py-2 text-cream hover:text-accent transition-colors">Projects</a>
+                <a href="#contact" class="nav-link block py-2 text-cream hover:text-accent transition-colors">Contact</a>
             </div>
         </div>
     </nav>
@@ -775,7 +114,7 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 animate-slide-right">
-                    <p class="text-accent text-lg tracking-widest uppercase">Backend Developer</p>
+                    <p class="text-accent text-lg tracking-widest uppercase font-semibold">Backend Developer</p>
                     <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight">
                         Crafting Robust
                         <span class="gradient-text block">Digital Solutions</span>
@@ -793,13 +132,13 @@
                             Work</a>
                     </div>
                     <div class="flex gap-4 pt-4">
-                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank"
+                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" aria-label="LinkedIn Profile"
                             class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Mamungithube" target="_blank"
+                        <a href="https://github.com/Mamungithube" target="_blank" aria-label="GitHub Profile"
                             class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i
                                 class="fab fa-github"></i></a>
-                        <a href="/cdn-cgi/l/email-protection#9ef1ececf1edf6f7faf3faf3fff3ebf0abaedef9f3fff7f2b0fdf1f3"
+                        <a href="mailto:orroshidmdmamun50@gmail.com" aria-label="Send Email"
                             class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i
                                 class="fas fa-envelope"></i></a>
                     </div>
@@ -823,6 +162,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY STATS OVERVIEW -->
+    <section id="stats-overview" class="py-12 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto reveal-zoom">
+                <div class="stat-card">
+                    <h3 class="font-display text-4xl md:text-5xl font-extrabold gradient-text counter-val" data-target="1" data-suffix="+">0</h3>
+                    <p class="text-xs md:text-sm text-cream/70 uppercase tracking-widest mt-2 font-medium">Years Exp</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="font-display text-4xl md:text-5xl font-extrabold gradient-text counter-val" data-target="10" data-suffix="+">0</h3>
+                    <p class="text-xs md:text-sm text-cream/70 uppercase tracking-widest mt-2 font-medium">Projects Built</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="font-display text-4xl md:text-5xl font-extrabold gradient-text counter-val" data-target="40" data-suffix="%">0</h3>
+                    <p class="text-xs md:text-sm text-cream/70 uppercase tracking-widest mt-2 font-medium">Query Speedup</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="font-display text-4xl md:text-5xl font-extrabold gradient-text counter-val" data-target="1000" data-suffix="+">0</h3>
+                    <p class="text-xs md:text-sm text-cream/70 uppercase tracking-widest mt-2 font-medium">WS Users</p>
                 </div>
             </div>
         </div>
@@ -939,57 +302,49 @@
                             </span>
                         </div>
                         <div class="exp-divider"></div>
-                        <div class="exp-section-label">Key Contributions</div>
+                        <div class="exp-section-label">Key Contributions & Achievements</div>
                         <div class="exp-tasks">
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Designed and developed scalable <strong>RESTful APIs</strong>
-                                    using Django REST Framework, powering core product features</div>
+                                <div class="exp-task-text">Designed and developed scalable <strong>RESTful APIs</strong> using Django REST Framework for web & mobile products</div>
                             </div>
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Implemented <strong>JWT authentication</strong> and
-                                    role-based access control (RBAC) across multi-tenant systems</div>
+                                <div class="exp-task-text">Engineered backend for <strong>Pipyrit AI Immigration Assistant</strong>, integrating text-to-speech automation and video streaming pipelines</div>
                             </div>
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Optimized PostgreSQL queries and indexing strategies,
-                                    achieving a <strong>40% reduction in API response time</strong></div>
+                                <div class="exp-task-text">Built <strong>AJAXX Privacy Web</strong> scraping engine scanning 50+ data broker platforms to automate opt-out requests at scale</div>
                             </div>
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Built a production-ready <strong>real-time chat
-                                        system</strong> using Django Channels and WebSockets for 1,000+ concurrent users
-                                </div>
+                                <div class="exp-task-text">Optimized PostgreSQL queries and indexing strategies, achieving a <strong>40% reduction in API response latency</strong></div>
                             </div>
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Containerized services using <strong>Docker & Docker
-                                        Compose</strong>, streamlining local and production deployment workflows</div>
+                                <div class="exp-task-text">Built a production <strong>real-time chat system</strong> using Django Channels & WebSockets for 1,000+ concurrent users</div>
                             </div>
                             <div class="exp-task">
                                 <div class="exp-task-bullet"><svg viewBox="0 0 10 10" fill="none">
                                         <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#FF6B35" stroke-width="1.4"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg></div>
-                                <div class="exp-task-text">Integrated <strong>third-party payment gateways</strong>
-                                    (SSLCommerz / Stripe / revenuecat) and automated background tasks using Celery &
-                                    Redis</div>
+                                <div class="exp-task-text">Containerized microservices using <strong>Docker & Docker Compose</strong> and automated background task queues using <strong>Celery & Redis</strong></div>
                             </div>
                         </div>
                         <div class="exp-skills">
@@ -1092,7 +447,39 @@
                             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
                             alt="Redis" class="w-full h-full"></div>
                     <h3 class="font-display text-xl font-bold mb-2">Redis</h3>
-                    <p class="text-cream opacity-70 text-sm">Caching</p>
+                    <p class="text-cream opacity-70 text-sm">Caching & Queues</p>
+                </div>
+                <div
+                    class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center text-accent text-5xl">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Celery</h3>
+                    <p class="text-cream opacity-70 text-sm">Async Task Queue</p>
+                </div>
+                <div
+                    class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center text-accent text-5xl">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">WebSockets</h3>
+                    <p class="text-cream opacity-70 text-sm">Real-time Channels</p>
+                </div>
+                <div
+                    class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center text-accent text-5xl">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">JWT & RBAC</h3>
+                    <p class="text-cream opacity-70 text-sm">Authentication</p>
+                </div>
+                <div
+                    class="skill-card bg-gradient-to-br from-slate/50 to-transparent p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="skill-logo w-20 h-20 mb-4 flex items-center justify-center text-accent text-5xl">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Linux & Nginx</h3>
+                    <p class="text-cream opacity-70 text-sm">Deployment</p>
                 </div>
             </div>
         </div>
@@ -1430,9 +817,9 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Email</h4>
-                                <p class="text-cream opacity-70 break-all"><a href="/cdn-cgi/l/email-protection"
-                                        class="__cf_email__"
-                                        data-cfemail="234c51514c504b4a474e474e424e564d161363444e424a4f0d404c4e">[email&#160;protected]</a>
+                                <p class="text-cream opacity-70 break-all flex items-center flex-wrap gap-2">
+                                    <a href="mailto:orroshidmdmamun50@gmail.com" class="hover:text-accent transition-colors">orroshidmdmamun50@gmail.com</a>
+                                    <button onclick="copyEmail('orroshidmdmamun50@gmail.com')" class="text-accent/80 hover:text-accent text-xs px-2 py-1 border border-accent/30 rounded-md transition-all inline-flex items-center gap-1" title="Copy Email"><i class="far fa-copy"></i> Copy</button>
                                 </p>
                             </div>
                         </div>
@@ -1448,10 +835,10 @@
                         </div>
                     </div>
                     <div class="flex gap-4 pt-4">
-                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank"
+                        <a href="https://www.linkedin.com/in/md-mamun-43123b2a0/" target="_blank" aria-label="LinkedIn Profile"
                             class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Mamungithube" target="_blank"
+                        <a href="https://github.com/Mamungithube" target="_blank" aria-label="GitHub Profile"
                             class="w-12 h-12 rounded-full border border-accent flex items-center justify-center hover:bg-accent transition-all duration-300"><i
                                 class="fab fa-github"></i></a>
                     </div>
@@ -1498,7 +885,7 @@
     <footer class="py-8 border-t border-accent/20">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-cream opacity-70 text-center">&copy; 2025 Md. Mamun Or Rashid. All rights reserved.</p>
+                <p class="text-cream opacity-70 text-center">&copy; 2026 Md. Mamun Or Rashid. All rights reserved.</p>
                 <a href="#home"
                     class="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:shadow-lg hover:shadow-accent/50 transition-all duration-300">
                     <i class="fas fa-arrow-up"></i>
@@ -1507,107 +894,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const wh = window.innerHeight;
-            reveals.forEach(el => {
-                if (el.getBoundingClientRect().top < wh - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        function filterProjects(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active-filter');
-                btn.style.background = '';
-                btn.style.color = '';
-                btn.style.borderColor = '';
-            });
-            document.querySelector('[data-filter="' + category + '"]').classList.add('active-filter');
-
-            document.querySelectorAll('#projects-grid > div').forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = '';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.transition = 'opacity .4s ease, transform .4s ease';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // =============================================
-        // EmailJS Setup
-        // YOUR_PUBLIC_KEY → EmailJS dashboard > Account > Public Key
-        // YOUR_SERVICE_ID → EmailJS dashboard > Email Services > Service ID
-        // YOUR_TEMPLATE_ID → EmailJS dashboard > Email Templates > Template ID
-        // =============================================
-        emailjs.init('qKT37YhhFQyLDO5pT');
-
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-        const btnText = document.getElementById('btn-text');
-        const btnIcon = document.getElementById('btn-icon');
-        const btnLoading = document.getElementById('btn-loading');
-
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const fd = new FormData(contactForm);
-
-            btnText.textContent = 'Sending...';
-            btnIcon.classList.add('hidden');
-            btnLoading.classList.remove('hidden');
-
-            const templateParams = {
-                from_name: fd.get('name'),
-                email: fd.get('email'),
-                subject: fd.get('subject'),
-                message: fd.get('message'),
-            };
-
-            emailjs.send('service_gcp6qrd', 'template_8gl5u4h', templateParams)
-                .then(function () {
-                    formMessage.innerHTML = '<div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-check-circle text-xl"></i><span>Message sent successfully! I\'ll get back to you soon.</span></div>';
-                    formMessage.classList.remove('hidden');
-                    contactForm.reset();
-                    setTimeout(() => formMessage.classList.add('hidden'), 5000);
-                })
-                .catch(function (error) {
-                    formMessage.innerHTML = '<div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-circle text-xl"></i><span>Something went wrong. Please try again or email directly.</span></div>';
-                    formMessage.classList.remove('hidden');
-                    console.error('EmailJS error:', error);
-                    setTimeout(() => formMessage.classList.add('hidden'), 5000);
-                })
-                .finally(function () {
-                    btnText.textContent = 'Send Message';
-                    btnIcon.classList.remove('hidden');
-                    btnLoading.classList.add('hidden');
-                });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
