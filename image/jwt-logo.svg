@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+    <!-- JWT standard shield emblem with three colored dots/parts representing Header.Payload.Signature -->
+    <rect width="128" height="128" rx="24" fill="#000000" fill-opacity="0.2" stroke="#FF6B35" stroke-width="2"/>
+    <!-- Outer Shield -->
+    <path d="M64 20L32 34v30c0 24.8 13.6 47.8 32 54 18.4-6.2 32-29.2 32-54V34L64 20z" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linejoin="round"/>
+    <!-- Inner Lock / JWT Key icon -->
+    <circle cx="64" cy="54" r="10" stroke="#FF6B35" stroke-width="5" fill="none"/>
+    <path d="M64 64v24" stroke="#FF6B35" stroke-width="6" stroke-linecap="round"/>
+</svg>
