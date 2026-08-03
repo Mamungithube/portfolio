@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatterBee Backend — Assistive AAC Platform | Md. Mamun Or Rashid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
+            color: #F7F5F2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0E27;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 4px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar-glass {
+            background: rgba(10, 14, 39, .85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 107, 53, .1);
+        }
+
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 107, 53, .12);
+            border: 1px solid rgba(255, 107, 53, .3);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 107, 53, .1);
+            border: 0.5px solid rgba(255, 107, 53, .3);
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'DM Sans', sans-serif;
+            color: rgba(247, 245, 242, .8);
+            padding: 4px 10px;
+        }
+
+        .section-card {
+            background: rgba(45, 55, 72, .2);
+            border: 1px solid rgba(255, 107, 53, .12);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 107, 53, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tech-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .05);
+            border: 0.5px solid rgba(255, 255, 255, .1);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            color: rgba(247, 245, 242, .75);
+            padding: 6px 12px;
+        }
+
+        .flow-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .flow-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FF6B35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(247, 245, 242, .6);
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            transition: color .2s;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            color: #FF6B35;
+        }
+
+        .animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: .04;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 107, 53, .15) 0%, transparent 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../index.html" class="logo-badge" aria-label="Back to Portfolio Home">
+                <img src="../image/logo.svg" alt="Md. Mamun Or Rashid Logo" class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+            </a>
+            <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Back to
+                Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero -->
+            <div class="mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i>
+                        Projects</a>
+                    <span class="text-accent/40">/</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">ChatterBee</span>
+                </div>
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="hero-icon"><i class="fas fa-assistive-listening-systems text-4xl text-accent"></i></div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-heart text-xs text-accent"></i> Assistive Tech (AAC)</span>
+                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2026</span>
+                        </div>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">ChatterBee <span
+                                class="gradient-text">Backend</span></h1>
+                        <p class="text-lg text-cream/70" style="font-family:'DM Sans',sans-serif">Empowering Non-Verbal Speech Communication via Multilingual AAC Symbols & Caregiver Networks</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Mamungithube/ChatterBee-Backend" target="_blank"
+                    class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <!-- Project Overview -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
+                <p class="text-cream/75 leading-relaxed mb-4" style="font-family:'DM Sans',sans-serif">
+                    ChatterBee is an Augmentative and Alternative Communication (AAC) platform backend engineered to empower non-verbal and speech-impaired individuals (Communicators) to express thoughts, needs, and feelings through visual symbol cards, multi-language TTS audio playback, customized categories, and a caregiver monitoring network.
+                </p>
+                <p class="text-cream/75 leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                    Built with Django 5.2 and Django REST Framework, the backend provides caregiver-communicator role hierarchies, real-time Firebase FCM emergency alerts, automated symbol CSV imports, multilingual card models powered by <code class="text-accent">django-parler</code>, and custom DRF security throttling layers.
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-shield text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Caregiver-Communicator Hierarchy & Auth</h3>
+                            <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                                Caregivers can create and manage dependent profiles, configure personalized symbol boards, and monitor activity. Supports JWT Auth (SimpleJWT) and Social Logins (Google/Apple via django-allauth).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-language text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Multilingual Symbol & Audio Engine</h3>
+                            <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                                Multi-language card translations using <code class="text-accent">django-parler</code> with associated audio clips for QuickSpeaks, categories, and items. Features automated CSV bulk import tools for fast symbol catalog onboarding.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-bell text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Real-Time FCM Alerts & Cloud Integration</h3>
+                            <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                                Integrated with Firebase Admin SDK and Cloud Firestore for instant Emergency Alerts, Button Alerts, and real-time audio pinning between communicators and caregivers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-line text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Speech & Activity Analytics Tracking</h3>
+                            <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                                Tracks communicator usage statistics, most frequently spoken QuickSpeaks, and daily interaction trends to help caregivers and therapists assess communication growth.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-shield-alt text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Custom DRF Throttling Layer & OpenAPI Docs</h3>
+                            <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
+                                Implemented custom rate-limiting (<code class="text-accent">StaffExemptUserThrottle</code>) protecting public APIs from abuse while granting exempt status to internal staff, coupled with OpenAPI 3.0 documentation (Swagger & ReDoc).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Highlights & Achievements -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Technical Highlights & Optimization</h2>
+                <div class="space-y-5">
+                    <div class="flow-step">
+                        <div class="flow-num"><i class="fas fa-bolt text-xs"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">N+1 Query Elimination & Bulk Endpoint Optimization</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Replaced sequential database queries on nested categories/subcategories using <code class="text-accent">prefetch_related</code> and nested bulk serializers — slashing over 180+ individual network requests down to 1 high-performance bulk API payload.</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num"><i class="fas fa-lock text-xs"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Granular Throttling Security Architecture</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Designed custom DRF throttling rules ensuring standard API consumers adhere to strict request quotas, preventing denial-of-service attempts while bypassing limits for staff dashboards.</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num"><i class="fas fa-tasks text-xs"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Scalable Asynchronous Task Queue</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Orchestrated Celery workers and Celery Beat backed by Redis for offloading push notification dispatches, periodic analytical rollups, and audio file indexing.</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-num"><i class="fab fa-docker text-xs"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Production Multi-Container Setup</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Complete Docker Compose environment encapsulating Gunicorn web server, Celery Workers, Redis Broker, PostgreSQL database, and Nginx reverse proxy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 5.2 & DRF 3.16</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL (psycopg2)</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery & Redis</div>
+                    <div class="tech-chip"><i class="fas fa-fire text-accent"></i> Firebase FCM & Firestore</div>
+                    <div class="tech-chip"><i class="fas fa-globe text-accent"></i> django-parler (i18n)</div>
+                    <div class="tech-chip"><i class="fas fa-file-code text-accent"></i> drf-spectacular (Swagger)</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker & Compose</div>
+                    <div class="tech-chip"><i class="fas fa-cloud text-accent"></i> Google Cloud Storage</div>
+                </div>
+            </div>
+
+            <!-- My Role -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">My Role (Lead Backend Developer)</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Architected the entire Django REST Framework backend schema for Caregiver-Communicator interactions.
+                    </li>
+                    <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Implemented multilingual model translations using <code class="text-accent">django-parler</code> for international AAC symbol boards.
+                    </li>
+                    <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Integrated Firebase FCM and Firestore for instant push notifications and emergency alert triggers.
+                    </li>
+                    <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Optimized database queries with <code class="text-accent">prefetch_related</code>, reducing 180+ API calls down to a single bulk endpoint.
+                    </li>
+                    <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Designed <code class="text-accent">StaffExemptUserThrottle</code> for custom DRF rate-limiting and security.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center pt-4">
+                <a href="mysportsnest.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="../index.html#projects" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">All Projects <i class="fas fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

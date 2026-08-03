@@ -226,7 +226,20 @@ body {
 .project-card {
     position: relative;
     overflow: hidden;
-    transition: all .5s ease;
+    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color .4s ease, box-shadow .4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -15px rgba(255, 107, 53, 0.22);
+}
+
+.project-card .h-48 i {
+    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover .h-48 i {
+    transform: scale(1.12);
 }
 
 .project-card::before {
@@ -238,6 +251,8 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 107, 53, .2), transparent);
     transition: left .5s ease;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .project-card:hover::before {
@@ -247,13 +262,16 @@ body {
 .project-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(10, 14, 39, .95) 0%, rgba(26, 31, 58, .95) 100%);
+    background: linear-gradient(135deg, rgba(10, 14, 39, .94) 0%, rgba(26, 31, 58, .96) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     opacity: 0;
     transition: opacity .4s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 10;
 }
 
 .project-card:hover .project-overlay,
