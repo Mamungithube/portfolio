@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipyrit — AI Immigration Assistant | Md. Mamun Or Rashid</title>
+    <title>Pipyrit Backend — Enterprise AI Immigration Assistant | Md. Mamun Or Rashid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap"
@@ -192,15 +192,13 @@
                     <div class="hero-icon"><i class="fas fa-robot text-4xl text-accent"></i></div>
                     <div>
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> SparkTech
-                                Agency</span>
-                            <span class="tag"><i class="fas fa-briefcase text-xs"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-brain text-xs text-accent"></i> AI & Legal Tech</span>
                             <span class="tag"><i class="fas fa-calendar text-xs"></i> 2025</span>
                         </div>
                         <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">Pipyrit <span
-                                class="gradient-text">AI Immigration</span></h1>
-                        <p class="text-lg text-cream/70" style="font-family:'DM Sans',sans-serif">AI-Powered Assistant
-                            for complex immigration forms (USCIS/EOIR)</p>
+                                class="gradient-text">Backend</span></h1>
+                        <p class="text-lg text-cream/70" style="font-family:'DM Sans',sans-serif">Enterprise-Grade Django REST API for US Immigration Preparation (USCIS / EOIR)</p>
                     </div>
                 </div>
                 <a href="https://github.com/Mamungithube/Pipyrit" target="_blank"
@@ -213,123 +211,95 @@
             <div class="section-card mb-8">
                 <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
                 <p class="text-cream/75 leading-relaxed mb-4" style="font-family:'DM Sans',sans-serif">
-                    Pipyrit is a modern immigration assistant platform that simplifies complex legal processes
-                    (USCIS/EOIR) for everyday people. The core goal of this platform is to transform large immigration
-                    forms into a "Guided Interview Flow," where users are asked step-by-step questions in simple
-                    language and provided with accurate AI-driven guidelines.
+                    Pipyrit Backend is a production-ready, enterprise-grade Django REST API platform powering mobile and web applications designed for US immigration preparation (USCIS / EOIR). It transforms daunting legal processes into an intuitive "Guided Interview Flow" with dynamic AI question generation and audio guidelines.
                 </p>
                 <p class="text-cream/75 leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                    I built the entire backend architecture for this platform — from a dynamic conditional interview
-                    engine to automated text-to-speech conversion, secure authentication, and scalable video streaming.
+                    I architected and enhanced the entire backend ecosystem — featuring dynamic OpenAI GPT-4o-mini 25-question interview simulations, Celery & Redis asynchronous audio/email queues, HTTP Range Request video streaming, multi-language translation support (English, Spanish, Haitian Creole), AWS S3 media storage, Firebase push notifications, and dedicated health-check monitoring APIs.
                 </p>
             </div>
 
-            <!-- Key Features -->
+            <!-- Key Features & App Architecture -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">Modular App Architecture & Key Features</h2>
                 <div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-comments text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-brain text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Guided Interview Engine</h3>
+                            <h3 class="font-semibold mb-1">AI Quiz & Interview Simulation (<code class="text-accent text-xs">quizzes</code> App)</h3>
                             <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                                A dynamic interview system using conditional logic. Subsequent questions are
-                                determined based on previous answers, making form-filling incredibly intuitive.
+                                Powered by <code class="text-accent">ai_engine.py</code> integrating OpenAI GPT-4o-mini for dynamic 25-question interview simulations, automated gTTS audio clip generation, and multi-language translations (English, Spanish, Haitian Creole via <code class="text-accent">django-modeltranslation</code>).
                             </p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-headphones text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-bolt text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">AI Audio Automation (gTTS)</h3>
+                            <h3 class="font-semibold mb-1">Asynchronous Task Engine (Celery + Redis)</h3>
                             <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                                Integrated Google Text-to-Speech (gTTS) for quizzes and interviews. When an admin
-                                saves a question, the backend automatically converts it to an audio file for the
-                                "Listen" feature.
+                                Offloaded heavy gTTS audio processing, OpenAI API calls, and Email OTP verification dispatches to background Celery workers backed by a Redis task broker for optimal API responsiveness.
                             </p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon"><i class="fas fa-video text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Professional Video Streaming</h3>
+                            <h3 class="font-semibold mb-1">HTTP Range Video Streaming (<code class="text-accent text-xs">content</code> App)</h3>
                             <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                                Implemented HTTP Range Request-based video streaming for the "Smart Frames" section.
-                                Users can seek/skip without buffering — far superior to simple file serving.
+                                Native HTTP Range Request video streaming engine allowing mobile app users to seek and skip through immigration guide videos instantly with zero buffering overhead.
                             </p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-chart-bar text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-user-lock text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Centralized Admin Dashboard</h3>
+                            <h3 class="font-semibold mb-1">Secure Auth & User Management (<code class="text-accent text-xs">user</code> App)</h3>
                             <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                                A full-control panel for admins featuring real-time business analytics, monthly
-                                earnings bar charts, and complete user management in one place.
+                                SimpleJWT authentication with Refresh Token Rotation, Email OTP verification, in-app notifications, and Firebase Cloud Messaging (FCM) integration for instant mobile push alerts.
                             </p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-lock text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-credit-card text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Secure Auth & IAP Ready</h3>
+                            <h3 class="font-semibold mb-1">Payment, Subscriptions & Admin KPI (<code class="text-accent text-xs">payment / core</code>)</h3>
                             <p class="text-cream/65 text-sm leading-relaxed" style="font-family:'DM Sans',sans-serif">
-                                Multi-step authentication flow (Registration → OTP → Activation). Token-based
-                                password recovery and a subscription module ready for In-App Purchase (IAP)
-                                verification.
+                                Stripe API integration with automated Webhook listeners, subscription package management, and a centralized Admin Dashboard with real-time KPI analytics and monthly earnings charts.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- How It Works -->
+            <!-- Technical Highlights -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">How It Works</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">Enterprise Architecture & Optimization Highlights</h2>
                 <div class="space-y-5">
                     <div class="flow-step">
-                        <div class="flow-num">1</div>
+                        <div class="flow-num"><i class="fas fa-heartbeat text-xs"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">User Starts an Interview</h3>
-                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">User selects an
-                                immigration form and begins the guided flow. The backend serves initial questions.
-                            </p>
+                            <h3 class="font-semibold mb-1">Health Check & System Monitoring API (<code class="text-accent text-xs">/api/health/</code>)</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Built a dedicated public health monitoring endpoint inspecting real-time connectivity for PostgreSQL database, Redis/Celery queue, and OpenAI API status with standardized JSON response envelopes.</p>
                         </div>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-num">2</div>
+                        <div class="flow-num"><i class="fas fa-cloud-upload-alt text-xs"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Conditional Logic Engine</h3>
-                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Based on user
-                                answers, the system dynamically determines the next set of questions. All responses
-                                are validated and saved to PostgreSQL.</p>
+                            <h3 class="font-semibold mb-1">AWS S3 / Cloudflare R2 Cloud Storage Integration</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Configured <code class="text-accent">django-storages</code> and <code class="text-accent">boto3</code> for hosting media files and audio clips seamlessly on AWS S3 / R2 buckets when production environment flags are enabled.</p>
                         </div>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-num">3</div>
+                        <div class="flow-num"><i class="fas fa-vial text-xs"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Text-to-Speech Automation</h3>
-                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">When an admin
-                                adds a new quiz, gTTS auto-generates audio, stores the file link, and makes it
-                                available via API to the mobile app.</p>
+                            <h3 class="font-semibold mb-1">Automated DRF Integration Test Suite</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Comprehensive test suite covering User Registration, OTP verification, JWT login lifecycle, AI quiz generation, case creation, and Stripe payment webhooks.</p>
                         </div>
                     </div>
                     <div class="flow-step">
-                        <div class="flow-num">4</div>
+                        <div class="flow-num"><i class="fab fa-docker text-xs"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Video Streaming with Range Requests</h3>
-                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">The app
-                                requests specific byte ranges of a video file. The backend serves only that portion,
-                                enabling smooth seeking and reduced bandwidth usage.</p>
-                        </div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-num">5</div>
-                        <div>
-                            <h3 class="font-semibold mb-1">Admin Analytics & Subscription</h3>
-                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Admins track
-                                earnings and user metrics on the dashboard. In-app purchases are verified via Stripe
-                                / RevenueCat webhooks.</p>
+                            <h3 class="font-semibold mb-1">Multi-Container Production Dockerization</h3>
+                            <p class="text-cream/65 text-sm" style="font-family:'DM Sans',sans-serif">Docker Compose orchestration featuring Django/Gunicorn, Celery Workers, Redis broker, PostgreSQL database, and Nginx reverse proxy.</p>
                         </div>
                     </div>
                 </div>
@@ -339,51 +309,52 @@
             <div class="section-card mb-8">
                 <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.12</div>
-                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 5.0</div>
-                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
-                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
-                    <div class="tech-chip"><i class="fas fa-microphone-alt text-accent"></i> gTTS (Google TTS)</div>
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 5.2 & DRF 3.17</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL (psycopg2)</div>
+                    <div class="tech-chip"><i class="fas fa-robot text-accent"></i> OpenAI (GPT-4o-mini)</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery & Redis</div>
+                    <div class="tech-chip"><i class="fas fa-globe text-accent"></i> i18n (EN, ES, HT)</div>
+                    <div class="tech-chip"><i class="fas fa-cloud text-accent"></i> AWS S3 / Cloudflare R2</div>
+                    <div class="tech-chip"><i class="fas fa-fire text-accent"></i> Firebase FCM Push</div>
+                    <div class="tech-chip"><i class="fas fa-credit-card text-accent"></i> Stripe Webhooks</div>
                     <div class="tech-chip"><i class="fas fa-video text-accent"></i> HTTP Range Streaming</div>
-                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker</div>
-                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
-                    <div class="tech-chip"><i class="fas fa-credit-card text-accent"></i> RevenueCat / Stripe</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker Compose</div>
+                    <div class="tech-chip"><i class="fas fa-heartbeat text-accent"></i> Health Check API</div>
                 </div>
             </div>
 
             <!-- My Role -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-4">My Role (Lead Backend Developer)</h2>
+                <h2 class="font-display text-2xl font-bold mb-4">My Role (Lead Backend Architect)</h2>
                 <ul class="space-y-3">
                     <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
                         <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
-                        Architected the dynamic "Guided Interview Engine" with conditional question branching.
+                        Designed the core Django REST Framework architecture supporting AI quiz generation, case management, and video streaming.
                     </li>
                     <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
                         <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
-                        Automated quiz audio generation by integrating Google Text-to-Speech (gTTS) with admin panel
-                        triggers.
+                        Built the AI engine integration (<code class="text-accent">ai_engine.py</code>) leveraging OpenAI GPT-4o-mini and gTTS audio generators.
                     </li>
                     <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
                         <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
-                        Implemented high-performance video streaming using HTTP Range Requests (supports seeking/pausing
-                        without full file download).
+                        Implemented Celery + Redis background task queues to offload heavy audio synthesis and OTP email dispatches asynchronously.
                     </li>
                     <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
                         <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
-                        Built a centralized admin dashboard with real-time bar charts for revenue analytics.
+                        Engineered HTTP Range Request video streaming for seamless seeking and reduced bandwidth consumption.
                     </li>
                     <li class="flex items-start gap-3 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif">
                         <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
-                        Designed secure multi-step JWT authentication (OTP verification, token-based password reset).
+                        Added multi-language model translations (<code class="text-accent">django-modeltranslation</code>), AWS S3 cloud storage support, and a <code class="text-accent">/api/health/</code> monitoring endpoint.
                     </li>
                 </ul>
             </div>
 
             <!-- Navigation -->
             <div class="flex justify-between items-center pt-4">
-                <a href="ajaxx-privacy.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
-                <a href="water-break.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next
+                <a href="dealnux.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="elearning.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next
                     Project <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
         </div>

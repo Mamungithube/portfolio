@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dealnux — Md. Mamun Or Rashid</title>
+    <title>Dealnux Backend Engine — Multi-Platform Price Aggregator & Marketplace | Md. Mamun Or Rashid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,12 +51,12 @@
                     <div class="hero-icon"><i class="fas fa-balance-scale text-4xl text-accent"></i></div>
                     <div>
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> SparkTech Agency</span>
-                            <span class="tag"><i class="fas fa-briefcase text-xs"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> Company Project</span>
+                            <span class="tag"><i class="fas fa-shopping-cart text-xs text-accent"></i> E-Commerce & Marketplace</span>
                             <span class="tag"><i class="fas fa-calendar text-xs"></i> 2026</span>
                         </div>
-                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2"><span class="gradient-text">Dealnux</span></h1>
-                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Smart e-commerce product comparison & best deal finder</p>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">Dealnux <span class="gradient-text">Backend Engine</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Multi-Platform E-Commerce Price Aggregator & Seller Marketplace Engine</p>
                     </div>
                 </div>
                 <a href="https://github.com/Mamungithube/dealnux-backend-.git" target="_blank"
@@ -65,104 +65,104 @@
                 </a>
             </div>
 
+            <!-- Project Overview -->
             <div class="section-card mb-8">
                 <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
                 <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
-                    Dealnux is an e-commerce product comparison backend built at SparkTech Agency. The core idea is simple — when a user searches for a product, Dealnux fetches listings from multiple e-commerce platforms, compares prices, ratings, and availability, and surfaces the best deal.
+                    Dealnux Backend Engine is a high-performance multi-platform e-commerce price aggregator and seller marketplace platform. It synchronizes real-time product pricing from global marketplaces (Amazon, eBay, Walmart) via Celery workers and scrapers/APIs, performing strict NLP token similarity and GTIN/ASIN matching to surface true best deals.
                 </p>
                 <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
-                    It acts as a smart aggregator that saves users from manually visiting 10 different sites to find the best price. The backend handles product data ingestion, normalization, comparison logic, and delivers clean, ranked results via REST API.
+                    Alongside multi-platform aggregation, Dealnux powers a full local seller marketplace featuring Stripe Connect payouts, an Escrow Wallet System (holding buyer funds until order delivery confirmation), Cost-Per-Click (CPC) seller advertising with automated budget deductions, 11-step KYC seller verification, and DRF scoped rate limiting.
                 </p>
             </div>
 
+            <!-- Architecture & Modules Overview -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">Key Features</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">Architecture & Core Modules</h2>
                 <div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-search-dollar text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-store text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Multi-Platform Product Search</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Aggregates product listings from multiple e-commerce sources for a single search query. Results are fetched in parallel for speed and normalized into a unified product schema.</p>
+                            <h3 class="font-semibold mb-1">Multi-Platform Price Aggregator (<code class="text-accent text-xs">store & api_integration</code>)</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Real-time price synchronization across 10+ e-commerce platforms using Celery & Redis. Products are matched using Strict NLP token similarity algorithms and GTIN/ASIN canonical mapping.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-sort-amount-down text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-wallet text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Smart Price Comparison & Ranking</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Products are ranked by a composite score factoring in price, seller rating, shipping cost, and availability. Users can sort by any attribute or use the AI-calculated "best value" score.</p>
+                            <h3 class="font-semibold mb-1">Escrow Wallet System & Stripe Connect (<code class="text-accent text-xs">payment</code>)</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Secures buyer funds in escrow upon checkout, automatically deducting a 5–10% platform service fee, and transferring net payouts to sellers via Stripe Connect upon confirmed delivery.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-tag text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-ad text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Price History Tracking</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Product prices are tracked over time. Users can see if a "deal" is genuinely a discount or if the price was recently inflated. Historical data is stored and exposed via API.</p>
+                            <h3 class="font-semibold mb-1">CPC Advertising Engine (<code class="text-accent text-xs">custom_ads</code>)</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Cost-Per-Click (CPC) ad campaign system for sellers. Tracks valid buyer clicks, deducts ad budget in real-time, and automatically deactivates campaigns when budget reaches zero.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-star text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-id-card text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Wishlist & Price Alerts</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Users can save products to a wishlist and set price drop alerts. When a product's price falls below a threshold, the system automatically sends an email notification.</p>
+                            <h3 class="font-semibold mb-1">11-Step Seller KYC Onboarding (<code class="text-accent text-xs">account</code>)</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Multi-stage seller verification workflow requiring business licenses, tax ID verification, and utility bill documentation before granting marketplace selling privileges.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-filter text-accent text-sm"></i></div>
+                        <div class="feature-icon"><i class="fas fa-shield-alt text-accent text-sm"></i></div>
                         <div>
-                            <h3 class="font-semibold mb-1">Advanced Filtering</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Filter results by price range, rating, brand, seller, shipping speed, and availability. All filters are handled server-side for performance with paginated responses.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-memory text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">Redis Caching Layer</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Popular search results are cached in Redis to reduce redundant external API calls. Cache invalidation is handled intelligently based on product data freshness.</p>
+                            <h3 class="font-semibold mb-1">DRF Scoped Rate Limiting & Health Monitoring</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Protected price comparison endpoints against scraping abuse using DRF ScopedRateThrottle (<code class="text-accent text-xs">anon_search: 30/min</code>, <code class="text-accent text-xs">user_search: 100/min</code>), coupled with a centralized <code class="text-accent text-xs">/api/v1/health/</code> health-check API.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Technical Highlights -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">How It Works</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">Technical Architecture & Optimization Highlights</h2>
                 <div class="space-y-5">
-                    <div class="flow-step"><div class="flow-num">1</div><div><h3 class="font-semibold mb-1">User Submits a Search Query</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">User hits the search API with a product name. The query is normalized and dispatched to all integrated data source adapters in parallel.</p></div></div>
-                    <div class="flow-step"><div class="flow-num">2</div><div><h3 class="font-semibold mb-1">Data Fetching & Normalization</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Each adapter fetches listings from its source (via API or scraping), extracts relevant fields, and maps them to a common product schema — name, price, rating, image, seller, link.</p></div></div>
-                    <div class="flow-step"><div class="flow-num">3</div><div><h3 class="font-semibold mb-1">Comparison & Scoring</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">The comparison engine calculates a "value score" for each listing based on price relative to average, seller trust score, and product rating. Top results are ranked.</p></div></div>
-                    <div class="flow-step"><div class="flow-num">4</div><div><h3 class="font-semibold mb-1">Results Returned & Cached</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Ranked results are returned to the client as paginated JSON. The result set is cached in Redis for 30 minutes to serve repeated queries instantly.</p></div></div>
-                    <div class="flow-step"><div class="flow-num">5</div><div><h3 class="font-semibold mb-1">Price Tracking Background Job</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Celery beat runs periodic jobs to refresh prices on wishlisted products and triggers email alerts for price drops.</p></div></div>
+                    <div class="flow-step"><div class="flow-num"><i class="fas fa-heartbeat text-xs"></i></div><div><h3 class="font-semibold mb-1">Centralized System Health Check API (<code class="text-accent text-xs">/api/v1/health/</code>)</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Built a system monitoring endpoint evaluating connectivity, latencies, and health status for PostgreSQL, Redis, Celery workers, and Elasticsearch clusters.</p></div></div>
+                    <div class="flow-step"><div class="flow-num"><i class="fas fa-lock text-xs"></i></div><div><h3 class="font-semibold mb-1">DRF Scoped Rate-Limiting & Anti-Scraping</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Applied strict API throttling policies on product search and comparison endpoints to shield external price fetching workers from DDoS and bot abuse.</p></div></div>
+                    <div class="flow-step"><div class="flow-num"><i class="fas fa-hand-holding-usd text-xs"></i></div><div><h3 class="font-semibold mb-1">Escrow Wallet & Automated Fee Deduction</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Engineered transaction ledger holding buyer payments safely until delivery confirmation, calculating platform commission (5-10%) before triggering Stripe Connect payouts.</p></div></div>
+                    <div class="flow-step"><div class="flow-num"><i class="fab fa-github text-xs"></i></div><div><h3 class="font-semibold mb-1">GitHub Actions CI/CD Pipeline</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Configured automated testing and linting workflow (<code class="text-accent text-xs">.github/workflows/ci.yml</code>) running Flake8/Ruff, Django unit tests, and Docker container verification on pull requests.</p></div></div>
                 </div>
             </div>
 
+            <!-- Tech Stack -->
             <div class="section-card mb-8">
                 <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
-                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 4.2</div>
-                    <div class="tech-chip"><i class="fas fa-plug text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 4.2 & DRF</div>
                     <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
-                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery</div>
-                    <div class="tech-chip"><i class="fas fa-memory text-accent"></i> Redis</div>
-                    <div class="tech-chip"><i class="fas fa-key text-accent"></i> JWT Auth</div>
-                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker</div>
-                    <div class="tech-chip"><i class="fas fa-envelope text-accent"></i> Email Alerts</div>
+                    <div class="tech-chip"><i class="fas fa-search text-accent"></i> Elasticsearch</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery & Celery Beat</div>
+                    <div class="tech-chip"><i class="fas fa-memory text-accent"></i> Redis Broker & Cache</div>
+                    <div class="tech-chip"><i class="fas fa-credit-card text-accent"></i> Stripe Connect & Escrow</div>
+                    <div class="tech-chip"><i class="fas fa-ad text-accent"></i> CPC Ads Engine</div>
+                    <div class="tech-chip"><i class="fas fa-user-check text-accent"></i> 11-Step KYC Onboarding</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker Compose</div>
+                    <div class="tech-chip"><i class="fas fa-heartbeat text-accent"></i> Health Check API</div>
+                    <div class="tech-chip"><i class="fab fa-github text-accent"></i> GitHub Actions CI/CD</div>
                 </div>
             </div>
 
+            <!-- My Role -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-4">My Role</h2>
+                <h2 class="font-display text-2xl font-bold mb-4">My Role (Lead Backend Architect)</h2>
                 <ul class="space-y-3">
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Designed the unified product schema and multi-source adapter architecture</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built the comparison engine with configurable scoring weights</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Implemented Redis caching strategy with smart invalidation</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Set up Celery beat for price tracking and wishlist alert notifications</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built all REST API endpoints with pagination, filtering, and search</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Architected multi-platform price aggregator matching engine using NLP token similarity and GTIN/ASIN resolution</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built Escrow Wallet payment system with 5-10% service fee deduction and Stripe Connect automated payouts</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Implemented seller CPC Advertising Engine with real-time budget deduction and auto-deactivation</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Designed 11-step seller KYC verification onboarding flow and DRF Scoped Rate Limiting</li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Added system health monitoring API (<code class="text-accent">/api/v1/health/</code>) and GitHub Actions CI/CD pipeline</li>
                 </ul>
             </div>
 
             <div class="flex justify-between items-center pt-4">
                 <a href="water-break.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
-                <a href="elearning.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="pipyrit.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </main>
