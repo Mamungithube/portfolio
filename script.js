@@ -87,15 +87,83 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnText = document.getElementById('btn-text');
     const btnIcon = document.getElementById('btn-icon');
     const btnLoading = document.getElementById('btn-loading');
+    const captchaQuestionEl = document.getElementById('captcha-question');
+    const captchaAnswerEl = document.getElementById('captcha-answer');
+
+    const timeTokenEl = document.getElementById('time-token');
+    const pageLoadTime = Date.now();
+    if (timeTokenEl) {
+        timeTokenEl.value = pageLoadTime.toString();
+    }
+
+    let captchaCorrectAnswer = 0;
+
+    function generateCaptcha() {
+        if (!captchaQuestionEl) return;
+        const n1 = Math.floor(Math.random() * 9) + 1;
+        const n2 = Math.floor(Math.random() * 9) + 1;
+        captchaCorrectAnswer = n1 + n2;
+        captchaQuestionEl.textContent = `${n1} + ${n2}`;
+        if (captchaAnswerEl) captchaAnswerEl.value = '';
+    }
+
+    generateCaptcha();
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const fd = new FormData(contactForm);
 
+            // 1. Honeypot Anti-Spam Check (Silently reject automated bots)
+            if (fd.get('b_honeypot_check') || fd.get('bot-field')) {
+                console.warn('Bot detected via honeypot field.');
+                contactForm.reset();
+                generateCaptcha();
+                return;
+            }
+
+            // 2. Automated Script Speed Check (Reject submissions faster than 1.5 seconds)
+            if (Date.now() - pageLoadTime < 1500) {
+                console.warn('Automated script submission detected (too fast).');
+                contactForm.reset();
+                generateCaptcha();
+                return;
+            }
+
+            // 3. Security Math Challenge Verification (Blocks Python/Go Scripts)
+            const userCaptchaAns = parseInt(captchaAnswerEl ? captchaAnswerEl.value : '0', 10);
+            if (userCaptchaAns !== captchaCorrectAnswer) {
+                formMessage.innerHTML = '<div class="bg-red-500/20 border border-red-500 text-red-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-triangle text-xl"></i><span>Incorrect security answer. Please try again.</span></div>';
+                formMessage.classList.remove('hidden');
+                setTimeout(() => formMessage.classList.add('hidden'), 5000);
+                generateCaptcha();
+                return;
+            }
+
+            // 4. Rate Limiting Check (Allow max 1 message per 60 seconds)
+            const lastSubmit = localStorage.getItem('last_contact_submit');
+            const now = Date.now();
+            const COOLDOWN_MS = 60000; // 60 seconds
+
+            if (lastSubmit && (now - parseInt(lastSubmit, 10)) < COOLDOWN_MS) {
+                const remainingSec = Math.ceil((COOLDOWN_MS - (now - parseInt(lastSubmit, 10))) / 1000);
+                formMessage.innerHTML = `<div class="bg-amber-500/20 border border-amber-500 text-amber-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-exclamation-triangle text-xl"></i><span>Please wait ${remainingSec} seconds before sending another message.</span></div>`;
+                formMessage.classList.remove('hidden');
+                setTimeout(() => formMessage.classList.add('hidden'), 5000);
+                generateCaptcha();
+                return;
+            }
+
             btnText.textContent = 'Sending...';
             if (btnIcon) btnIcon.classList.add('hidden');
             if (btnLoading) btnLoading.classList.remove('hidden');
+
+            // Send via Netlify Forms Native Endpoint (Blocks automated script requests)
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(fd).toString()
+            }).catch(err => console.log('Netlify Form fetch error:', err));
 
             const templateParams = {
                 from_name: fd.get('name'),
@@ -106,9 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             emailjs.send('service_gcp6qrd', 'template_8gl5u4h', templateParams)
                 .then(function () {
+                    localStorage.setItem('last_contact_submit', Date.now().toString());
                     formMessage.innerHTML = '<div class="success-message bg-green-500/20 border border-green-500 text-green-400 px-6 py-4 rounded-lg flex items-center gap-3"><i class="fas fa-check-circle text-xl"></i><span>Message sent successfully! I\'ll get back to you soon.</span></div>';
                     formMessage.classList.remove('hidden');
                     contactForm.reset();
+                    generateCaptcha();
                     setTimeout(() => formMessage.classList.add('hidden'), 5000);
                 })
                 .catch(function (error) {
