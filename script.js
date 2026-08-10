@@ -250,7 +250,7 @@ function initParticleCanvas() {
             points,
             angle: Math.random() * Math.PI * 2,
             vAngle: (Math.random() - 0.5) * 0.012, // rotation speed
-            color: Math.random() > 0.4 ? 'rgba(255, 107, 53, 0.45)' : 'rgba(0, 210, 255, 0.45)'
+            color: Math.random() > 0.4 ? 'rgba(242, 125, 82, 0.35)' : 'rgba(244, 162, 97, 0.35)'
         };
     }
 
@@ -263,9 +263,9 @@ function initParticleCanvas() {
         const starCount = Math.min(Math.floor(width / 12), 110);
         const starColors = [
             'rgba(255, 255, 255,',   // Icy White
-            'rgba(255, 107, 53,',    // Warm Amber Orange
-            'rgba(0, 210, 255,',     // Cyan Nebula
-            'rgba(255, 180, 162,'    // Soft Peach
+            'rgba(242, 125, 82,',    // Soft Warm Terracotta
+            'rgba(244, 162, 97,',    // Muted Peach
+            'rgba(224, 122, 95,'     // Soft Coral
         ];
 
         for (let i = 0; i < starCount; i++) {
@@ -476,18 +476,18 @@ function animateCounters() {
    ============================================= */
 function filterProjects(category) {
     document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active-filter');
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.style.borderColor = '';
+        btn.classList.remove('active-filter', 'border-accent/40', 'bg-accent/10', 'text-accent', 'font-semibold');
+        btn.classList.add('text-cream/40', 'border-transparent');
     });
+
     const targetBtn = document.querySelector('[data-filter="' + category + '"]');
     if (targetBtn) {
-        targetBtn.classList.add('active-filter');
+        targetBtn.classList.remove('text-cream/40', 'border-transparent');
+        targetBtn.classList.add('active-filter', 'border-accent/40', 'bg-accent/10', 'text-accent', 'font-semibold');
     }
 
     document.querySelectorAll('#projects-grid > div').forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
+        if (card.dataset.category === category) {
             card.style.display = '';
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
@@ -527,3 +527,60 @@ function copyEmail(email) {
         console.error('Failed to copy email: ', err);
     });
 }
+
+/* =============================================
+   EMAIL ACTION MODAL HANDLER
+   ============================================= */
+function openEmailModal(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const modal = document.getElementById('email-modal');
+    const card = document.getElementById('email-modal-card');
+    if (modal && card) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+    }
+}
+
+function closeEmailModal() {
+    const modal = document.getElementById('email-modal');
+    const card = document.getElementById('email-modal-card');
+    if (modal && card) {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        card.classList.remove('scale-100');
+        card.classList.add('scale-95');
+    }
+}
+
+/* =============================================
+   RESUME VIEWER MODAL HANDLER
+   ============================================= */
+function openResumeModal(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const modal = document.getElementById('resume-modal');
+    const card = document.getElementById('resume-modal-card');
+    if (modal && card) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeResumeModal() {
+    const modal = document.getElementById('resume-modal');
+    const card = document.getElementById('resume-modal-card');
+    if (modal && card) {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        card.classList.remove('scale-100');
+        card.classList.add('scale-95');
+        document.body.style.overflow = '';
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeEmailModal();
+        closeResumeModal();
+    }
+});
