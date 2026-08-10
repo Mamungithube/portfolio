@@ -275,8 +275,56 @@ body {
 }
 
 .project-card:hover .project-overlay,
-.project-card:focus-within .project-overlay {
+.project-card-full:hover .project-overlay,
+.project-card:focus-within .project-overlay,
+.project-card-full:focus-within .project-overlay {
     opacity: 1;
+}
+
+/* Full Card Background Screenshot Mode */
+.project-card-full {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color .4s ease, box-shadow .4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card-full:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 107, 53, 0.5);
+    box-shadow: 0 20px 45px -10px rgba(255, 107, 53, 0.25);
+}
+
+.project-card-full .card-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 0;
+}
+
+.project-card-full:hover .card-bg-img {
+    transform: scale(1.08);
+}
+
+.project-card-full .card-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.45) 0%, rgba(10, 14, 39, 0.82) 45%, rgba(10, 14, 39, 0.97) 100%);
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.project-card-full:hover .card-gradient-overlay {
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.35) 0%, rgba(10, 14, 39, 0.88) 50%, rgba(10, 14, 39, 0.98) 100%);
 }
 
 .btn-primary {
