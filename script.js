@@ -199,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =============================================
    PARTICLE CANVAS ANIMATION
    ============================================= */
+/* =============================================
+   COSMIC DEEP SPACE & ASTEROID CANVAS ANIMATION
+   ============================================= */
 function initParticleCanvas() {
     let canvas = document.getElementById('particle-canvas');
     if (!canvas) {
@@ -222,70 +225,217 @@ function initParticleCanvas() {
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
+        initSpaceElements();
     });
 
-    const particles = [];
-    const particleCount = Math.min(Math.floor(width / 20), 55);
+    let stars = [];
+    let asteroids = [];
+    let shootingStars = [];
 
-    const colors = ['rgba(255, 107, 53,', 'rgba(0, 210, 255,', 'rgba(255, 180, 162,'];
-
-    for (let i = 0; i < particleCount; i++) {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 2.2 + 1,
-            colorPrefix: colors[Math.floor(Math.random() * colors.length)],
-            alpha: Math.random() * 0.45 + 0.15,
-        });
+    function createAsteroid(x, y) {
+        const radius = Math.random() * 7 + 5; // 5px to 12px size
+        const numPoints = Math.floor(Math.random() * 3) + 5; // 5 to 7 irregular vertices
+        const points = [];
+        for (let i = 0; i < numPoints; i++) {
+            const angle = (i / numPoints) * Math.PI * 2;
+            const dist = radius * (0.7 + Math.random() * 0.5);
+            points.push({ x: Math.cos(angle) * dist, y: Math.sin(angle) * dist });
+        }
+        return {
+            x: x !== undefined ? x : Math.random() * width,
+            y: y !== undefined ? y : Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            radius,
+            points,
+            angle: Math.random() * Math.PI * 2,
+            vAngle: (Math.random() - 0.5) * 0.012, // rotation speed
+            color: Math.random() > 0.4 ? 'rgba(255, 107, 53, 0.45)' : 'rgba(0, 210, 255, 0.45)'
+        };
     }
+
+    function initSpaceElements() {
+        stars = [];
+        asteroids = [];
+        shootingStars = [];
+
+        // 1. Generate Deep Space Stars
+        const starCount = Math.min(Math.floor(width / 12), 110);
+        const starColors = [
+            'rgba(255, 255, 255,',   // Icy White
+            'rgba(255, 107, 53,',    // Warm Amber Orange
+            'rgba(0, 210, 255,',     // Cyan Nebula
+            'rgba(255, 180, 162,'    // Soft Peach
+        ];
+
+        for (let i = 0; i < starCount; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                radius: Math.random() * 1.8 + 0.6,
+                colorPrefix: starColors[Math.floor(Math.random() * starColors.length)],
+                baseAlpha: Math.random() * 0.45 + 0.2,
+                twinkleSpeed: Math.random() * 0.03 + 0.008,
+                twinklePhase: Math.random() * Math.PI * 2
+            });
+        }
+
+        // 2. Generate Drifting Asteroids/Space Rocks
+        const asteroidCount = Math.min(Math.floor(width / 180), 8);
+        for (let i = 0; i < asteroidCount; i++) {
+            asteroids.push(createAsteroid());
+        }
+    }
+
+    // 3. Spawn Shooting Stars periodically
+    function spawnShootingStar() {
+        if (shootingStars.length < 2 && Math.random() < 0.012) {
+            shootingStars.push({
+                x: Math.random() * width * 0.8,
+                y: Math.random() * height * 0.4,
+                length: Math.random() * 90 + 60,
+                speed: Math.random() * 7 + 5,
+                angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2, // ~45 deg downward slope
+                alpha: 1,
+                width: Math.random() * 1.5 + 1
+            });
+        }
+    }
+
+    initSpaceElements();
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            
-            // Cursor interaction
-            const dxMouse = mouseX - p.x;
-            const dyMouse = mouseY - p.y;
+        // A. Draw & Update Deep Space Stars
+        for (let i = 0; i < stars.length; i++) {
+            const s = stars[i];
+
+            // Twinkle effect
+            s.twinklePhase += s.twinkleSpeed;
+            const currentAlpha = s.baseAlpha + Math.sin(s.twinklePhase) * 0.22;
+
+            // Cursor interaction (gentle repulsion)
+            const dxMouse = mouseX - s.x;
+            const dyMouse = mouseY - s.y;
             const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-            
-            if (distMouse < 120) {
-                p.x -= (dxMouse / distMouse) * 0.4;
-                p.y -= (dyMouse / distMouse) * 0.4;
+
+            if (distMouse < 100) {
+                s.x -= (dxMouse / distMouse) * 0.3;
+                s.y -= (dyMouse / distMouse) * 0.3;
             }
 
-            p.x += p.vx;
-            p.y += p.vy;
+            s.x += s.vx;
+            s.y += s.vy;
 
-            if (p.x < 0) p.x = width;
-            if (p.x > width) p.x = 0;
-            if (p.y < 0) p.y = height;
-            if (p.y > height) p.y = 0;
+            if (s.x < 0) s.x = width;
+            if (s.x > width) s.x = 0;
+            if (s.y < 0) s.y = height;
+            if (s.y > height) s.y = 0;
 
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `${p.colorPrefix} ${p.alpha})`;
+            ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `${s.colorPrefix} ${Math.max(0.1, currentAlpha)})`;
             ctx.fill();
 
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p.x - p2.x;
-                const dy = p.y - p2.y;
+            // Constellation Laser Connections between nearby stars
+            for (let j = i + 1; j < stars.length; j++) {
+                const s2 = stars[j];
+                const dx = s.x - s2.x;
+                const dy = s.y - s2.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < 140) {
+                if (dist < 120) {
                     ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(255, 107, 53, ${0.18 * (1 - dist / 140)})`;
-                    ctx.lineWidth = 0.7;
+                    ctx.moveTo(s.x, s.y);
+                    ctx.lineTo(s2.x, s2.y);
+                    ctx.strokeStyle = `rgba(255, 107, 53, ${0.12 * (1 - dist / 120)})`;
+                    ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
             }
         }
+
+        // B. Draw & Update Drifting Asteroids (Space Rocks)
+        for (let i = 0; i < asteroids.length; i++) {
+            const ast = asteroids[i];
+
+            // Cursor reaction
+            const dxMouse = mouseX - ast.x;
+            const dyMouse = mouseY - ast.y;
+            const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+            if (distMouse < 140) {
+                ast.x -= (dxMouse / distMouse) * 0.4;
+                ast.y -= (dyMouse / distMouse) * 0.4;
+            }
+
+            ast.x += ast.vx;
+            ast.y += ast.vy;
+            ast.angle += ast.vAngle;
+
+            if (ast.x < -30) ast.x = width + 30;
+            if (ast.x > width + 30) ast.x = -30;
+            if (ast.y < -30) ast.y = height + 30;
+            if (ast.y > height + 30) ast.y = -30;
+
+            // Render Asteroid Polygon
+            ctx.save();
+            ctx.translate(ast.x, ast.y);
+            ctx.rotate(ast.angle);
+
+            ctx.beginPath();
+            ctx.moveTo(ast.points[0].x, ast.points[0].y);
+            for (let p = 1; p < ast.points.length; p++) {
+                ctx.lineTo(ast.points[p].x, ast.points[p].y);
+            }
+            ctx.closePath();
+
+            ctx.strokeStyle = ast.color;
+            ctx.lineWidth = 1.2;
+            ctx.fillStyle = 'rgba(10, 14, 39, 0.4)';
+            ctx.fill();
+            ctx.stroke();
+
+            // Inner crater/rock detail dot
+            ctx.beginPath();
+            ctx.arc(ast.radius * 0.3, -ast.radius * 0.2, 1.2, 0, Math.PI * 2);
+            ctx.fillStyle = ast.color;
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // C. Draw & Update Shooting Meteors (খসে পড়া তারা / উল্কাপাত)
+        spawnShootingStar();
+        for (let i = shootingStars.length - 1; i >= 0; i--) {
+            const ms = shootingStars[i];
+            const tailX = ms.x - Math.cos(ms.angle) * ms.length;
+            const tailY = ms.y - Math.sin(ms.angle) * ms.length;
+
+            const grad = ctx.createLinearGradient(ms.x, ms.y, tailX, tailY);
+            grad.addColorStop(0, `rgba(255, 255, 255, ${ms.alpha})`);
+            grad.addColorStop(0.3, `rgba(255, 107, 53, ${ms.alpha * 0.7})`);
+            grad.addColorStop(1, `rgba(0, 210, 255, 0)`);
+
+            ctx.beginPath();
+            ctx.moveTo(ms.x, ms.y);
+            ctx.lineTo(tailX, tailY);
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = ms.width;
+            ctx.stroke();
+
+            ms.x += Math.cos(ms.angle) * ms.speed;
+            ms.y += Math.sin(ms.angle) * ms.speed;
+            ms.alpha -= 0.012;
+
+            if (ms.alpha <= 0 || ms.x > width + 100 || ms.y > height + 100) {
+                shootingStars.splice(i, 1);
+            }
+        }
+
         requestAnimationFrame(animate);
     }
     animate();
