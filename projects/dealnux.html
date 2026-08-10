@@ -1,32 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dealnux Backend Engine — Multi-Platform Price Aggregator & Marketplace | Md. Mamun Or Rashid</title>
+    <title>DEALNUX — Multi-Vendor E-Commerce &amp; Subscription SaaS Backend Platform | Md. Mamun Or Rashid</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Work+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Work Sans', sans-serif; background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: #F7F5F2; overflow-x: hidden; min-height: 100vh; }
-        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0A0E27; } ::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 4px; }
-        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .navbar-glass { background: rgba(10,14,39,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,53,.1); }
-        .hero-icon { width: 100px; height: 100px; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3); border-radius: 24px; display: flex; align-items: center; justify-content: center; }
-        .tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,107,53,.1); border: 0.5px solid rgba(255,107,53,.3); border-radius: 6px; font-size: 12px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.8); padding: 4px 10px; }
-        .section-card { background: rgba(45,55,72,.2); border: 1px solid rgba(255,107,53,.12); border-radius: 20px; padding: 32px; }
-        .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
-        .feature-item:last-child { border-bottom: none; }
-        .feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,107,53,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-        .tech-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: rgba(247,245,242,.75); padding: 6px 12px; }
-        .flow-step { display: flex; gap: 16px; align-items: flex-start; }
-        .flow-num { width: 32px; height: 32px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: rgba(247,245,242,.6); font-size: 14px; font-family: 'DM Sans', sans-serif; transition: color .2s; text-decoration: none; }
-        .back-btn:hover { color: #FF6B35; }
-        .animated-bg { position: fixed; inset: 0; z-index: -1; opacity: .04; background-image: radial-gradient(circle at 20% 30%, rgba(255,107,53,.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,107,53,.1) 0%, transparent 50%); }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
+            color: #F7F5F2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0E27;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 4px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB4A2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar-glass {
+            background: rgba(10, 14, 39, .85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 107, 53, .1);
+        }
+
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 107, 53, .12);
+            border: 1px solid rgba(255, 107, 53, .3);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 107, 53, .1);
+            border: 0.5px solid rgba(255, 107, 53, .3);
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'DM Sans', sans-serif;
+            color: rgba(247, 245, 242, .8);
+            padding: 4px 10px;
+        }
+
+        .section-card {
+            background: rgba(45, 55, 72, .2);
+            border: 1px solid rgba(255, 107, 53, .12);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(255, 107, 53, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tech-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .05);
+            border: 0.5px solid rgba(255, 255, 255, .1);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            color: rgba(247, 245, 242, .75);
+            padding: 6px 12px;
+        }
+
+        .flow-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .flow-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FF6B35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(247, 245, 242, .6);
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            transition: color .2s;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            color: #FF6B35;
+        }
+
+        .animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: .04;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 107, 53, .15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 107, 53, .1) 0%, transparent 50%);
+        }
     </style>
 </head>
+
 <body>
     <div class="animated-bg"></div>
     <nav class="navbar-glass fixed top-0 left-0 w-full z-50">
@@ -41,22 +180,23 @@
     <main class="pt-28 pb-24">
         <div class="container mx-auto px-6 max-w-4xl">
 
+            <!-- Hero -->
             <div class="mb-12">
                 <div class="flex items-center gap-4 mb-6">
                     <a href="../index.html#projects" class="back-btn"><i class="fas fa-arrow-left text-xs"></i> Projects</a>
                     <span class="text-accent/40">/</span>
-                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">Dealnux</span>
+                    <span class="text-sm text-cream/40" style="font-family:'DM Sans',sans-serif">DEALNUX</span>
                 </div>
                 <div class="flex items-start gap-6 mb-6">
-                    <div class="hero-icon"><i class="fas fa-balance-scale text-4xl text-accent"></i></div>
+                    <div class="hero-icon"><i class="fas fa-shopping-bag text-4xl text-accent"></i></div>
                     <div>
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="tag"><i class="fas fa-building text-xs text-accent"></i> Company Project</span>
-                            <span class="tag"><i class="fas fa-shopping-cart text-xs text-accent"></i> E-Commerce & Marketplace</span>
-                            <span class="tag"><i class="fas fa-calendar text-xs"></i> 2026</span>
+                            <span class="tag"><i class="fas fa-user-shield text-xs text-accent"></i> Lead Backend Developer</span>
+                            <span class="tag"><i class="fas fa-shopping-cart text-xs text-accent"></i> Multi-Vendor E-Commerce</span>
+                            <span class="tag"><i class="fas fa-layer-group text-xs text-accent"></i> Subscription SaaS Platform</span>
                         </div>
-                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">Dealnux <span class="gradient-text">Backend Engine</span></h1>
-                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Multi-Platform E-Commerce Price Aggregator & Seller Marketplace Engine</p>
+                        <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">DEALNUX <span class="gradient-text">Backend Platform</span></h1>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Multi-Vendor E-Commerce &amp; Subscription SaaS Platform (StoreKit 2 JWS, Stripe Connect, Digital Wallet)</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3">
@@ -71,101 +211,119 @@
                 </div>
             </div>
 
-            <!-- Project Overview -->
+            <!-- Project Overview & Bengali Summary -->
             <div class="section-card mb-8">
                 <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
-                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
-                    Dealnux Backend Engine is a high-performance multi-platform e-commerce price aggregator and seller marketplace platform. It synchronizes real-time product pricing from global marketplaces (Amazon, eBay, Walmart) via Celery workers and scrapers/APIs, performing strict NLP token similarity and GTIN/ASIN matching to surface true best deals.
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-6">
+                    <strong>DEALNUX</strong> is a scalable, production-ready RESTful API backend platform engineered with <strong>Python 3.12</strong>, <strong>Django 5.x</strong>, <strong>Django REST Framework (DRF)</strong>, <strong>PostgreSQL 16</strong>, <strong>Redis</strong>, and <strong>Celery</strong>. It features a multi-channel payment engine (Apple Direct StoreKit 2 IAP, Stripe Connect, and Internal Digital Wallet System), multi-vendor marketplace management, and real-time background task orchestration.
                 </p>
-                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
-                    Alongside multi-platform aggregation, Dealnux powers a full local seller marketplace featuring Stripe Connect payouts, an Escrow Wallet System (holding buyer funds until order delivery confirmation), Cost-Per-Click (CPC) seller advertising with automated budget deductions, 11-step KYC seller verification, and DRF scoped rate limiting.
-                </p>
-            </div>
 
-            <!-- Architecture & Modules Overview -->
-            <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">Architecture & Core Modules</h2>
-                <div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-store text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">Multi-Platform Price Aggregator (<code class="text-accent text-xs">store & api_integration</code>)</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Real-time price synchronization across 10+ e-commerce platforms using Celery & Redis. Products are matched using Strict NLP token similarity algorithms and GTIN/ASIN canonical mapping.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-wallet text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">Escrow Wallet System & Stripe Connect (<code class="text-accent text-xs">payment</code>)</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Secures buyer funds in escrow upon checkout, automatically deducting a 5–10% platform service fee, and transferring net payouts to sellers via Stripe Connect upon confirmed delivery.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-ad text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">CPC Advertising Engine (<code class="text-accent text-xs">custom_ads</code>)</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Cost-Per-Click (CPC) ad campaign system for sellers. Tracks valid buyer clicks, deducts ad budget in real-time, and automatically deactivates campaigns when budget reaches zero.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-id-card text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">11-Step Seller KYC Onboarding (<code class="text-accent text-xs">account</code>)</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Multi-stage seller verification workflow requiring business licenses, tax ID verification, and utility bill documentation before granting marketplace selling privileges.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-shield-alt text-accent text-sm"></i></div>
-                        <div>
-                            <h3 class="font-semibold mb-1">DRF Scoped Rate Limiting & Health Monitoring</h3>
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed">Protected price comparison endpoints against scraping abuse using DRF ScopedRateThrottle (<code class="text-accent text-xs">anon_search: 30/min</code>, <code class="text-accent text-xs">user_search: 100/min</code>), coupled with a centralized <code class="text-accent text-xs">/api/v1/health/</code> health-check API.</p>
+                <!-- Bengali Summary Box -->
+                <div class="bg-slate/60 border border-accent/30 rounded-xl p-6 backdrop-blur-md">
+                    <h3 class="font-display text-lg font-bold text-accent mb-3"><i class="fas fa-file-alt mr-2"></i>পোর্টফোলিও বিবরণ (বাংলা সংক্ষেপ)</h3>
+                    <div class="space-y-2 text-sm text-cream/80" style="font-family:'DM Sans',sans-serif;">
+                        <p><strong>প্রজেক্টের নাম:</strong> DealNux Backend (E-Commerce &amp; SaaS Platform)</p>
+                        <p><strong>আমার ভূমিকা:</strong> Lead Backend Developer</p>
+                        <div class="pt-2">
+                            <strong class="text-cream">মূল অর্জন ও কাজ:</strong>
+                            <ul class="list-disc list-inside mt-2 space-y-1.5 text-cream/75">
+                                <li><strong>Multi-Channel Payment Engine:</strong> RevenueCat ছাড়াই Apple Direct In-App Purchase (StoreKit 2 JWS Signature Verification) কাস্টম ভেরিফায়ার ইঞ্জিন তৈরি করা।</li>
+                                <li><strong>Multi-Vendor Marketplace &amp; Payouts:</strong> Stripe Connect Integration এবং সেলারদের অটোমেটিক কমিশন ও উইথড্রয়াল সিস্টেম গড়ে তোলা।</li>
+                                <li><strong>High-Performance Async Architecture:</strong> Celery &amp; Redis ব্যবহার করে প্রাইজ ট্র্যাক নোটিফিকেশন ও অটো-স্ক্র্যাপ ব্যাকগ্রাউন্ড প্রসেসিং তৈরি।</li>
+                                <li><strong>Enterprise Security &amp; Dockerized Setup:</strong> ডকার কন্টেইনারাইজেশন, রিকুয়েস্ট রেট লিমিটিং, সিকিউর JWT অথেন্টিকেশন এবং পারমিশন লেয়ার ইমপ্লিমেন্ট করা।</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Technical Highlights -->
+            <!-- Key Highlights & Architectural Features -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">Technical Architecture & Optimization Highlights</h2>
-                <div class="space-y-5">
-                    <div class="flow-step"><div class="flow-num"><i class="fas fa-heartbeat text-xs"></i></div><div><h3 class="font-semibold mb-1">Centralized System Health Check API (<code class="text-accent text-xs">/api/v1/health/</code>)</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Built a system monitoring endpoint evaluating connectivity, latencies, and health status for PostgreSQL, Redis, Celery workers, and Elasticsearch clusters.</p></div></div>
-                    <div class="flow-step"><div class="flow-num"><i class="fas fa-lock text-xs"></i></div><div><h3 class="font-semibold mb-1">DRF Scoped Rate-Limiting & Anti-Scraping</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Applied strict API throttling policies on product search and comparison endpoints to shield external price fetching workers from DDoS and bot abuse.</p></div></div>
-                    <div class="flow-step"><div class="flow-num"><i class="fas fa-hand-holding-usd text-xs"></i></div><div><h3 class="font-semibold mb-1">Escrow Wallet & Automated Fee Deduction</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Engineered transaction ledger holding buyer payments safely until delivery confirmation, calculating platform commission (5-10%) before triggering Stripe Connect payouts.</p></div></div>
-                    <div class="flow-step"><div class="flow-num"><i class="fab fa-github text-xs"></i></div><div><h3 class="font-semibold mb-1">GitHub Actions CI/CD Pipeline</h3><p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm">Configured automated testing and linting workflow (<code class="text-accent text-xs">.github/workflows/ci.yml</code>) running Flake8/Ruff, Django unit tests, and Docker container verification on pull requests.</p></div></div>
+                <h2 class="font-display text-2xl font-bold mb-6">🚀 Key Highlights &amp; Architectural Features</h2>
+                <div class="space-y-6">
+
+                    <!-- Feature 1 -->
+                    <div>
+                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-credit-card text-sm mr-2"></i>1. Multi-Channel Payment &amp; Subscription Engine</h3>
+                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
+                            <div>
+                                <h4 class="font-medium text-cream text-sm mb-1"> Direct Apple In-App Purchase (StoreKit 2):</h4>
+                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                    Engineered a custom, keyless X.509 certificate chain (<code class="text-accent text-xs">x5c</code>) verification system to validate Apple JWS transactions and App Store Server Notifications V2 without third-party dependencies (e.g., RevenueCat) or private keys (<code class="text-accent text-xs">.p8</code>).
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-cream text-sm mb-1"> Stripe &amp; Stripe Connect Integration:</h4>
+                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                    Full support for multi-vendor payouts, Express onboarding, Stripe Payment Intents, and automated webhooks for Web &amp; Android users.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-cream text-sm mb-1"> Internal Digital Wallet System:</h4>
+                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                    Integrated balance deduction and instant checkout capabilities for seamless marketplace transactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div>
+                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-store text-sm mr-2"></i>2. Multi-Vendor E-Commerce Marketplace</h3>
+                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                • Support for physical products, seller stores, coupon engines, multi-item cart calculation, automatic shipping fee logic, and platform commission distribution.<br>
+                                • <strong>Automated Seller Payouts:</strong> Role-based payout request, review, approval, and automated Stripe Transfer workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div>
+                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-cogs text-sm mr-2"></i>3. Background Job Orchestration &amp; Scraper Engine</h3>
+                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                • <strong>Celery &amp; Celery Beat:</strong> Scheduled price-tracking alerts, daily usage resets, email notifications, and automated product data scraping (integrated with Scrapy &amp; Walmart API).<br>
+                                • <strong>Redis Caching:</strong> High-throughput caching for product listings, click tracking, and rate-limiting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div>
+                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-shield-alt text-sm mr-2"></i>4. Enterprise Security &amp; Administration</h3>
+                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
+                                • <strong>JWT Authentication &amp; RBAC:</strong> Customized User Model, Superusers, Managers, and Admin Associate permission layers.<br>
+                                • <strong>Django Unfold Modern Admin Panel:</strong> Bespoke admin dashboard with financial record protection, customized tabular forms, and quick actions.<br>
+                                • <strong>API Documentation:</strong> Interactive OpenAPI 3.0 / Swagger UI documentation via <code class="text-accent text-xs">drf-spectacular</code>.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Tech Stack Chips -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">🛠️ Technology Stack</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.11</div>
-                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django 4.2 & DRF</div>
-                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL</div>
-                    <div class="tech-chip"><i class="fas fa-search text-accent"></i> Elasticsearch</div>
-                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery & Celery Beat</div>
-                    <div class="tech-chip"><i class="fas fa-memory text-accent"></i> Redis Broker & Cache</div>
-                    <div class="tech-chip"><i class="fas fa-credit-card text-accent"></i> Stripe Connect & Escrow</div>
-                    <div class="tech-chip"><i class="fas fa-ad text-accent"></i> CPC Ads Engine</div>
-                    <div class="tech-chip"><i class="fas fa-user-check text-accent"></i> 11-Step KYC Onboarding</div>
-                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker Compose</div>
-                    <div class="tech-chip"><i class="fas fa-heartbeat text-accent"></i> Health Check API</div>
-                    <div class="tech-chip"><i class="fab fa-github text-accent"></i> GitHub Actions CI/CD</div>
+                    <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.12 &amp; Django 5.x</div>
+                    <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django REST Framework</div>
+                    <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL 16 &amp; Redis</div>
+                    <div class="tech-chip"><i class="fas fa-apple text-accent"></i> Apple StoreKit 2 (JWS)</div>
+                    <div class="tech-chip"><i class="fab fa-stripe text-accent"></i> Stripe &amp; Stripe Connect</div>
+                    <div class="tech-chip"><i class="fas fa-wallet text-accent"></i> Digital Wallet System</div>
+                    <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery &amp; Celery Beat</div>
+                    <div class="tech-chip"><i class="fas fa-spider text-accent"></i> Scrapy &amp; Walmart API</div>
+                    <div class="tech-chip"><i class="fas fa-user-shield text-accent"></i> JWT Auth &amp; RBAC</div>
+                    <div class="tech-chip"><i class="fas fa-tachometer-alt text-accent"></i> Django Unfold Admin</div>
+                    <div class="tech-chip"><i class="fas fa-book text-accent"></i> drf-spectacular (OpenAPI 3.0)</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker, Compose &amp; Gunicorn</div>
                 </div>
             </div>
 
-            <!-- My Role -->
-            <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-4">My Role (Lead Backend Architect)</h2>
-                <ul class="space-y-3">
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Architected multi-platform price aggregator matching engine using NLP token similarity and GTIN/ASIN resolution</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Built Escrow Wallet payment system with 5-10% service fee deduction and Stripe Connect automated payouts</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Implemented seller CPC Advertising Engine with real-time budget deduction and auto-deactivation</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Designed 11-step seller KYC verification onboarding flow and DRF Scoped Rate Limiting</li>
-                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm"><i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>Added system health monitoring API (<code class="text-accent">/api/v1/health/</code>) and GitHub Actions CI/CD pipeline</li>
-                </ul>
-            </div>
-
+            <!-- Navigation -->
             <div class="flex justify-between items-center pt-4">
                 <a href="water-break.html" class="back-btn text-base"><i class="fas fa-arrow-left"></i> Previous</a>
                 <a href="pipyrit.html" class="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline">Next Project <i class="fas fa-arrow-right text-xs"></i></a>
@@ -173,4 +331,5 @@
         </div>
     </main>
 </body>
+
 </html>
