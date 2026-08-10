@@ -196,7 +196,7 @@
                             <span class="tag"><i class="fas fa-layer-group text-xs text-accent"></i> Subscription SaaS Platform</span>
                         </div>
                         <h1 class="font-display text-4xl md:text-5xl font-bold mb-2">DEALNUX <span class="gradient-text">Backend Platform</span></h1>
-                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Multi-Vendor E-Commerce &amp; Subscription SaaS Platform (StoreKit 2 JWS, Stripe Connect, Digital Wallet)</p>
+                        <p style="font-family:'DM Sans',sans-serif;" class="text-lg text-cream/70">Multi-Vendor Marketplace &amp; Subscription SaaS Platform with Custom Apple StoreKit 2 Verification</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3">
@@ -211,116 +211,127 @@
                 </div>
             </div>
 
-            <!-- Project Overview & Bengali Summary -->
+            <!-- Executive Summary -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-4">Project Overview</h2>
-                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-6">
-                    <strong>DEALNUX</strong> is a scalable, production-ready RESTful API backend platform engineered with <strong>Python 3.12</strong>, <strong>Django 5.x</strong>, <strong>Django REST Framework (DRF)</strong>, <strong>PostgreSQL 16</strong>, <strong>Redis</strong>, and <strong>Celery</strong>. It features a multi-channel payment engine (Apple Direct StoreKit 2 IAP, Stripe Connect, and Internal Digital Wallet System), multi-vendor marketplace management, and real-time background task orchestration.
+                <h2 class="font-display text-2xl font-bold mb-4">Executive Summary</h2>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed mb-4">
+                    <strong>DEALNUX</strong> is an enterprise-grade RESTful API backend platform engineered with <strong>Python 3.12</strong>, <strong>Django 5.x</strong>, <strong>Django REST Framework (DRF)</strong>, <strong>PostgreSQL 16</strong>, <strong>Redis</strong>, and <strong>Celery</strong>. Designed to power both a multi-vendor marketplace and a subscription-based SaaS model, the platform manages complex multi-channel payments, real-time webhooks, seller payout automation, and background web scrapers.
                 </p>
+                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/75 leading-relaxed">
+                    As the <strong>Lead Backend Developer</strong>, I architected a zero-dependency Apple StoreKit 2 verification engine, integrated Stripe Connect for automated vendor payouts, designed an internal digital wallet ledger, and implemented automated web scraping pipelines using Celery Beat and Scrapy.
+                </p>
+            </div>
 
-                <!-- Bengali Summary Box -->
-                <div class="bg-slate/60 border border-accent/30 rounded-xl p-6 backdrop-blur-md">
-                    <h3 class="font-display text-lg font-bold text-accent mb-3"><i class="fas fa-file-alt mr-2"></i>পোর্টফোলিও বিবরণ (বাংলা সংক্ষেপ)</h3>
-                    <div class="space-y-2 text-sm text-cream/80" style="font-family:'DM Sans',sans-serif;">
-                        <p><strong>প্রজেক্টের নাম:</strong> DealNux Backend (E-Commerce &amp; SaaS Platform)</p>
-                        <p><strong>আমার ভূমিকা:</strong> Lead Backend Developer</p>
-                        <div class="pt-2">
-                            <strong class="text-cream">মূল অর্জন ও কাজ:</strong>
-                            <ul class="list-disc list-inside mt-2 space-y-1.5 text-cream/75">
-                                <li><strong>Multi-Channel Payment Engine:</strong> RevenueCat ছাড়াই Apple Direct In-App Purchase (StoreKit 2 JWS Signature Verification) কাস্টম ভেরিফায়ার ইঞ্জিন তৈরি করা।</li>
-                                <li><strong>Multi-Vendor Marketplace &amp; Payouts:</strong> Stripe Connect Integration এবং সেলারদের অটোমেটিক কমিশন ও উইথড্রয়াল সিস্টেম গড়ে তোলা।</li>
-                                <li><strong>High-Performance Async Architecture:</strong> Celery &amp; Redis ব্যবহার করে প্রাইজ ট্র্যাক নোটিফিকেশন ও অটো-স্ক্র্যাপ ব্যাকগ্রাউন্ড প্রসেসিং তৈরি।</li>
-                                <li><strong>Enterprise Security &amp; Dockerized Setup:</strong> ডকার কন্টেইনারাইজেশন, রিকুয়েস্ট রেট লিমিটিং, সিকিউর JWT অথেন্টিকেশন এবং পারমিশন লেয়ার ইমপ্লিমেন্ট করা।</li>
+            <!-- Key Architectural Pillars -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-6">Key Architectural Pillars</h2>
+                <div>
+
+                    <!-- Pillar 1 -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-credit-card text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Multi-Channel Payment &amp; Subscription Engine</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed mb-2">
+                                Built a versatile payment ecosystem supporting iOS, Android, and Web subscribers:
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif;">
+                                <li><strong>Direct Apple StoreKit 2 Verification:</strong> Engineered a custom, keyless X.509 certificate chain (<code class="text-accent text-xs">x5c</code>) verification engine to validate Apple JWS transactions and App Store Server Notifications V2 without third-party SaaS wrappers (RevenueCat) or private keys (<code class="text-accent text-xs">.p8</code>).</li>
+                                <li><strong>Stripe &amp; Stripe Connect:</strong> Integrated Express vendor onboarding, Stripe Payment Intents, subscription webhooks, and automated seller balance payouts.</li>
+                                <li><strong>Internal Digital Wallet Ledger:</strong> Created a digital wallet system for instant balance deduction, promotional credits, and zero-fee buyer checkout.</li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Key Highlights & Architectural Features -->
-            <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">🚀 Key Highlights &amp; Architectural Features</h2>
-                <div class="space-y-6">
-
-                    <!-- Feature 1 -->
-                    <div>
-                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-credit-card text-sm mr-2"></i>1. Multi-Channel Payment &amp; Subscription Engine</h3>
-                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
-                            <div>
-                                <h4 class="font-medium text-cream text-sm mb-1"> Direct Apple In-App Purchase (StoreKit 2):</h4>
-                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                    Engineered a custom, keyless X.509 certificate chain (<code class="text-accent text-xs">x5c</code>) verification system to validate Apple JWS transactions and App Store Server Notifications V2 without third-party dependencies (e.g., RevenueCat) or private keys (<code class="text-accent text-xs">.p8</code>).
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-cream text-sm mb-1"> Stripe &amp; Stripe Connect Integration:</h4>
-                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                    Full support for multi-vendor payouts, Express onboarding, Stripe Payment Intents, and automated webhooks for Web &amp; Android users.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-cream text-sm mb-1"> Internal Digital Wallet System:</h4>
-                                <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                    Integrated balance deduction and instant checkout capabilities for seamless marketplace transactions.
-                                </p>
-                            </div>
+                    <!-- Pillar 2 -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-store text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Multi-Vendor Marketplace Infrastructure</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed mb-2">
+                                Scalable e-commerce engine catering to physical products, digital items, and store owners:
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif;">
+                                <li>Multi-item cart calculations, dynamic shipping rules, coupon promotion engines, and automated platform commission splitting.</li>
+                                <li>Automated seller payout workflow featuring role-based payout requests, admin reviews, approval pipelines, and Stripe Transfer executions.</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Feature 2 -->
-                    <div>
-                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-store text-sm mr-2"></i>2. Multi-Vendor E-Commerce Marketplace</h3>
-                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                • Support for physical products, seller stores, coupon engines, multi-item cart calculation, automatic shipping fee logic, and platform commission distribution.<br>
-                                • <strong>Automated Seller Payouts:</strong> Role-based payout request, review, approval, and automated Stripe Transfer workflows.
+                    <!-- Pillar 3 -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-spider text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Async Task Orchestration &amp; Web Scraper Engine</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed mb-2">
+                                High-performance background processing powered by Celery, Celery Beat, and Redis:
                             </p>
+                            <ul class="list-disc list-inside space-y-1 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif;">
+                                <li>Automated price-tracking alerts, daily quota resets, transaction emails, and asynchronous product data scraping (integrated with Scrapy &amp; Walmart API).</li>
+                                <li>High-throughput Redis caching layer for product listings, click tracking, and request rate-limiting.</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Feature 3 -->
-                    <div>
-                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-cogs text-sm mr-2"></i>3. Background Job Orchestration &amp; Scraper Engine</h3>
-                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                • <strong>Celery &amp; Celery Beat:</strong> Scheduled price-tracking alerts, daily usage resets, email notifications, and automated product data scraping (integrated with Scrapy &amp; Walmart API).<br>
-                                • <strong>Redis Caching:</strong> High-throughput caching for product listings, click tracking, and rate-limiting.
+                    <!-- Pillar 4 -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-shield text-accent text-sm"></i></div>
+                        <div>
+                            <h3 class="font-semibold mb-1">Enterprise Security &amp; Custom Admin Panel</h3>
+                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/65 text-sm leading-relaxed mb-2">
+                                Fine-grained access control and administration UI:
                             </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div>
-                        <h3 class="text-accent font-semibold text-lg mb-2"><i class="fas fa-shield-alt text-sm mr-2"></i>4. Enterprise Security &amp; Administration</h3>
-                        <div class="space-y-3 pl-4 border-l-2 border-accent/30">
-                            <p style="font-family:'DM Sans',sans-serif;" class="text-cream/70 text-sm leading-relaxed">
-                                • <strong>JWT Authentication &amp; RBAC:</strong> Customized User Model, Superusers, Managers, and Admin Associate permission layers.<br>
-                                • <strong>Django Unfold Modern Admin Panel:</strong> Bespoke admin dashboard with financial record protection, customized tabular forms, and quick actions.<br>
-                                • <strong>API Documentation:</strong> Interactive OpenAPI 3.0 / Swagger UI documentation via <code class="text-accent text-xs">drf-spectacular</code>.
-                            </p>
+                            <ul class="list-disc list-inside space-y-1 text-cream/70 text-sm" style="font-family:'DM Sans',sans-serif;">
+                                <li>Custom User Model with JWT authentication and multi-tier Role-Based Access Control (Superuser, Store Manager, Admin Associate).</li>
+                                <li>Customized <strong>Django Unfold Admin Panel</strong> providing protected financial record views, inline tabular forms, and quick approval actions.</li>
+                                <li>Interactive OpenAPI 3.0 / Swagger UI documentation generated via <code class="text-accent text-xs">drf-spectacular</code>.</li>
+                            </ul>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- Tech Stack Chips -->
+            <!-- Tech Stack Summary -->
             <div class="section-card mb-8">
-                <h2 class="font-display text-2xl font-bold mb-6">🛠️ Technology Stack</h2>
+                <h2 class="font-display text-2xl font-bold mb-6">Technology Stack</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                     <div class="tech-chip"><i class="fab fa-python text-accent"></i> Python 3.12 &amp; Django 5.x</div>
                     <div class="tech-chip"><i class="fas fa-server text-accent"></i> Django REST Framework</div>
                     <div class="tech-chip"><i class="fas fa-database text-accent"></i> PostgreSQL 16 &amp; Redis</div>
-                    <div class="tech-chip"><i class="fas fa-apple text-accent"></i> Apple StoreKit 2 (JWS)</div>
+                    <div class="tech-chip"><i class="fab fa-apple text-accent"></i> Apple StoreKit 2 (JWS)</div>
                     <div class="tech-chip"><i class="fab fa-stripe text-accent"></i> Stripe &amp; Stripe Connect</div>
-                    <div class="tech-chip"><i class="fas fa-wallet text-accent"></i> Digital Wallet System</div>
+                    <div class="tech-chip"><i class="fas fa-wallet text-accent"></i> Digital Wallet Engine</div>
                     <div class="tech-chip"><i class="fas fa-bolt text-accent"></i> Celery &amp; Celery Beat</div>
                     <div class="tech-chip"><i class="fas fa-spider text-accent"></i> Scrapy &amp; Walmart API</div>
-                    <div class="tech-chip"><i class="fas fa-user-shield text-accent"></i> JWT Auth &amp; RBAC</div>
+                    <div class="tech-chip"><i class="fas fa-user-shield text-accent"></i> JWT Auth &amp; Custom RBAC</div>
                     <div class="tech-chip"><i class="fas fa-tachometer-alt text-accent"></i> Django Unfold Admin</div>
                     <div class="tech-chip"><i class="fas fa-book text-accent"></i> drf-spectacular (OpenAPI 3.0)</div>
-                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker, Compose &amp; Gunicorn</div>
+                    <div class="tech-chip"><i class="fab fa-docker text-accent"></i> Docker Compose &amp; Gunicorn</div>
                 </div>
+            </div>
+
+            <!-- Key Engineering Achievements -->
+            <div class="section-card mb-8">
+                <h2 class="font-display text-2xl font-bold mb-4">Key Engineering Achievements</h2>
+                <ul class="space-y-3">
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Eliminated third-party subscription fees by developing a native Apple StoreKit 2 JWS cryptographic verifier in Python.
+                    </li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Architected automated seller payout pipelines using Stripe Connect Express accounts and automated transfer triggers upon order fulfillment.
+                    </li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Implemented background price monitoring tasks and Scrapy workers with Celery Beat to update product deals automatically.
+                    </li>
+                    <li style="font-family:'DM Sans',sans-serif;" class="flex items-start gap-3 text-cream/70 text-sm">
+                        <i class="fas fa-check-circle text-accent mt-1 flex-shrink-0"></i>
+                        Designed a modern admin experience using Django Unfold, securing financial transaction ledgers with strict permission gates.
+                    </li>
+                </ul>
             </div>
 
             <!-- Navigation -->
